@@ -21,7 +21,7 @@ export default function HeroV3({ className, wrapperClassName }: HeroV3Props) {
   return (
     <header className={cn("relative flex flex-col pt-(--menubar-height) justify-between bg-darker", className)}>
       <div className="absolute -top-(--menubar-height) inset-x-0 bottom-0  pointer-events-none overflow-hidden bg-darker parallax-bg">
-        <Image src={heroBg} width={1920} height={1145} placeholder="blur" alt="Hero background" priority className="object-cover object-top w-full h-full" />
+        <Image src={heroBg} width={1920} height={1145} placeholder="blur" alt="Ảnh nền trang chủ" priority className="object-cover object-top w-full h-full" />
         <div className="absolute inset-0 bg-black/50 transition-opacity duration-300" />
       </div>
 
@@ -32,19 +32,19 @@ export default function HeroV3({ className, wrapperClassName }: HeroV3Props) {
               <ScrollReveal stagger>
                 <div className="reveal-item reveal-delay-100 inline-flex items-center gap-1.5 px-3 md:px-4 py-1 md:py-2 rounded-full bg-white/28 border border-white/16 text-white text-xs lg:text-sm font-semibold uppercase md:tracking-wider mb-6 backdrop-blur-md">
                   <SparkFill className="size-3 fill-primary-light inline-block"></SparkFill>
-                  <span>Clean Energy For Future</span>
+                  <span>Năng lượng sạch cho tương lai</span>
                 </div>
 
                 <h1 className="reveal-item reveal-delay-150 text-white font-bold text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl 2xl:text-[5.375rem] leading-[1.12] mb-6 md:mb-8 lg:mb-12 2xl:pe-10">
-                  Empowering Lives With Renewable <span className="text-primary">Solar Energy</span> Solutions
+                  Nâng tầm cuộc sống bằng năng lượng <span className="text-primary">Điện mặt trời</span> tái tạo
                 </h1>
 
                 <div className="reveal-item reveal-delay-200 flex flex-wrap gap-4">
                   <Button nativeButton={false} render={<Link href="/contact" />} size="lg" className="uppercase"  >
-                    Get Free Quote
+                    Nhận báo giá miễn phí
                   </Button>
                   <Button nativeButton={false} render={<Link href="/service" />} size="lg" variant="outline" className="uppercase" >
-                    Explore Services
+                    Khám phá dịch vụ
                   </Button>
                 </div>
               </ScrollReveal>
@@ -55,7 +55,7 @@ export default function HeroV3({ className, wrapperClassName }: HeroV3Props) {
               <div className="xl:column-5">
                 <ScrollReveal delay={250}>
                   <p className="text-white/80 text-base sm:text-lg font-medium leading-relaxed max-w-sm">
-                    Custom-engineered solar systems that cut your power bill, boost your home's value, and put you on your own grid. Fully installed in weeks, not months.
+                    Hệ thống điện mặt trời thiết kế riêng giúp giảm hóa đơn điện, nâng giá trị ngôi nhà và chủ động nguồn năng lượng. Lắp đặt hoàn chỉnh trong vài tuần.
                   </p>
                 </ScrollReveal>
               </div>
@@ -71,14 +71,14 @@ export default function HeroV3({ className, wrapperClassName }: HeroV3Props) {
                         <CountUp end={25} suffix="%" />
                       </div>
                       <div className="text-sm font-semibold uppercase tracking-wider text-white leading-5 mt-auto">
-                        Greater Efficiency Via Next-Gen Turbines
+                        Hiệu suất vượt trội với tuabin thế hệ mới
                       </div>
                     </div>
                   </div>
                   <div className="sm:column-7">
 
                     <div className="relative rounded-xl overflow-hidden group/video">
-                      <Image src={heroVideoCover} width={702} height={456} placeholder="blur" alt="Solar Panel Field Video" className="w-full h-full object-cover transition-transform duration-500 group-hover/video:scale-105" />
+                      <Image src={heroVideoCover} width={702} height={456} placeholder="blur" alt="Video cánh đồng pin mặt trời" className="w-full h-full object-cover transition-transform duration-500 group-hover/video:scale-105" />
                       <VideoPopup
                         video="https://www.youtube.com/embed/AcKskVETHAU"
                         trigger={

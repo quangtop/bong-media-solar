@@ -25,13 +25,13 @@ export default function Stories({ gap = "default", className }: StoriesProps) {
           <div className="row g-10 items-center">
             <div className="lg:column-5 relative z-10">
               <ScrollReveal delay={100} className="text-block xl:pe-10">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-darker leading-[1.2] mb-4 xl:mb-6"> Inspiring Stories to build a better future </h2>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-darker leading-[1.2] mb-4 xl:mb-6"> Câu chuyện truyền cảm hứng cho tương lai tốt đẹp hơn </h2>
                 <p className="text-body text-base md:text-lg leading-relaxed mb-8">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lacus sodales sodales feugiat nec gravida nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lacus sodales sodales feugiat nec gravida nec es feugia. Consectetur adipiscing elit.
+                  Những công trình năng lượng tái tạo mang lại giá trị thiết thực cho cộng đồng, giúp giảm chi phí điện, tăng khả năng tự chủ và bảo vệ môi trường.
                 </p>
 
                 <Button variant="link" nativeButton={false} render={<Link href="/about"></Link>} icon={<ArrowLongRight />} >
-                  <span>Learn More</span>
+                  <span>Tìm hiểu thêm</span>
                 </Button>
               </ScrollReveal>
             </div>

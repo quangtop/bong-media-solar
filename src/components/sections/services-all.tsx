@@ -25,8 +25,8 @@ export default function ServicesAll({ gap = "default", sectionHead = true, class
             <div className="justify-center text-center row">
               <div className="lg:column-8 xl:column-9 2xl:column-8">
                 <ScrollReveal delay={100} className="2xl:px-8">
-                  <h2 className="text-darker font-bold text-3xl lg:text-4xl xl:text-5xl leading-[1.166] mb-5">Advanced Solar Solutions Tailored for a Brighter Future</h2>
-                  <p className="text-base xl:text-lg leading-relaxed text-body max-w-md mx-auto">From residential rooftops to massive industrial grids, we design and install Tier-1 solar systems engineered to slash your electricity bills from day one.</p>
+                  <h2 className="text-darker font-bold text-3xl lg:text-4xl xl:text-5xl leading-[1.166] mb-5">Giải pháp điện mặt trời tiên tiến cho tương lai tươi sáng</h2>
+                  <p className="text-base xl:text-lg leading-relaxed text-body max-w-md mx-auto">Từ mái nhà dân dụng đến lưới điện công nghiệp quy mô lớn, chúng tôi thiết kế và lắp đặt hệ thống điện mặt trời Tier-1 giúp giảm hóa đơn điện ngay từ ngày đầu.</p>
                 </ScrollReveal>
               </div>{/* Column */}
             </div>{/* Row */}
@@ -43,7 +43,7 @@ export default function ServicesAll({ gap = "default", sectionHead = true, class
                   <div className="p-8">
                     <h5 className="text-2xl xl:text-3xl leading-normal font-semibold text-darker tracking-[-1px] mb-4">{item.title}</h5>
                     <p className="text-base/relaxed text-body mb-6">{item.description}</p>
-                    <Button render={<Link href={`/service/${item.id}`} />} variant="link" icon={<ArrowLongRight />}> Explore </Button>
+                    <Button render={<Link href={`/service/${item.id}`} />} variant="link" icon={<ArrowLongRight />}> Khám phá </Button>
                   </div>
                 </ScrollReveal>
               </div>

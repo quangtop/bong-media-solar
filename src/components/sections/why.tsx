@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Section, SectionContent } from "@/components/layout/section";
@@ -50,14 +51,14 @@ export default function Why({ gap = "default", stats = false, className }: WhyPr
                       </g>
                     </svg>
                   </div>
-                  <div className="font-semibold text-darker text-xl/none">Hydro Power</div>
+                  <div className="font-semibold text-darker text-xl/none">Thủy điện</div>
                 </div>
               </ScrollReveal>
             </div>{/* Column */}
             <div className="lg:column-8 xl:column-9">
               <ScrollReveal delay={150} className="lg:ms-6 xl:ms-16.5 mb-8 lg:mb-12 xl:mb-16 2xl:mb-21 max-w-md">
-                <h2 className="text-3xl lg:text-4xl xl:text-5xl leading-[1.167] font-bold text-darker mb-4 xl:mb-6">Decarbonization is mission, critical for the planet</h2>
-                <Button variant="link" icon={<ArrowLongRight />}> Learn More </Button>
+                <h2 className="text-3xl lg:text-4xl xl:text-5xl leading-[1.167] font-bold text-darker mb-4 xl:mb-6">Giảm phát thải carbon là sứ mệnh thiết yếu của hành tinh</h2>
+                <Button render={<Link href="/service" />} variant="link" icon={<ArrowLongRight />}> Tìm hiểu thêm </Button>
               </ScrollReveal>
 
               <div className="lg:-ms-4 xl:ms-7.5">
@@ -67,8 +68,8 @@ export default function Why({ gap = "default", stats = false, className }: WhyPr
                   </ScrollReveal>
 
                   <ScrollReveal delay={350} className="flex flex-col text-lg/relaxed gap-6 py-2 text-body xl:pe-20 text-pretty">
-                    <p>The global energy landscape will change more in the next 10 years than in the previous hundred. As the world’s energy sector moves away from fossil fuels toward renewable energy sources, industrial companies are challenged with addressing this transition in transformative ways.</p>
-                    <p> Renewable Energy harnesses the earth's most abundant resources - the strength of the wind, the heat of the sun, ,and the force of water; delivering green electrons to power the world's biggest economies and the most remote communities. </p>
+                    <p>Ngành năng lượng toàn cầu sẽ thay đổi trong 10 năm tới nhiều hơn cả một thế kỷ trước. Khi chuyển từ nhiên liệu hóa thạch sang năng lượng tái tạo, các doanh nghiệp công nghiệp cần những giải pháp chuyển đổi toàn diện.</p>
+                    <p> Năng lượng tái tạo khai thác sức gió, ánh nắng và dòng nước, cung cấp điện xanh cho các nền kinh tế lớn cũng như cộng đồng ở vùng xa. </p>
                   </ScrollReveal>
                 </div>
               </div>

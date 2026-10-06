@@ -34,30 +34,30 @@ export default function Values({ gap = "default", className }: ValuesProps) {
             <div className="lg:column-6 xl:column-6">
               <ScrollReveal delay={100} className="text-block xl:pe-20">
                 <div className="mb-6">
-                  <div className="mb-3 text-sm/4.25 font-medium uppercase text-primary">Our Value</div>
-                  <h2 className="mb-4 text-darker text-3xl lg:text-4xl xl:text-5xl leading-tight font-bold">Aligning technology with business strategy.</h2>
-                  <p className="text-lg/relaxed">We created Solurax to close that gap. Our goal is to explain options in plain language, share honest recommendations, and install systems that perform well over time. We believe solar should feel like a straightforward upgrade, not a complicated project.</p>
+                  <div className="mb-3 text-sm/4.25 font-medium uppercase text-primary">Giá trị cốt lõi</div>
+                  <h2 className="mb-4 text-darker text-3xl lg:text-4xl xl:text-5xl leading-tight font-bold">Kết nối công nghệ với chiến lược kinh doanh.</h2>
+                  <p className="text-lg/relaxed">Bống Media được xây dựng để thu hẹp khoảng cách đó. Chúng tôi giải thích các lựa chọn bằng ngôn ngữ dễ hiểu, đưa ra tư vấn rõ ràng và lắp đặt hệ thống hoạt động hiệu quả lâu dài. Điện mặt trời nên là một bước nâng cấp thuận tiện, không phải một dự án phức tạp.</p>
                 </div>
                 <div className="flex flex-col gap-5 xl:pe-15">
                   <div className="flex gap-2.5">
                     <CheckCircleFill className="size-5.5 xl:mt-1 shrink-0 fill-primary" />
                     <div className="">
-                      <h5 className="text-darker font-semibold text-xl xl:text-2xl leading-tight mb-2.5">Our Vision</h5>
-                      <p className="text-base/relaxed text-body">Transforming industries through impactful, forward - thinking digital solutions.</p>
+                      <h5 className="text-darker font-semibold text-xl xl:text-2xl leading-tight mb-2.5">Tầm nhìn</h5>
+                      <p className="text-base/relaxed text-body">Thúc đẩy chuyển đổi bằng giải pháp số thiết thực và hướng tới tương lai.</p>
                     </div>
                   </div>
                   <div className="flex gap-2.5">
                     <CheckCircleFill className="size-5.5 xl:mt-1 shrink-0 fill-primary" />
                     <div className="">
-                      <h5 className="text-darker font-semibold  text-xl xl:text-2xl leading-tight mb-2.5">Our Mission</h5>
-                      <p className="text-base/relaxed text-body">Delivering bespoke digital solutions designed to amplify brand connections.</p>
+                      <h5 className="text-darker font-semibold  text-xl xl:text-2xl leading-tight mb-2.5">Sứ mệnh</h5>
+                      <p className="text-base/relaxed text-body">Cung cấp giải pháp số thiết kế riêng, tăng cường kết nối thương hiệu.</p>
                     </div>
                   </div>
                   <div className="flex gap-2.5">
                     <CheckCircleFill className="size-5.5 xl:mt-1 shrink-0 fill-primary" />
                     <div className="">
-                      <h5 className="text-darker font-semibold  text-xl xl:text-2xl leading-tight mb-2.5">Our Motto</h5>
-                      <p className="text-base/relaxed text-body">Driven by creativity, anchored in integrity, and powered by innovation.</p>
+                      <h5 className="text-darker font-semibold  text-xl xl:text-2xl leading-tight mb-2.5">Phương châm</h5>
+                      <p className="text-base/relaxed text-body">Sáng tạo trong cách làm, chính trực trong cam kết và đổi mới trong công nghệ.</p>
                     </div>
                   </div>
                 </div>

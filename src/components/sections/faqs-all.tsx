@@ -46,12 +46,12 @@ export default function FaqsAll({ gap = "default", className }: FaqsAllProps) {
             </div>
             <div className="xl:column-5">
               <ScrollReveal delay={100} className="text-block">
-                <h2 className="text-3xl md:text-4xl xl:text-5xl leading-tight font-bold text-darker text-pretty mb-5">Do you have more questions?</h2>
-                <p className="text-base xl:text-xl leading-relaxed text-body text-pretty mb-8">We believe in providing our clients with personalized and efficient logistics solutions. Et et id laoreet ultricies elementum venenatis ornare. </p>
-                <h5 className="text-2xl text-darker font-bold mb-3">Have a question?</h5>
-                <p className="text-base/relaxed text-body text-pretty mb-8">Need help with something? Our team is here to make things easy. Don’t hesitate to reach out.</p>
+                <h2 className="text-3xl md:text-4xl xl:text-5xl leading-tight font-bold text-darker text-pretty mb-5">Bạn còn câu hỏi khác?</h2>
+                <p className="text-base xl:text-xl leading-relaxed text-body text-pretty mb-8">Chúng tôi tư vấn giải pháp phù hợp với nhu cầu của từng khách hàng, giúp bạn hiểu rõ công nghệ, quy trình triển khai và cách sử dụng năng lượng hiệu quả. </p>
+                <h5 className="text-2xl text-darker font-bold mb-3">Bạn cần tư vấn?</h5>
+                <p className="text-base/relaxed text-body text-pretty mb-8">Đội ngũ của chúng tôi luôn sẵn sàng hỗ trợ. Hãy liên hệ để được giải đáp rõ ràng và nhanh chóng.</p>
                 <Button nativeButton={false} size="lg" render={<Link href="/contact" />} className="uppercase" >
-                  <span>Contact Us</span>
+                  <span>Liên hệ</span>
                 </Button>
               </ScrollReveal>
             </div>

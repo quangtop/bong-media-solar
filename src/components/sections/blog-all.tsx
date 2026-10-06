@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Section, SectionHead, SectionContent } from "@/components/layout/section";
 import { ArrowLongLeft, ArrowLongRight } from "@/components/icons";
 import { BLOG_DATA } from "@/data/blog";
-import { useFormatDate } from "@/hooks/useFormatDate";
+import { formatDate } from "@/hooks/useFormatDate";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -63,8 +63,8 @@ export default function BlogAll({ gap = "default", className }: BlogAllProps) {
           <div className="justify-center text-center row">
             <div className="column-12">
               <ScrollReveal delay={100} className="2xl:px-8">
-                <h2 className="text-darker font-bold text-3xl lg:text-4xl xl:text-5xl leading-[1.166] mb-5">Solurax Insights & Energy News</h2>
-                <p className="text-base xl:text-lg leading-relaxed text-body">Expert Guides, Industry Trends, and Smart Tips to Power Your Life Efficiently.</p>
+                <h2 className="text-darker font-bold text-3xl lg:text-4xl xl:text-5xl leading-[1.166] mb-5">Kiến thức và tin tức năng lượng Bống Media</h2>
+                <p className="text-base xl:text-lg leading-relaxed text-body">Hướng dẫn chuyên sâu, xu hướng ngành và mẹo sử dụng năng lượng hiệu quả.</p>
               </ScrollReveal>
             </div>{/* Column */}
           </div>{/* Row */}
@@ -86,7 +86,7 @@ export default function BlogAll({ gap = "default", className }: BlogAllProps) {
                     </div>
                     <div className="lg:column-6 self-center">
                       <div className="xl:pe-4 py-4 max-lg:px-4">
-                        <Badge pill className="mb-5 text-sm font-medium py-1 px-4 text-white">FEATURED</Badge>
+                        <Badge pill className="mb-5 text-sm font-medium py-1 px-4 text-white">NỔI BẬT</Badge>
                         <h3 className="text-2xl md:text-3xl lg:text-4xl leading-tight font-semibold text-darker group-hover:text-primary transition-colors mb-4">
                           {featuredPost.title}
                         </h3>
@@ -101,7 +101,7 @@ export default function BlogAll({ gap = "default", className }: BlogAllProps) {
                             <span className="font-medium text-base text-body">{featuredPost.author.name}</span>
                           </div>
                           <div className="h-3 border-l border-body/20 shrink-0" />
-                          <div className="font-medium text-base text-body">{useFormatDate(featuredPost.date)}</div>
+                          <div className="font-medium text-base text-body">{formatDate(featuredPost.date)}</div>
                         </div>
                       </div>
                     </div>
@@ -121,7 +121,7 @@ export default function BlogAll({ gap = "default", className }: BlogAllProps) {
                     <Image src={post.image} alt={post.title} className="rounded-t-2xl" />
                     <div className="p-6 flex flex-col flex-1 justify-between">
                       <div className="text-primary text-sm/4 font-medium mb-3">
-                        {useFormatDate(post.date)}
+                        {formatDate(post.date)}
                       </div>
                       <h4 className="text-lg md:text-xl lg:text-2xl leading-snug font-bold text-darker group-hover:text-primary transition-colors line-clamp-2 mb-3">
                         {post.title}
@@ -130,7 +130,7 @@ export default function BlogAll({ gap = "default", className }: BlogAllProps) {
                         {post.excerpt}
                       </p>
                       <div className="pt-6">
-                        <Button variant="link" icon={<ArrowLongRight />}><span>Learn More</span></Button>
+                        <Button variant="link" icon={<ArrowLongRight />}><span>Tìm hiểu thêm</span></Button>
                       </div>
                     </div>
                   </Link>
@@ -148,10 +148,10 @@ export default function BlogAll({ gap = "default", className }: BlogAllProps) {
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
                 className="flex items-center gap-1.5 text-xs font-semibold text-body hover:text-darker transition-colors px-3 py-2 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
-                aria-label="Previous Page"
+                aria-label="Trang trước"
               >
                 <ArrowLongLeft className="size-4" />
-                <span>Previous</span>
+                <span>Trước</span>
               </button>
 
               {/* Page Counter Display (e.g. 01 / 03) */}
@@ -182,9 +182,9 @@ export default function BlogAll({ gap = "default", className }: BlogAllProps) {
                 onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
                 className="flex items-center gap-1.5 text-xs font-semibold text-body hover:text-darker transition-colors px-3 py-2 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
-                aria-label="Next Page"
+                aria-label="Trang sau"
               >
-                <span>Next</span>
+                <span>Sau</span>
                 <ArrowLongRight className="size-4" />
               </button>
             </ScrollReveal>

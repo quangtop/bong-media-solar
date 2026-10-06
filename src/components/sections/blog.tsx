@@ -6,7 +6,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselDots } from "@/compone
 import { Button } from "@/components/ui/button";
 import { ArrowLongRight } from "@/components/icons";
 import { BLOG_DATA } from "@/data/blog";
-import { useFormatDate } from "@/hooks/useFormatDate";
+import { formatDate } from "@/hooks/useFormatDate";
 import { ScrollReveal, getDelayClass } from "@/components/ui/scroll-reveal";
 import { cn } from "@/lib/utils";
 
@@ -23,8 +23,8 @@ export default function Blog({ gap = "default", className }: BlogProps) {
           <div className="justify-center text-center row">
             <div className="lg:column-8 xl:column-7 2xl:column-6">
               <ScrollReveal delay={100} className="2xl:px-8">
-                <h2 className="text-darker font-bold text-3xl lg:text-4xl xl:text-5xl leading-[1.166] mb-5">New Articles and Knowledge</h2>
-                <p className="text-base/relaxed text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lacus sodales sodales feugiat nec gravida nec. Lorem ipsum dolor sit amet.</p>
+                <h2 className="text-darker font-bold text-3xl lg:text-4xl xl:text-5xl leading-[1.166] mb-5">Bài viết và kiến thức mới</h2>
+                <p className="text-base/relaxed text-body">Khám phá những kiến thức thiết thực về năng lượng tái tạo, công nghệ điện mặt trời và cách sử dụng điện hiệu quả trong cuộc sống hằng ngày.</p>
               </ScrollReveal>
             </div>{/* Column */}
           </div>{/* Row */}
@@ -52,7 +52,7 @@ export default function Blog({ gap = "default", className }: BlogProps) {
                       <Image src={post.image} alt={post.title} className="rounded-t-2xl" />
                       <div className="p-6 flex flex-col flex-1 justify-between">
                         <div className="text-primary text-sm/4 font-medium mb-3">
-                          {useFormatDate(post.date)}
+                          {formatDate(post.date)}
                         </div>
                         <h4 className="text-lg md:text-xl lg:text-2xl leading-snug font-bold text-darker group-hover:text-primary transition-colors line-clamp-2 mb-3">
                           {post.title}
@@ -61,7 +61,7 @@ export default function Blog({ gap = "default", className }: BlogProps) {
                           {post.excerpt}
                         </p>
                         <div className="pt-6">
-                          <Button variant="link" icon={<ArrowLongRight />}><span>Learn More</span></Button>
+                          <Button variant="link" icon={<ArrowLongRight />}><span>Tìm hiểu thêm</span></Button>
                         </div>
                       </div>
                     </Link>

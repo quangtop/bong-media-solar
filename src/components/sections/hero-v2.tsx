@@ -17,7 +17,7 @@ export default function HeroV2({ className, wrapperClassName }: HeroV2Props) {
   return (
     <header className={cn("relative flex flex-col pt-(--menubar-height) justify-between", className)}>
       <div className="absolute -top-(--menubar-height) inset-0 overflow-hidden parallax-bg">
-        <Image src={heroBg} width={1920} height={961} placeholder="blur" alt="Solurax Hero Engineers Background" priority className="object-cover object-center w-full h-full" />
+        <Image src={heroBg} width={1920} height={961} placeholder="blur" alt="Ảnh nền đội ngũ kỹ sư Bống Media" priority className="object-cover object-center w-full h-full" />
         <div className="absolute inset-0 bg-linear-to-r from-darker via-darker/60 to-darker/0" />
       </div>
 
@@ -28,24 +28,24 @@ export default function HeroV2({ className, wrapperClassName }: HeroV2Props) {
               <ScrollReveal stagger className="pe-4 lg:pe-8">
                 <div className="reveal-item reveal-delay-100 flex items-center gap-2.5 text-secondary text-sm md:text-base tracking-wider mb-5">
                   <span className="w-6.5 h-0.5 bg-secondary inline-block"></span>
-                  <span>Residential & Commercial Solar</span>
+                  <span>Điện mặt trời cho nhà ở và doanh nghiệp</span>
                 </div>
 
                 <h1 className="reveal-item reveal-delay-150 text-white font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-[4rem] leading-[1.125] mb-5">
-                  Solurax: <span className="text-primary">Clean Energy. </span>
-                  Bigger Savings. <span className="text-secondary">Brighter Future.</span>
+                  Bống Media: <span className="text-primary">Năng lượng sạch. </span>
+                  Tiết kiệm hơn. <span className="text-secondary">Tương lai tươi sáng.</span>
                 </h1>
 
                 <p className="reveal-item reveal-delay-200 text-white/85 text-base md:text-lg leading-relaxed max-w-md mb-10">
-                  Custom-engineered solar systems that cut your power bill, boost your home's value, and put you on your own grid. Fully installed in weeks, not months.
+                  Hệ thống điện mặt trời thiết kế riêng giúp giảm hóa đơn điện, nâng giá trị ngôi nhà và chủ động nguồn năng lượng. Lắp đặt hoàn chỉnh trong vài tuần.
                 </p>
 
                 <div className="reveal-item reveal-delay-250 flex flex-wrap gap-4 mb-16">
                   <Button nativeButton={false} render={<Link href="/contact" />} size="2xl" className="uppercase">
-                    Get Free Quote
+                    Nhận báo giá miễn phí
                   </Button>
                   <Button nativeButton={false} render={<Link href="/service" />} size="2xl" variant="outline" className="uppercase">
-                    Learn More
+                    Tìm hiểu thêm
                   </Button>
                 </div>
 
@@ -55,7 +55,7 @@ export default function HeroV2({ className, wrapperClassName }: HeroV2Props) {
                       <CountUp end={14200} suffix="+" />
                     </div>
                     <div className="text-xs/normal tracking-[1px] font-medium uppercase text-white/65">
-                      Systems <br /> Installed
+                      Hệ thống <br /> đã lắp đặt
                     </div>
                   </li>
                   <li className="my-5 min-[420px]:my-0 min-[420px]:mx-4 sm:mx-10 md:mx-20 xl:mx-14 2xl:mx-20 sm:border-l border-white/20 hidden sm:block"></li>
@@ -64,7 +64,7 @@ export default function HeroV2({ className, wrapperClassName }: HeroV2Props) {
                       <CountUp end={2840} prefix="$" />
                     </div>
                     <div className="text-xs/normal tracking-[1px] font-medium uppercase text-white/65">
-                      Avg.Annual <br /> Savings
+                      Tiết kiệm <br /> hằng năm
                     </div>
                   </li>
                   <li className="my-5 min-[420px]:my-0 min-[420px]:mx-4 sm:mx-10 md:mx-20 xl:mx-14 2xl:mx-20 sm:border-l border-white/20 hidden sm:block"></li>
@@ -73,7 +73,7 @@ export default function HeroV2({ className, wrapperClassName }: HeroV2Props) {
                       <CountUp end={4.9} decimals={1} suffix="/5" />
                     </div>
                     <div className="text-xs/normal tracking-[1px] font-medium uppercase text-white/65">
-                      Customer <br /> Rating
+                      Đánh giá <br /> của khách hàng
                     </div>
                   </li>
                 </ul>

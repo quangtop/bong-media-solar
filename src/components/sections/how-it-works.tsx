@@ -34,8 +34,8 @@ export default function HowItWorks({ gap = "default", className }: HowItWorksPro
           <div className="justify-center text-center row">
             <div className="lg:column-6 xl:column-5">
               <ScrollReveal delay={100} className="2xl:px-8">
-                <h2 className="text-darker font-bold text-3xl lg:text-4xl xl:text-5xl leading-[1.166] mb-5">How It Works</h2>
-                <p className="text-base xl:text-lg leading-relaxed text-body">From consultation to activation.Together, our customers are reshaping the region's energy footprint.</p>
+                <h2 className="text-darker font-bold text-3xl lg:text-4xl xl:text-5xl leading-[1.166] mb-5">Cách hệ thống hoạt động</h2>
+                <p className="text-base xl:text-lg leading-relaxed text-body">Từ tư vấn đến kích hoạt, cùng khách hàng thay đổi cách sử dụng năng lượng trong khu vực.</p>
               </ScrollReveal>
             </div>{/* Column */}
           </div>{/* Row */}

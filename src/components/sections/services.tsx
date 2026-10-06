@@ -37,14 +37,14 @@ export default function Services({ gap = "default", className }: ServicesProps) 
               <ScrollReveal delay={100} className="flex flex-col h-full">
                 <div className="mb-8 xl:mb-12">
                   <h2 className="text-3xl lg:text-4xl xl:text-5xl leading-[1.167] font-bold text-darker mb-4 xl:mb-6 text-pretty">
-                    Powering A Sustainable and Profitable Energy Transition on Digital Solutions
+                    Chuyển dịch năng lượng bền vững và hiệu quả bằng giải pháp số
                   </h2>
-                  <Button render={<Link href="/service" />} variant="link" icon={<ArrowLongRight />}> Learn More </Button>
+                  <Button render={<Link href="/service" />} variant="link" icon={<ArrowLongRight />}> Tìm hiểu thêm </Button>
                 </div>
                 <div className="bg-darker p-10 rounded-2xl mt-auto flex gap-6">
                   <div className="w-1 bg-primary shrink-0 rounded-full"></div>
                   <blockquote className="text-xl 2xl:text-2xl leading-snug text-white">
-                    Decarbonization requires balance between legacy systems and emerging technologies. Between the environment and business economies.
+                    Giảm phát thải carbon cần sự cân bằng giữa hệ thống hiện có và công nghệ mới, giữa môi trường và hiệu quả kinh tế.
                   </blockquote>
                 </div>
               </ScrollReveal>
@@ -58,7 +58,7 @@ export default function Services({ gap = "default", className }: ServicesProps) 
                       <path fill="#fff" d="M2.123 4.238a2.12 2.12 0 0 1 2.12-2.119H8.48a2.12 2.12 0 0 1 2.12 2.12v4.237a2.12 2.12 0 0 1-2.12 2.12H4.242a2.12 2.12 0 0 1-2.119-2.12zm10.595 0a2.12 2.12 0 0 1 2.12-2.119h4.237a2.12 2.12 0 0 1 2.12 2.12v4.237a2.12 2.12 0 0 1-2.12 2.12h-4.238a2.12 2.12 0 0 1-2.119-2.12zm10.595 0a2.12 2.12 0 0 1 2.12-2.119h4.237a2.12 2.12 0 0 1 2.12 2.12v4.237a2.12 2.12 0 0 1-2.12 2.12h-4.238a2.12 2.12 0 0 1-2.119-2.12zM2.123 14.833a2.12 2.12 0 0 1 2.12-2.119H8.48a2.12 2.12 0 0 1 2.12 2.12v4.237a2.12 2.12 0 0 1-2.12 2.12H4.242a2.12 2.12 0 0 1-2.119-2.12zm10.595 0a2.12 2.12 0 0 1 2.12-2.119h4.237a2.12 2.12 0 0 1 2.12 2.12v4.237a2.12 2.12 0 0 1-2.12 2.12h-4.238a2.12 2.12 0 0 1-2.119-2.12zm10.595 0a2.12 2.12 0 0 1 2.12-2.119h4.237a2.12 2.12 0 0 1 2.12 2.12v4.237a2.12 2.12 0 0 1-2.12 2.12h-4.238a2.12 2.12 0 0 1-2.119-2.12zM2.123 25.428a2.12 2.12 0 0 1 2.12-2.119H8.48a2.12 2.12 0 0 1 2.12 2.12v4.237a2.12 2.12 0 0 1-2.12 2.12H4.242a2.12 2.12 0 0 1-2.119-2.12zm10.595 0a2.12 2.12 0 0 1 2.12-2.119h4.237a2.12 2.12 0 0 1 2.12 2.12v4.237a2.12 2.12 0 0 1-2.12 2.12h-4.238a2.12 2.12 0 0 1-2.119-2.12zm10.595 0a2.12 2.12 0 0 1 2.12-2.119h4.237a2.12 2.12 0 0 1 2.12 2.12v4.237a2.12 2.12 0 0 1-2.12 2.12h-4.238a2.12 2.12 0 0 1-2.119-2.12z"></path>
                     </svg>
                   </div>
-                  <div className="font-semibold text-darker text-xl/none">Grid Solution</div>
+                  <div className="font-semibold text-darker text-xl/none">Giải pháp lưới điện</div>
                 </div>
               </ScrollReveal>
             </div>{/* Column */}
@@ -85,7 +85,7 @@ export default function Services({ gap = "default", className }: ServicesProps) 
                     <div className="p-8">
                       <h5 className="text-2xl xl:text-3xl leading-normal font-semibold text-darker mb-4">{item.title}</h5>
                       <p className="text-base leading-relaxed text-body mb-6">{item.description}</p>
-                      <Button render={<Link href={`/service/${item.id}`} />} variant="link" icon={<ArrowLongRight />}> Explore </Button>
+                      <Button render={<Link href={`/service/${item.id}`} />} variant="link" icon={<ArrowLongRight />}> Khám phá </Button>
                     </div>
                   </ScrollReveal>
                 </CarouselItem>

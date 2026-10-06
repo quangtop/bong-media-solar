@@ -23,8 +23,8 @@ export default function Process({ gap = "default", className }: ProcessProps) {
           <div className="justify-center text-center row">
             <div className="lg:column-8 xl:column-7 2xl:column-7">
               <ScrollReveal delay={100} className="2xl:px-8">
-                <h2 className="text-darker font-bold text-3xl lg:text-4xl xl:text-5xl leading-[1.166] mb-5">The Solurax 4-Step Process</h2>
-                <p className="text-base/relaxed text-body max-w-sm mx-auto xl:px-10">Our Seamless Transition to Clean Energy, our customers are reshaping the region's energy footprint.</p>
+                <h2 className="text-darker font-bold text-3xl lg:text-4xl xl:text-5xl leading-[1.166] mb-5">Quy trình 4 bước của Bống Media</h2>
+                <p className="text-base/relaxed text-body max-w-sm mx-auto xl:px-10">Chuyển đổi sang năng lượng sạch thuận tiện, cùng khách hàng xây dựng hệ sinh thái năng lượng bền vững.</p>
               </ScrollReveal>
             </div>{/* Column */}
           </div>{/* Row */}

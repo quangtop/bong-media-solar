@@ -48,10 +48,10 @@ export default function ProjectsList() {
             <div className="lg:column-8 xl:column-9 2xl:column-8">
               <ScrollReveal delay={100} className="2xl:px-8">
                 <h2 className="text-darker font-bold text-3xl lg:text-4xl xl:text-5xl leading-[1.166] mb-5">
-                  Projects powering <span className="text-primary">real places.</span>
+                  Dự án cung cấp điện <span className="text-primary">cho cộng đồng.</span>
                 </h2>
                 <p className="text-base xl:text-lg leading-relaxed text-body max-w-md mx-auto">
-                  Explore four featured installations across our international network, highlighting how our seamless technology delivers reliable power.
+                  Khám phá bốn công trình nổi bật trong mạng lưới quốc tế, nơi công nghệ tích hợp mang lại nguồn điện ổn định.
                 </p>
               </ScrollReveal>
             </div>{/* Column */}
@@ -96,10 +96,10 @@ export default function ProjectsList() {
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
                 className="flex items-center gap-1.5 text-xs font-semibold text-body hover:text-darker transition-colors px-3 py-2 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
-                aria-label="Previous Page"
+                aria-label="Trang trước"
               >
                 <ArrowLongLeft className="size-4" />
-                <span>Previous</span>
+                <span>Trước</span>
               </button>
 
               {/* Page Counter Display (e.g. 01 / 03) */}
@@ -130,9 +130,9 @@ export default function ProjectsList() {
                 onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
                 className="flex items-center gap-1.5 text-xs font-semibold text-body hover:text-darker transition-colors px-3 py-2 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
-                aria-label="Next Page"
+                aria-label="Trang sau"
               >
-                <span>Next</span>
+                <span>Sau</span>
                 <ArrowLongRight className="size-4" />
               </button>
             </ScrollReveal>

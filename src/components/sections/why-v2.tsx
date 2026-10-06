@@ -28,8 +28,8 @@ export default function WhyV2({ gap = "default", className }: WhyV2Props) {
           <div className="justify-between row gy-8">
             <div className="lg:column-6 xl:column-5">
               <ScrollReveal delay={100} className="mb-8 lg:mb-10">
-                <h2 className="text-darker font-bold text-3xl lg:text-4xl xl:text-5xl leading-[1.166] mb-4">Why the future runs on <span className="text-primary">renewables.</span></h2>
-                <p className="text-base xl:text-lg leading-relaxed text-body max-w-md mx-auto">Clean energy isn't a trade-off anymore — it's the more efficient, more resilient, and more profitable choice.</p>
+                <h2 className="text-darker font-bold text-3xl lg:text-4xl xl:text-5xl leading-[1.166] mb-4">Vì sao tương lai thuộc về <span className="text-primary">năng lượng tái tạo.</span></h2>
+                <p className="text-base xl:text-lg leading-relaxed text-body max-w-md mx-auto">Năng lượng sạch ngày càng hiệu quả, ổn định và có lợi hơn về kinh tế.</p>
               </ScrollReveal>
               <ScrollReveal delay={150} className="2xl:-me-6">
                 <Image src={whyC} alt="" className="w-full h-full rounded-2xl border-b-6 border-primary" />

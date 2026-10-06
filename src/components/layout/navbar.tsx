@@ -1,10 +1,9 @@
 "use client";
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cva, type VariantProps } from "class-variance-authority"
-import logo from "@/images/logo2x.png";
+import { BrandLogo } from "@/components/ui/brand-logo";
 import { Button } from "@/components/ui/button";
 import { Overlay } from "@/components/ui/overlay";
 import { useSetHeightRoot } from "@/hooks/useSetHeightRoot";
@@ -25,26 +24,26 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   {
-    label: "Home",
+    label: "Trang chủ",
     href: "/",
     children: [
-      { label: "Home 1", href: "/" },
-      { label: "Home 2", href: "/home-2" },
-      { label: "Home 3", href: "/home-3" },
+      { label: "Trang chủ 1", href: "/" },
+      { label: "Trang chủ 2", href: "/home-2" },
+      { label: "Trang chủ 3", href: "/home-3" },
     ],
   },
-  { label: "About", href: "/about" },
-  { label: "Service", href: "/service" },
+  { label: "Giới thiệu", href: "/about" },
+  { label: "Dịch vụ", href: "/service" },
   {
-    label: "Pages",
+    label: "Các trang",
     children: [
-      { label: "Project", href: "/project" },
-      { label: "Blog", href: "/blog" },
-      { label: "Packages", href: "/packages" },
-      { label: "FAQ", href: "/faqs" },
+      { label: "Dự án", href: "/project" },
+      { label: "Bài viết", href: "/blog" },
+      { label: "Các gói giải pháp", href: "/packages" },
+      { label: "Câu hỏi thường gặp", href: "/faqs" },
     ],
   },
-  { label: "Contact", href: "/contact" },
+  { label: "Liên hệ", href: "/contact" },
 ];
 
 const linkStyle = cva(
@@ -137,11 +136,10 @@ function NestedSubmenu({ label, icon, items, onNavigate, align = "right" }: Nest
 
   /* Only pre-open mobile accordion if child is active; keep closed on desktop */
   useEffect(() => {
-    if (typeof window !== "undefined" && window.innerWidth < parseInt(breakpoint_lg)) {
-      setOpen(active);
-    } else {
-      setOpen(false);
-    }
+    const frame = requestAnimationFrame(() => {
+      setOpen(window.innerWidth < parseInt(breakpoint_lg) && active);
+    });
+    return () => cancelAnimationFrame(frame);
   }, [active, pathname]);
 
 
@@ -269,11 +267,10 @@ function DropdownItem({ label, items, onNavigate, align = "left" }: DropdownItem
 
   /* Only pre-open mobile accordion if child is active; keep closed on desktop */
   useEffect(() => {
-    if (typeof window !== "undefined" && window.innerWidth < parseInt(breakpoint_lg)) {
-      setOpen(active);
-    } else {
-      setOpen(false);
-    }
+    const frame = requestAnimationFrame(() => {
+      setOpen(window.innerWidth < parseInt(breakpoint_lg) && active);
+    });
+    return () => cancelAnimationFrame(frame);
   }, [active, pathname]);
 
   const desktopStyle = cva("hidden lg:block absolute top-full w-50 pt-3 transition-all duration-250", {
@@ -381,7 +378,7 @@ function NavContent({ onNavigate, className }: { onNavigate: () => void; classNa
 
 function HamBurgerIcon({ open, setOpen, className }: { open: boolean; setOpen: (v: boolean) => void; className?: string }) {
   return (
-    <button type="button" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} onClick={() => setOpen(!open)}
+    <button type="button" aria-label={open ? "Đóng menu" : "Mở menu"} aria-expanded={open} onClick={() => setOpen(!open)}
       className={cn("relative z-50 flex lg:hidden h-11 w-11 flex-col items-center justify-center gap-1.25 rounded-full transition-colors duration-200 bg-white/10", className)} >
       <span className={`block h-0.5 w-5 rounded-full bg-white transition-all duration-300 origin-center ${open ? "translate-y-1.75 rotate-45" : ""}`} />
       <span className={`block h-0.5 w-5 rounded-full bg-white transition-all duration-300 ${open ? "scale-x-0 opacity-0" : ""}`} />
@@ -449,14 +446,14 @@ export default function Menubar() {
       >
         <div className="container">
           <div className={menuBarWrapStyle({ scrolled })}>
-            <Link href="/" className="group flex items-center gap-2.5 shrink-0" aria-label="Event home">
-              <Image src={logo} alt="Logo" loading="eager" width={302} height={72} className="w-auto h-10" />
+            <Link href="/" className="group flex items-center gap-2.5 shrink-0" aria-label="Trang chủ Bống Media">
+              <BrandLogo />
             </Link>
             <nav className="items-center hidden w-full gap-6 lg:flex" >
               <NavContent className="flex items-center gap-1 mx-auto lg:gap-2" onNavigate={closeMobile} />
               <Link href="/contact">
                 <Button className="text-base" variant="default" pill>
-                  Get in Touch
+                  Liên hệ ngay
                 </Button>
               </Link>
             </nav>
@@ -470,7 +467,7 @@ export default function Menubar() {
           <NavContent className="flex flex-col flex-1 gap-1" onNavigate={closeMobile} />
           <Link href="/contact">
             <Button className="text-base" variant="default">
-              Get in Touch
+              Liên hệ ngay
             </Button>
           </Link>
         </nav>

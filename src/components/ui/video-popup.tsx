@@ -1,6 +1,6 @@
 "use client";
 import { createPortal } from "react-dom";
-import { cloneElement, isValidElement, ReactElement, useEffect, useMemo, useState } from "react";
+import { cloneElement, isValidElement, ReactElement, useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { Cross } from "@/components/icons";
 
 export interface VideoPopupProps {
@@ -12,6 +12,10 @@ export interface VideoPopupProps {
   closeOnOverlay?: boolean;
   size?: "sm" | "md" | "lg" | "xl";
 }
+
+const subscribeToMount = () => () => {};
+const clientMounted = () => true;
+const serverMounted = () => false;
 
 const sizeClasses = {
   sm: "max-w-xl",
@@ -30,11 +34,7 @@ export default function VideoPopup({
   size = "lg",
 }: VideoPopupProps) {
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(subscribeToMount, clientMounted, serverMounted);
   useEffect(() => {
     if (!open) return;
 
@@ -79,7 +79,7 @@ export default function VideoPopup({
         createPortal(
           <div className="fixed inset-0 z-999999 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm" onClick={() => closeOnOverlay && setOpen(false)} >
             <div className={`relative w-full ${sizeClasses[size]}`} onClick={(e) => e.stopPropagation()} >
-              <button type="button" aria-label="Close video" onClick={() => setOpen(false)} className="absolute -top-12 right-0 text-4xl text-white" > <Cross className="size-7 fill-white" /> </button>
+              <button type="button" aria-label="Đóng video" onClick={() => setOpen(false)} className="absolute -top-12 right-0 text-4xl text-white" > <Cross className="size-7 fill-white" /> </button>
 
               {title && (
                 <h3 className="mb-4 text-lg font-semibold text-white">

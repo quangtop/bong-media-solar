@@ -8,7 +8,7 @@ import { MoreH } from "@/components/icons"
 function Breadcrumb({ className, ...props }: React.ComponentProps<"nav">) {
     return (
         <nav
-            aria-label="breadcrumb"
+            aria-label="Đường dẫn trang"
             data-slot="breadcrumb"
             className={cn(className)}
             {...props}
@@ -106,7 +106,7 @@ function BreadcrumbEllipsis({
             {...props}
         >
             <MoreH />
-            <span className="sr-only">More</span>
+            <span className="sr-only">Xem thêm</span>
         </span>
     )
 }

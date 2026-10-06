@@ -1,4 +1,13 @@
-import { useState, useEffect, useRef, RefObject } from "react";
+import { useState, useEffect, useRef, RefObject, useSyncExternalStore } from "react";
+
+const motionQuery = "(prefers-reduced-motion: reduce)";
+function subscribeToMotion(onChange: () => void) {
+  const query = window.matchMedia(motionQuery);
+  query.addEventListener("change", onChange);
+  return () => query.removeEventListener("change", onChange);
+}
+const getMotionSnapshot = () => window.matchMedia(motionQuery).matches;
+const getServerMotionSnapshot = () => false;
 
 export interface UseScrollParallaxOptions {
   /** Speed multiplier for background translation */
@@ -47,21 +56,9 @@ export function useScrollParallax<T extends HTMLElement = HTMLElement>(
   const [scrollY, setScrollY] = useState(0);
   const [sectionHeight, setSectionHeight] = useState(800);
   const [isVisible, setIsVisible] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const prefersReducedMotion = useSyncExternalStore(subscribeToMotion, getMotionSnapshot, getServerMotionSnapshot);
 
   useEffect(() => {
-    // Accessibility check for prefers-reduced-motion
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReducedMotion(mediaQuery.matches);
-
-    const handleMediaChange = (e: MediaQueryListEvent) => {
-      setPrefersReducedMotion(e.matches);
-    };
-
-    if (mediaQuery.addEventListener) {
-      mediaQuery.addEventListener("change", handleMediaChange);
-    }
-
     // Trigger reveal when element enters viewport
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -74,8 +71,13 @@ export function useScrollParallax<T extends HTMLElement = HTMLElement>(
 
     if (headerRef.current) {
       observer.observe(headerRef.current);
-      setSectionHeight(headerRef.current.offsetHeight || 800);
+
     }
+
+    const resizeObserver = new ResizeObserver(([entry]) => {
+      setSectionHeight(entry.target instanceof HTMLElement ? entry.target.offsetHeight || 800 : 800);
+    });
+    if (headerRef.current) resizeObserver.observe(headerRef.current);
 
     // Optimized scroll listener using requestAnimationFrame
     let ticking = false;
@@ -93,9 +95,7 @@ export function useScrollParallax<T extends HTMLElement = HTMLElement>(
     return () => {
       window.removeEventListener("scroll", handleScroll);
       observer.disconnect();
-      if (mediaQuery.removeEventListener) {
-        mediaQuery.removeEventListener("change", handleMediaChange);
-      }
+      resizeObserver.disconnect();
     };
   }, []);
 

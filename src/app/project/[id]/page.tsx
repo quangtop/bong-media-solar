@@ -28,8 +28,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { id } = await params;
   const project = PROJECTS_DATA.find((item) => item.id === id) || PROJECTS_DATA[0];
   return {
-    title: `${project.title} - Solurax Energy Projects`,
-    description: `Details and specifications for ${project.title} clean energy project.`,
+    title: project.title,
+    description: `Thông tin và đặc điểm kỹ thuật của dự án năng lượng sạch ${project.title}.`,
   };
 }
 
@@ -42,8 +42,8 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
       <PageHeader
         heading={project.title}
         breadcrumb={[
-          { href: "/", label: "Home" },
-          { href: "/project", label: "Project" },
+          { href: "/", label: "Trang chủ" },
+          { href: "/project", label: "Dự án" },
           { label: project.title },
         ]}
       />
@@ -71,17 +71,17 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
                   {/* Solar Panel Energy Installation Section (Inline text from design) */}
                   <ScrollReveal delay={150} className="space-y-4">
                     <h2 className="text-2xl lg:text-3xl xl:text-4xl font-semibold text-darker">
-                      Solar Panel Energy Installation
+                      Lắp đặt hệ thống điện mặt trời
                     </h2>
                     <div className="space-y-4 text-base/relaxed text-body">
                       <p>
-                        The Sun Valley region faced rising energy demand and an aging grid unable to meet peak summer loads without costly fossil-fuel peaker plants. Solurax designed and deployed a 120 MW solar array paired with grid-scale storage, replacing dependence on imported power with locally generated, dispatchable clean energy.
+                        Khu vực Sun Valley đối mặt với nhu cầu điện tăng cao và lưới điện cũ không đủ đáp ứng tải cao điểm mùa hè nếu thiếu các nhà máy nhiên liệu hóa thạch đắt đỏ. Bống Media thiết kế và triển khai hệ thống điện mặt trời 120 MW kết hợp lưu trữ quy mô lưới, thay thế điện nhập bằng năng lượng sạch tại chỗ có thể điều phối.
                       </p>
                       <p>
-                        Eighteen months after breaking ground, the facility now supplies more than 85,000 homes and has become the anchor clean-energy asset for the entire corridor, cutting regional emissions while stabilizing prices across the grid.
+                        Sau mười tám tháng kể từ ngày khởi công, công trình hiện cung cấp điện cho hơn 85,000 hộ gia đình và trở thành nguồn năng lượng sạch chủ lực của toàn khu vực, giảm phát thải và ổn định giá điện trên lưới.
                       </p>
                       <p>
-                        Eighteen months after breaking ground, the facility now supplies more than 85,000 homes and has become the anchor clean-energy asset for the entire corridor, cutting regional emissions while stabilizing prices across the grid.
+                        Sau mười tám tháng kể từ ngày khởi công, công trình hiện cung cấp điện cho hơn 85,000 hộ gia đình và trở thành nguồn năng lượng sạch chủ lực của toàn khu vực, giảm phát thải và ổn định giá điện trên lưới.
                       </p>
                     </div>
                   </ScrollReveal>
@@ -89,14 +89,14 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
                   {/* Benefits of Project Section (Inline text from design) */}
                   <ScrollReveal delay={200} className="space-y-6">
                     <h3 className="text-2xl lg:text-3xl font-semibold text-darker">
-                      Benefits of Project
+                      Lợi ích của dự án
                     </h3>
                     <div className="space-y-4 text-base/relaxed text-body">
                       <p>
-                        A utility-scale solar and storage facility engineered to power tens of thousands of homes with locally generated, dispatchable clean energy.
+                        Công trình điện mặt trời và lưu trữ quy mô lớn được thiết kế để cung cấp năng lượng sạch tại chỗ, có thể điều phối cho hàng chục nghìn hộ gia đình.
                       </p>
                       <p>
-                        Our team of experts provides in-depth consultations to help you explore the best renewable energy options for your property. We assess energy needs, budget, and location to develop customized, sustainable solutions for homes, businesses, and public institutions. Maximize your energy efficiency with our smart energy management systems. We offer tools and software to monitor, analyze, and optimize your energy consumption, helping you make the most of your renewable energy investment.
+                        Đội ngũ chuyên gia tư vấn chuyên sâu giúp bạn lựa chọn giải pháp năng lượng tái tạo phù hợp với công trình. Chúng tôi đánh giá nhu cầu điện, ngân sách và địa điểm để thiết kế giải pháp bền vững cho nhà ở, doanh nghiệp và cơ quan công cộng. Hệ thống quản lý năng lượng thông minh cung cấp công cụ theo dõi, phân tích và tối ưu mức tiêu thụ, giúp khai thác hiệu quả khoản đầu tư năng lượng tái tạo.
                       </p>
                     </div>
 
@@ -110,10 +110,10 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
                           </svg>
                         </div>
                         <h4 className="text-base font-bold text-darker mb-2">
-                          High-Efficiency PV Panels
+                          Tấm pin quang điện hiệu suất cao
                         </h4>
                         <p className="text-sm/relaxed text-body">
-                          Bifacial monocrystalline modules rated at 22.8% efficiency, engineered for 20+ years of consistent output.
+                          Tấm pin đơn tinh thể hai mặt có hiệu suất 22.8%, được thiết kế để duy trì sản lượng ổn định trong hơn 20 năm.
                         </p>
                       </div>
 
@@ -124,10 +124,10 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
                           </svg>
                         </div>
                         <h4 className="text-base font-bold text-darker mb-2">
-                          Real-Time Monitoring
+                          Giám sát theo thời gian thực
                         </h4>
                         <p className="text-sm/relaxed text-body">
-                          14,200 sensors stream live telemetry, with AI models flagging underperformance automatically.
+                          14,200 cảm biến truyền dữ liệu liên tục; mô hình AI tự động phát hiện các điểm suy giảm hiệu suất.
                         </p>
                       </div>
 
@@ -139,10 +139,10 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
                           </svg>
                         </div>
                         <h4 className="text-base font-bold text-darker mb-2">
-                          Grid Optimization
+                          Tối ưu lưới điện
                         </h4>
                         <p className="text-sm/relaxed text-body">
-                          Load-balancing software routes power dynamically across 3,600 distribution nodes.
+                          Phần mềm cân bằng tải điều phối điện linh hoạt giữa 3,600 nút phân phối.
                         </p>
                       </div>
                     </div>
@@ -151,10 +151,10 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
                   {/* Challenge of Project Section (Inline text from design) */}
                   <ScrollReveal delay={250} className="space-y-6">
                     <h3 className="text-2xl lg:text-3xl font-bold text-darker">
-                      The Challenge Of Project
+                      Thách thức của dự án
                     </h3>
                     <p className="text-base/relaxed text-body">
-                      Our mission is to empower businesses size to thrive in an business's ever changing marketplace. We are committed to the delivering exceptional the value through strategic insight, innovative approaches. Our consulting of our missing empower businesses of all sizes to thrive. Committed to the delivering exceptional.
+                      Sứ mệnh của chúng tôi là giúp doanh nghiệp ở mọi quy mô phát triển trong thị trường luôn thay đổi. Chúng tôi mang lại giá trị thông qua hiểu biết chiến lược, tư vấn chuyên sâu và những cách tiếp cận đổi mới.
                     </p>
 
                     {/* Gallery Images Row */}
@@ -162,7 +162,7 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
                       <div className="relative h-48 sm:h-44 lg:h-52 rounded-2xl overflow-hidden shadow-xs border border-lighter">
                         <Image
                           src={gallery1}
-                          alt="Project gallery detail 1"
+                          alt="Ảnh chi tiết dự án 1"
                           fill
                           sizes="(max-width: 768px) 100vw, 33vw"
                           className="object-cover hover:scale-105 transition-transform duration-500"
@@ -171,7 +171,7 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
                       <div className="relative h-48 sm:h-44 lg:h-52 rounded-2xl overflow-hidden shadow-xs border border-lighter">
                         <Image
                           src={gallery2}
-                          alt="Project gallery detail 2"
+                          alt="Ảnh chi tiết dự án 2"
                           fill
                           sizes="(max-width: 768px) 100vw, 33vw"
                           className="object-cover hover:scale-105 transition-transform duration-500"
@@ -180,7 +180,7 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
                       <div className="relative h-48 sm:h-44 lg:h-52 rounded-2xl overflow-hidden shadow-xs border border-lighter">
                         <Image
                           src={gallery3}
-                          alt="Project gallery detail 3"
+                          alt="Ảnh chi tiết dự án 3"
                           fill
                           sizes="(max-width: 768px) 100vw, 33vw"
                           className="object-cover hover:scale-105 transition-transform duration-500"
@@ -198,32 +198,32 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
                     <ScrollReveal delay={150} className="rounded-3xl overflow-hidden shadow-[0_0_13px_2px] shadow-black/8 bg-white">
                       <div className="bg-primary py-6 px-4 text-center">
                         <h3 className="text-2xl/normal font-semibold text-white">
-                          Project Details
+                          Thông tin dự án
                         </h3>
                       </div>
 
                       <div className="p-6 pb-4 divide-y divide-dark/8">
                         <div className="py-3.5 first:pt-0">
                           <span className="text-sm font-normal uppercase text-body block mb-0.5">
-                            CATEGORY
+                            DANH MỤC
                           </span>
                           <span className="text-base font-medium text-darker">
-                            Solar Energy
+                            Điện mặt trời
                           </span>
                         </div>
 
                         <div className="py-3.5 first:pt-0">
                           <span className="text-sm font-normal uppercase text-body block mb-0.5">
-                            ADDRESS
+                            ĐỊA ĐIỂM
                           </span>
                           <span className="text-base font-medium text-darker">
-                            258 Street, California, USA
+                            258 Street, California, Hoa Kỳ
                           </span>
                         </div>
 
                         <div className="py-3.5 first:pt-0">
                           <span className="text-sm font-normal uppercase text-body block mb-0.5">
-                            CAPACITY
+                            CÔNG SUẤT
                           </span>
                           <span className="text-base font-medium text-darker">
                             120 MW
@@ -232,10 +232,10 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
 
                         <div className="py-3.5 first:pt-0">
                           <span className="text-sm font-normal uppercase text-body block mb-0.5">
-                            COMPLETION
+                            HOÀN THÀNH
                           </span>
                           <span className="text-base font-medium text-darker">
-                            March 2025
+                            Tháng 3 năm 2025
                           </span>
                         </div>
                       </div>
@@ -246,14 +246,14 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
                         <Image src={lineG} height={282} width={419} alt="" className="absolute" />
                       </div>
                       <span className="text-base/tight font-bold uppercase tracking-wider block mb-3">
-                        CONTACT FOR INQUIRY
+                        LIÊN HỆ TƯ VẤN
                       </span>
                       <h4 className="text-4xl leadin-tight font-bold text-white">
-                        How can we help you today?
+                        Chúng tôi có thể giúp gì cho bạn?
                       </h4>
                       <div className="pt-9">
                         <Button render={<Link href="/contact" />} size="lg">
-                          Contact Us
+                          Liên hệ
                         </Button>
                       </div>
                     </ScrollReveal>

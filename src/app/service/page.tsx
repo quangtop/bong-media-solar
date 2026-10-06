@@ -7,14 +7,14 @@ import Process from "@/components/sections/process";
 import Stories from "@/components/sections/stories";
 
 export const metadata: Metadata = {
-  title: "Our Services - Solurax",
-  description: "Solurax is a modern, responsive, and beautiful landing page template for solar and renewable energy technologies.",
+  title: "Dịch vụ",
+  description: "Bống Media giới thiệu các giải pháp điện mặt trời và năng lượng tái tạo với công nghệ hiện đại, hiệu quả và bền vững.",
 };
 
 export default function ServicePage() {
   return (
     <React.Fragment>
-      <PageHeader heading="Our Services" breadcrumb={[{ href: '/', label: 'Home' }, { label: 'Our Services' }]} />
+      <PageHeader heading="Dịch vụ" breadcrumb={[{ href: '/', label: "Trang chủ" }, { label: "Dịch vụ của chúng tôi" }]} />
       <main className="relative flex flex-col justify-between overflow-x-hidden">
         <ServicesAll gap="top" />
         <Process gap="top" />

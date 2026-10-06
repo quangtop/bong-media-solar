@@ -12,8 +12,8 @@ import Project from "@/components/sections/projects";
 import WhyV2 from "@/components/sections/why-v2";
 
 export const metadata: Metadata = {
-  title: "Home 3 - Solurax Energy Solutions",
-  description: "Solurax is a modern, responsive, and beautiful landing page template for solar and renewable energy technologies.",
+  title: "Trang chủ 3 — Giải pháp năng lượng",
+  description: "Bống Media giới thiệu các giải pháp điện mặt trời và năng lượng tái tạo với công nghệ hiện đại, hiệu quả và bền vững.",
 };
 
 export default function Home3() {

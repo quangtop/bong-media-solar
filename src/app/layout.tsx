@@ -5,11 +5,12 @@ import { Preloader } from "@/components/ui/preloader";
 import "@/css/globals.css";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: {
-    default: "Solurax - NextJS Solar & Renewable Energy Landing Page Template",
-    template: "%s | Solurax - NextJS Solar & Renewable Energy Landing Page Template",
+    default: "Bống Media — Giải pháp điện mặt trời và năng lượng tái tạo",
+    template: "%s | Bống Media",
   },
-  description: "Solurax is a modern, responsive, and beautiful landing page template for solar and renewable energy technologies.",
+  description: "Bống Media giới thiệu các giải pháp điện mặt trời và năng lượng tái tạo với công nghệ hiện đại, hiệu quả và bền vững.",
 };
 
 export default function RootLayout({
@@ -18,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`h-full antialiased`}>
+    <html lang="vi" className={`h-full antialiased`}>
       <body suppressHydrationWarning={true} className={`font-instrument-sans min-h-full flex flex-col text-body`}>
         <Preloader />
         <Navbar />

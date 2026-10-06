@@ -6,18 +6,18 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import ProjectsList from "@/components/sections/projects-all";
 
 export const metadata: Metadata = {
-  title: "Projects - Solurax",
-  description: "Explore our featured renewable energy projects powering communities worldwide with reliable solar and smart grid technology.",
+  title: "Dự án",
+  description: "Khám phá các dự án năng lượng tái tạo nổi bật cung cấp điện cho cộng đồng bằng công nghệ điện mặt trời và lưới điện thông minh.",
 };
 
 export default function ProjectsPage() {
   return (
     <React.Fragment>
       <PageHeader
-        heading="Project"
+        heading="Dự án"
         breadcrumb={[
-          { href: "/", label: "Home" },
-          { label: "Project" },
+          { href: "/", label: "Trang chủ" },
+          { label: "Dự án" },
         ]}
       />
 

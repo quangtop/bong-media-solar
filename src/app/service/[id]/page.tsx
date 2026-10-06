@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { id } = await params;
   const service = SERVICE_DATA.find((item) => item.id === id) || SERVICE_DATA[0];
   return {
-    title: `${service.title} - Solurax Energy Services`,
+    title: service.title,
     description: service.description,
   };
 }
@@ -46,8 +46,8 @@ export default async function ServiceDetailsPage({ params }: PageProps) {
         heading={service.title}
         smallerHeading={true}
         breadcrumb={[
-          { href: "/", label: "Home" },
-          { href: "/service", label: "Services" }
+          { href: "/", label: "Trang chủ" },
+          { href: "/service", label: "Dịch vụ" }
         ]}
       />
 
@@ -59,7 +59,7 @@ export default async function ServiceDetailsPage({ params }: PageProps) {
                 <div className="lg:column-4">
                   <div className="sticky top-28 space-y-8">
                     <ScrollReveal delay={100}>
-                      <CollapsibleCard title="All Energy Services" expanded="lg" >
+                      <CollapsibleCard title="Tất cả dịch vụ năng lượng" expanded="lg" >
                         <ul className="row g-1">
                           {SERVICE_DATA.map((item) => {
                             const isActive = item.id === service.id;
@@ -84,22 +84,22 @@ export default async function ServiceDetailsPage({ params }: PageProps) {
                         <div className="size-14 rounded-2xl bg-primary flex items-center justify-center mb-6">
                           <CallFill className="size-7 fill-white" />
                         </div>
-                        <h4 className="text-2xl font-bold text-white mb-3">Need Custom Solar Planning?</h4>
+                        <h4 className="text-2xl font-bold text-white mb-3">Cần thiết kế hệ thống điện mặt trời riêng?</h4>
                         <p className="text-sm/relaxed text-white/80 mb-6">
-                          Speak directly with our solar engineers to calculate system payback and custom site requirements.
+                          Trao đổi trực tiếp với đội ngũ kỹ sư để tính thời gian hoàn vốn và yêu cầu kỹ thuật phù hợp với công trình.
                         </p>
                         <div className="space-y-3 mb-6">
                           <div className="flex items-center gap-3 text-sm text-white/90">
                             <CallFill className="size-4 fill-primary shrink-0" />
-                            <span>+1 (800) 555-SOLAR</span>
+                            <a href="tel:0963556518" className="hover:underline">0963556518</a>
                           </div>
                           <div className="flex items-center gap-3 text-sm text-white/90">
                             <MailFill className="size-4 fill-primary shrink-0" />
-                            <span>support@solurax-energy.com</span>
+                            <a href="mailto:admin@leviathan.id.vn" className="hover:underline">admin@leviathan.id.vn</a>
                           </div>
                         </div>
                         <Button render={<Link href="/contact" />} size="lg" >
-                          Request Consultation
+                          Đăng ký tư vấn
                         </Button>
                       </div>
                     </ScrollReveal>
@@ -117,7 +117,7 @@ export default async function ServiceDetailsPage({ params }: PageProps) {
 
                   <ScrollReveal delay={150} className="mb-10">
                     <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
-                      Comprehensive Energy Solution
+                      Giải pháp năng lượng toàn diện
                     </span>
                     <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-darker leading-tight mb-4">
                       {service.subtitle}
@@ -129,7 +129,7 @@ export default async function ServiceDetailsPage({ params }: PageProps) {
 
                   {/* Key Features List */}
                   <ScrollReveal delay={200} className="p-8 rounded-3xl bg-primary-lighter/40 border border-primary/20 mb-10">
-                    <h3 className="text-2xl font-bold text-darker mb-6">Key Engineering Features</h3>
+                    <h3 className="text-2xl font-bold text-darker mb-6">Đặc điểm kỹ thuật nổi bật</h3>
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {service.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start gap-3">
@@ -143,7 +143,7 @@ export default async function ServiceDetailsPage({ params }: PageProps) {
                   {/* Benefits Grid */}
                   <div className="mb-12">
                     <ScrollReveal delay={100} className="mb-6">
-                      <h3 className="text-2xl lg:text-3xl font-bold text-darker">Core Business & Home Benefits</h3>
+                      <h3 className="text-2xl lg:text-3xl font-bold text-darker">Lợi ích cho doanh nghiệp và gia đình</h3>
                     </ScrollReveal>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       {service.benefits.map((benefit, idx) => (
@@ -161,7 +161,7 @@ export default async function ServiceDetailsPage({ params }: PageProps) {
                   {/* Specifications Table */}
                   <div className="mb-12">
                     <ScrollReveal delay={100} className="mb-12">
-                      <h3 className="text-2xl lg:text-3xl font-bold text-darker mb-6">Technical Specifications</h3>
+                      <h3 className="text-2xl lg:text-3xl font-bold text-darker mb-6">Thông số kỹ thuật</h3>
                     </ScrollReveal>
                     <ScrollReveal delay={150} className="overflow-hidden rounded-2xl border border-lighter bg-white shadow-sm">
                       <table className="w-full text-left border-collapse">
@@ -180,13 +180,13 @@ export default async function ServiceDetailsPage({ params }: PageProps) {
                   {/* Service FAQs */}
                   <div className="mb-8">
                     <ScrollReveal delay={100} className="mb-6">
-                      <h3 className="text-2xl lg:text-3xl font-bold text-darker">Frequently Asked Questions</h3>
+                      <h3 className="text-2xl lg:text-3xl font-bold text-darker">Câu hỏi thường gặp</h3>
                     </ScrollReveal>
                     <div className="space-y-4">
                       {service.faqs.map((faq, idx) => (
                         <ScrollReveal key={idx} className={cn("p-6 bg-white border border-lighter rounded-2xl shadow-xs", getDelayClass(idx))}>
                           <h5 className="text-lg font-semibold text-darker mb-2 flex items-center gap-2">
-                            <span className="text-primary font-bold">Q:</span> {faq.question}
+                            <span className="text-primary font-bold">Hỏi:</span> {faq.question}
                           </h5>
                           <p className="text-base/relaxed text-body ps-6">{faq.answer}</p>
                         </ScrollReveal>
@@ -199,22 +199,22 @@ export default async function ServiceDetailsPage({ params }: PageProps) {
                       <div className="size-14 rounded-2xl bg-primary flex items-center justify-center mb-6">
                         <CallFill className="size-7 fill-white" />
                       </div>
-                      <h4 className="text-2xl font-bold text-white mb-3">Need Custom Solar Planning?</h4>
+                      <h4 className="text-2xl font-bold text-white mb-3">Cần thiết kế hệ thống điện mặt trời riêng?</h4>
                       <p className="text-sm/relaxed text-white/80 mb-6">
-                        Speak directly with our solar engineers to calculate system payback and custom site requirements.
+                        Trao đổi trực tiếp với đội ngũ kỹ sư để tính thời gian hoàn vốn và yêu cầu kỹ thuật phù hợp với công trình.
                       </p>
                       <div className="space-y-3 mb-6">
                         <div className="flex items-center gap-3 text-sm text-white/90">
                           <CallFill className="size-4 fill-primary shrink-0" />
-                          <span>+1 (800) 555-SOLAR</span>
+                          <a href="tel:0963556518" className="hover:underline">0963556518</a>
                         </div>
                         <div className="flex items-center gap-3 text-sm text-white/90">
                           <MailFill className="size-4 fill-primary shrink-0" />
-                          <span>support@solurax-energy.com</span>
+                          <a href="mailto:admin@leviathan.id.vn" className="hover:underline">admin@leviathan.id.vn</a>
                         </div>
                       </div>
                       <Button render={<Link href="/contact" />} size="lg">
-                        Request Consultation
+                        Đăng ký tư vấn
                       </Button>
                     </div>
                   </ScrollReveal>

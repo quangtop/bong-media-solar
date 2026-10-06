@@ -1,0 +1,37 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+@import "./utilities/font-faces.css";
+@import "./utilities/grid.css";
+@import "./utilities/content.css";
+@import "./components/effect.css";
+@import "./components/scroll-reveal.css";
+@import "./components/decoration.css";
+@import "./components/accordion.css";
+
+:root {
+  --menubar-height: 122px;
+}
+
+@theme {
+  --font-instrument-sans: Instrument Sans, sans-serif;
+  --color-primary: #13A958;
+  --color-primary-lighter: #E9F9EF;
+  --color-primary-light: #34DF00;
+  --color-primary-dark: #068a43;
+  --color-dark: #043B3B;
+  --color-darker: #062727;
+  --color-secondary: #FFC72C;
+  --color-body: #4B545D;
+  --color-lighter: #E2E8F0;
+  --color-lightest: #E5E7EB;
+  --color-danger: #BD1F17;
+  --color-danger-lighter: #FEEBED;
+  --color-danger-light: #FF9B9B;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--color-white);
+  font-family: var(--font-instrument-sans), sans-serif;
+}

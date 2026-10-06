@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'Instrument Sans';
+    src: local('Instrument Sans Bold'), local('InstrumentSans-Bold'),
+        url('../../fonts/InstrumentSans-Bold.woff2') format('woff2'),
+        url('../../fonts/InstrumentSans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Instrument Sans';
+    src: local('Instrument Sans Medium'), local('InstrumentSans-Medium'),
+        url('../../fonts/InstrumentSans-Medium.woff2') format('woff2'),
+        url('../../fonts/InstrumentSans-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Instrument Sans';
+    src: local('Instrument Sans Regular'), local('InstrumentSans-Regular'),
+        url('../../fonts/InstrumentSans-Regular.woff2') format('woff2'),
+        url('../../fonts/InstrumentSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Instrument Sans';
+    src: local('Instrument Sans SemiBold'), local('InstrumentSans-SemiBold'),
+        url('../../fonts/InstrumentSans-SemiBold.woff2') format('woff2'),
+        url('../../fonts/InstrumentSans-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}

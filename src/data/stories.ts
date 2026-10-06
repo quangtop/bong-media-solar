@@ -12,32 +12,32 @@ export interface StoryItem {
 export const STORIES_ITEMS: StoryItem[] = [
   {
     image: storyA,
-    alt: "Solar Engineer Working",
+    alt: "Kỹ sư điện mặt trời đang làm việc",
     video: "https://www.youtube.com/embed/AcKskVETHAU",
   },
   {
     image: storyB,
-    alt: "Wind Energy Model",
+    alt: "Mô hình năng lượng gió",
     video: "https://www.youtube.com/embed/AcKskVETHAU",
   },
   {
     image: storyC,
-    alt: "Green Energy Solutions",
+    alt: "Giải pháp năng lượng xanh",
     video: "https://www.youtube.com/embed/AcKskVETHAU",
   },
   {
     image: storyA,
-    alt: "EV Charging Installation",
+    alt: "Lắp đặt trạm sạc xe điện",
     video: "https://www.youtube.com/embed/AcKskVETHAU",
   },
   {
     image: storyB,
-    alt: "Commercial Solar Array",
+    alt: "Hệ điện mặt trời thương mại",
     video: "https://www.youtube.com/embed/AcKskVETHAU",
   },
   {
     image: storyC,
-    alt: "Battery Storage System",
+    alt: "Hệ thống pin lưu trữ",
     video: "https://www.youtube.com/embed/AcKskVETHAU",
   },
 ];

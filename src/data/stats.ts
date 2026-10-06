@@ -7,22 +7,22 @@ export interface StatItem {
 export const STATS_DATA: StatItem[] = [
   {
     count: "10+",
-    title: "Years of Experience",
-    description: "Cut your utility bill by up to 90% with a system sized precisely to your household's usage."
+    title: "Năm kinh nghiệm",
+    description: "Giảm hóa đơn điện tới 90% với hệ thống được tính toán chính xác theo nhu cầu gia đình."
   },
   {
     count: "16,200+",
-    title: "Installations",
-    description: "Every kilowatt you generate replaces fossil-fuel power, shrinking your household's carbon footprint."
+    title: "Công trình lắp đặt",
+    description: "Mỗi kilowatt điện bạn tạo ra thay thế điện từ nhiên liệu hóa thạch, giảm dấu chân carbon của gia đình."
   },
   {
     count: "60%",
-    title: "Bill Reduction",
-    description: "Certified crews complete most residential installs in one to two days, with zero shortcuts."
+    title: "Giảm hóa đơn điện",
+    description: "Đội ngũ được chứng nhận hoàn tất phần lớn công trình dân dụng trong 1–2 ngày, tuân thủ đầy đủ quy trình."
   },
   {
     count: "24/7",
-    title: "Full-Service Support",
-    description: "Panels, inverter, and workmanship all covered for a quarter century of worry-free power."
+    title: "Hỗ trợ toàn diện",
+    description: "Tấm pin, biến tần và chất lượng thi công được bảo hành trong 25 năm."
   },
 ];

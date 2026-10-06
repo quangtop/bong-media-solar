@@ -46,27 +46,27 @@ export function ImpactIcon({ className }: { className?: string }) {
 
 export const STAGES: StageItem[] = [
   {
-    stage: "STAGE 01",
-    title: "Capture",
-    description: "Solar, wind, and hydro assets harvest energy directly from natural sources in real time.",
+    stage: "GIAI ĐOẠN 01",
+    title: "Thu năng lượng",
+    description: "Hệ mặt trời, gió và thủy điện thu năng lượng trực tiếp từ tự nhiên theo thời gian thực.",
     icon: SunIcon,
   },
   {
-    stage: "STAGE 02",
-    title: "Store",
-    description: "Surplus power is banked in grid-scale batteries, ready to dispatch on demand.",
+    stage: "GIAI ĐOẠN 02",
+    title: "Lưu trữ",
+    description: "Điện dư được lưu trong pin quy mô lưới điện, sẵn sàng cung cấp theo nhu cầu.",
     icon: BatteryIcon,
   },
   {
-    stage: "STAGE 03",
-    title: "Power",
-    description: "Smart grid software routes electricity to homes, vehicles, and businesses instantly.",
+    stage: "GIAI ĐOẠN 03",
+    title: "Cấp điện",
+    description: "Phần mềm lưới điện thông minh phân phối điện tức thời tới nhà ở, xe và doanh nghiệp.",
     icon: LightningIcon,
   },
   {
-    stage: "STAGE 04",
-    title: "Impact",
-    description: "Every kilowatt is measured — tracked as reduced emissions and real household savings.",
+    stage: "GIAI ĐOẠN 04",
+    title: "Tác động",
+    description: "Mỗi kilowatt đều được đo và theo dõi qua lượng phát thải giảm được cùng khoản tiết kiệm thực tế của gia đình.",
     icon: ImpactIcon,
   },
 ];

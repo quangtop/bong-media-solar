@@ -92,22 +92,22 @@ export function WaterDrop({ className }: { className?: string }) {
 export const ABOUT_CARDS: AboutCardItem[] = [
   {
     icon: Panels,
-    title: "Advanced Panels",
-    description: "High-performance structural panels engineered to elevate contemporary building.",
+    title: "Tấm pin tiên tiến",
+    description: "Tấm pin hiệu suất cao được thiết kế phù hợp với những công trình hiện đại.",
   },
   {
     icon: SparkCog,
-    title: "Smart Energy Setup",
-    description: "Advanced energy automation built for sustainable, effortless home power control.",
+    title: "Hệ thống năng lượng thông minh",
+    description: "Tự động hóa năng lượng tiên tiến giúp quản lý điện tại nhà thuận tiện và bền vững.",
   },
   {
     icon: PrayingHand,
-    title: "Reliable Support",
-    description: "Dedicated expert assistance ensuring maximum uptime and effortless peace of mind.",
+    title: "Hỗ trợ đáng tin cậy",
+    description: "Đội ngũ chuyên gia tận tâm giúp duy trì thời gian vận hành và sự an tâm lâu dài.",
   },
   {
     icon: WaterDrop,
-    title: "25-Year Warranty",
-    description: "Guaranteed performance and lasting peace of mind for twenty-five full years.",
+    title: "Bảo hành 25 năm",
+    description: "Cam kết hiệu suất và sự an tâm bền vững trong suốt hai mươi lăm năm.",
   },
 ];

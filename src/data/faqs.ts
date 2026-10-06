@@ -11,46 +11,46 @@ export interface FaqCategory {
 
 export const FAQ_DATA: FaqCategory[] = [
   {
-    title: 'General questions',
-    description: 'General questions section offers clear answers to common inquiries, helping users understand services, processes, pricing, timelines, and support for a smooth experience.',
+    title: "Câu hỏi chung",
+    description: "Giải đáp những câu hỏi phổ biến về dịch vụ, quy trình, giá, thời gian triển khai và hỗ trợ để bạn dễ dàng lựa chọn.",
     questions: [
       {
-        question: "How much will I actually save on my electricity bill?",
-        answer: "While savings depend on your roof size and current energy consumption, the average Sunvolt residential installation cuts monthly electricity bills by 50% to 70% from day one. During our initial consultation, we provide a 3D solar yield report showing your exact estimated savings.",
+        question: "Tôi thực sự tiết kiệm được bao nhiêu tiền điện?",
+        answer: "Mức tiết kiệm phụ thuộc diện tích mái và nhu cầu điện hiện tại. Hệ thống điện mặt trời dân dụng trung bình của Bống Media giúp giảm hóa đơn điện từ 50% đến 70% ngay từ đầu. Khi tư vấn, chúng tôi cung cấp báo cáo sản lượng điện mặt trời 3D với mức tiết kiệm dự kiến cụ thể.",
       },
       {
-        question: "What is Net Metering and how does it benefit me?",
-        answer: "Net Metering is a billing mechanism that credits you for the excess electricity your solar panels send back to the grid. During sunny hours, surplus power offsets the energy you draw from the utility at night, significantly reducing your net energy costs.",
+        question: "Đo đếm điện năng ròng là gì và có lợi ích gì?",
+        answer: "Đo đếm điện năng ròng ghi nhận lượng điện dư mà tấm pin đưa lên lưới. Trong những giờ nắng, điện dư bù lại lượng điện bạn lấy từ lưới vào ban đêm, giúp giảm chi phí năng lượng ròng.",
       },
       {
-        question: "Do solar panels generate electricity at night or on cloudy days?",
-        answer: "Solar panels do not produce electricity at night, but they continue generating power on cloudy days at around 10% to 25% of their full capacity. Paired with a solar battery storage system or net metering, you can access reliable clean energy 24/7.",
+        question: "Tấm pin có phát điện vào ban đêm hoặc ngày nhiều mây không?",
+        answer: "Tấm pin không phát điện ban đêm nhưng vẫn tạo điện vào ngày nhiều mây ở mức khoảng 10% đến 25% công suất tối đa. Khi kết hợp pin lưu trữ hoặc đo đếm điện ròng, bạn có thể sử dụng nguồn năng lượng sạch ổn định 24/7.",
       },
       {
-        question: "Is my roof suitable for a solar panel installation?",
-        answer: "Most roofs in good condition with minimal shading from trees or nearby structures are suitable for solar panel installation. Our team performs a comprehensive site assessment to evaluate structural integrity, roof angle, and sunlight exposure.",
+        question: "Mái nhà của tôi có phù hợp lắp điện mặt trời không?",
+        answer: "Phần lớn mái nhà còn tốt và ít bị cây cối hoặc công trình xung quanh che bóng đều phù hợp. Đội ngũ khảo sát sẽ đánh giá kết cấu, độ dốc mái và mức tiếp xúc ánh nắng.",
       },
     ]
   },
   {
-    title: 'Project & process',
-    description: 'General questions section offers clear answers to common inquiries, helping users understand services, processes, pricing, timelines, and support for a smooth experience.',
+    title: "Dự án và quy trình",
+    description: "Giải đáp những câu hỏi phổ biến về dịch vụ, quy trình, giá, thời gian triển khai và hỗ trợ để bạn dễ dàng lựa chọn.",
     questions: [
       {
-        question: "What is the average lifespan and warranty of a solar system?",
-        answer: "Modern solar panels are engineered for durability, typically boasting a lifespan of 25 to 30 years or more. Most systems include a 25-year performance warranty ensuring panels maintain at least 80-85% of their original efficiency.",
+        question: "Tuổi thọ và bảo hành trung bình của hệ thống điện mặt trời là bao lâu?",
+        answer: "Tấm pin hiện đại có tuổi thọ thường từ 25 đến 30 năm hoặc hơn. Phần lớn hệ thống có bảo hành hiệu suất 25 năm, đảm bảo tấm pin duy trì ít nhất 80-85% hiệu suất ban đầu.",
       },
       {
-        question: "How long does the design and installation process take?",
-        answer: "The entire process—from initial consultation and site survey to custom design, permitting, and physical installation—usually takes 4 to 8 weeks. Physical installation on your roof typically finishes within 1 to 3 days.",
+        question: "Thiết kế và lắp đặt mất bao lâu?",
+        answer: "Toàn bộ quy trình từ tư vấn, khảo sát, thiết kế riêng và xin phép đến lắp đặt thường mất 4 đến 8 tuần. Phần lắp đặt trên mái thường hoàn thành trong 1 đến 3 ngày.",
       },
       {
-        question: "What kind of maintenance do solar panels require?",
-        answer: "Solar panels require very little maintenance because they have no moving parts. Occasional cleaning to remove dust, leaves, or debris and an annual inspection by a professional are usually all that is required.",
+        question: "Tấm pin mặt trời cần bảo trì những gì?",
+        answer: "Tấm pin cần ít bảo trì vì không có bộ phận chuyển động. Thông thường chỉ cần vệ sinh bụi, lá và rác định kỳ cùng kiểm tra chuyên môn hằng năm.",
       },
       {
-        question: "Will my solar panels work during a utility grid blackout?",
-        answer: "Standard grid-tied solar systems shut down automatically during grid outages to protect utility workers. However, if your system is equipped with a battery backup, it will seamlessly provide power to critical home circuits during a blackout.",
+        question: "Hệ thống có hoạt động khi lưới điện bị mất điện không?",
+        answer: "Hệ thống hòa lưới thông thường tự ngắt khi mất điện để bảo vệ nhân viên điện lực. Nếu có pin dự phòng, hệ thống có thể tiếp tục cấp điện cho các mạch thiết yếu trong nhà.",
       },
     ]
   }

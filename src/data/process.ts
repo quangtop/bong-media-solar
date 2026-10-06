@@ -7,22 +7,22 @@ export interface ProcessStep {
 export const PROCESS_DATA: ProcessStep[] = [
   {
     id: "01",
-    title: "Free Site Analysis",
-    description: "Expert evaluation of your energy needs and site potential."
+    title: "Khảo sát công trình miễn phí",
+    description: "Chuyên gia đánh giá nhu cầu điện và tiềm năng của công trình."
   },
   {
     id: "02",
-    title: "Custom 3D Engineering",
-    description: "Precision engineering blueprints tailored to your property."
+    title: "Thiết kế kỹ thuật 3D riêng",
+    description: "Bản vẽ kỹ thuật chính xác, phù hợp với công trình của bạn."
   },
   {
     id: "03",
-    title: "Flawless Installation",
-    description: "Rapid, clean deployment by our certified master technicians."
+    title: "Lắp đặt chính xác",
+    description: "Triển khai nhanh, gọn bởi đội ngũ kỹ thuật có chứng nhận."
   },
   {
     id: "04",
-    title: "Grid Activation",
-    description: "We handle the utility company grid connection and activate"
+    title: "Kích hoạt hòa lưới",
+    description: "Chúng tôi thực hiện đấu nối với đơn vị điện lực và kích hoạt hệ thống."
   },
 ];

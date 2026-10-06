@@ -41,22 +41,22 @@ export function Shield({ className }: { className?: string }) {
 export const WHY_CARDS: WhyCardItem[] = [
   {
     icon: Money,
-    title: "Maximize Savings",
-    description: "Cut your utility bill by up to 90% with a system sized precisely to your household's usage.",
+    title: "Tối đa hóa tiết kiệm",
+    description: "Giảm hóa đơn điện tới 90% với hệ thống được tính toán chính xác theo nhu cầu gia đình.",
   },
   {
     icon: WaterDrop,
-    title: "Eco-Friendly Impact",
-    description: "Every kilowatt you generate replaces fossil-fuel power, shrinking your household's carbon footprint.",
+    title: "Tác động tích cực đến môi trường",
+    description: "Mỗi kilowatt điện bạn tạo ra thay thế điện từ nhiên liệu hóa thạch, giảm dấu chân carbon của gia đình.",
   },
   {
     icon: Pen,
-    title: "Expert Installation",
-    description: "Certified crews complete most residential installs in one to two days, with zero shortcuts.",
+    title: "Lắp đặt chuyên nghiệp",
+    description: "Đội ngũ được chứng nhận hoàn tất phần lớn công trình dân dụng trong 1–2 ngày, tuân thủ đầy đủ quy trình.",
   },
   {
     icon: Shield,
-    title: "25-Year Warranty",
-    description: "Panels, inverter, and workmanship all covered for a quarter century of worry-free power.",
+    title: "Bảo hành 25 năm",
+    description: "Tấm pin, biến tần và chất lượng thi công được bảo hành trong 25 năm.",
   },
 ];

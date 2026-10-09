@@ -50,7 +50,7 @@ export default function Contact({ gap = "default", className, sectionHead = true
               <ScrollReveal delay={300}>
                 <h3 className="mb-6 text-4xl font-bold text-darker">Liên hệ với chúng tôi</h3>
                 <p id="contact-demo-note" className="mb-6 rounded-lg bg-primary/10 p-4 text-body">
-                  Đây là biểu mẫu minh họa, chưa gửi thông tin. Để được tư vấn, gọi <a className="font-semibold text-primary" href={BRAND.phoneHref}>{BRAND.phone}</a> hoặc <a className="font-semibold text-primary" href={BRAND.facebook} target="_blank" rel="noopener noreferrer">nhắn Facebook Bống Media</a>.
+                  Đây là biểu mẫu minh họa, chưa gửi thông tin. Để được tư vấn, gọi <a className="font-semibold text-dark underline" href={BRAND.phoneHref}>{BRAND.phone}</a> hoặc <a className="font-semibold text-dark underline" href={BRAND.facebook} target="_blank" rel="noopener noreferrer">nhắn Facebook Bống Media</a>.
                 </p>
                 <form aria-describedby="contact-demo-note" className="row g-6" onSubmit={(e) => e.preventDefault()}>
                   <div className="column-6 lg:column-12 xl:column-6">

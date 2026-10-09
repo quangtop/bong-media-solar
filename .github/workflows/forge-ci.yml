@@ -196,7 +196,9 @@ jobs:
             out.serious_critical += bad.length;
             out.nodes += bad.reduce((n, v) => n + v.nodes.length, 0);
             out.results.push({ page: p, incomplete: r.incomplete.length,
-                               violations: bad.map((v) => ({ id: v.id, impact: v.impact, nodes: v.nodes.length })) });
+                               violations: bad.map((v) => ({ id: v.id, impact: v.impact, nodes: v.nodes.length,
+                                 details: v.nodes.slice(0, 10).map((n) => ({ target: n.target, html: n.html.slice(0, 160),
+                                   data: (n.any[0] && n.any[0].data) || null })) })) });
             out.scanned += 1;
             await context.close();
           }

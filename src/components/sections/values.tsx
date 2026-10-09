@@ -66,7 +66,7 @@ export default function Values({ gap = "default", className }: ValuesProps) {
             <div className="lg:column-6 xl:column-6">
               <ScrollReveal delay={300} className="relative">
                 <Image src={values} alt="" className="w-full max-lg:max-h-120 rounded-2xl border-b-4 border-primary" />
-                <VideoPopup video="https://www.youtube.com/embed/AcKskVETHAU" trigger={<button className="absolute bottom-7 inset-e-7.5 size-12 bg-primary rounded-full flex justify-center items-center cursor-pointer"><PlayFill className="size-7 fill-white" /></button>} />
+                <VideoPopup video="https://www.youtube.com/embed/AcKskVETHAU" trigger={<button type="button" aria-label="Phát video giới thiệu" className="absolute bottom-7 inset-e-7.5 size-12 bg-primary rounded-full flex justify-center items-center cursor-pointer"><PlayFill className="size-7 fill-white" /></button>} />
               </ScrollReveal>
             </div>{/* Column */}
           </div>{/* Row */}

@@ -121,7 +121,7 @@ export default function Hero({ className, wrapperClassName }: HeroProps) {
                       <VideoPopup
                         video="https://www.youtube.com/embed/AcKskVETHAU"
                         trigger={
-                          <button className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-16 bg-white rounded-full flex justify-center items-center cursor-pointer shadow-lg transition-all duration-300 group-hover/video:scale-110 group-hover/video:bg-primary group-hover/video:text-white">
+                          <button type="button" aria-label="Phát video giới thiệu" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-16 bg-white rounded-full flex justify-center items-center cursor-pointer shadow-lg transition-all duration-300 group-hover/video:scale-110 group-hover/video:bg-primary group-hover/video:text-white">
                             <PlayFill className="size-9 fill-primary group-hover/video:fill-white transition-colors" />
                           </button>
                         }

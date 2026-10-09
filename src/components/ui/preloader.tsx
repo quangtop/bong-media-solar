@@ -73,9 +73,9 @@ export function Preloader() {
               style={{ width: `${progress}%` }}
             />
           </div>
-          <div className="flex justify-between items-center text-xs font-medium tracking-widest text-white/50 uppercase">
+          <div className="flex justify-between items-center text-xs font-medium tracking-widest text-white/75 uppercase">
             <span>Đang tải</span>
-            <span className="tabular-nums text-primary font-semibold">{progress}%</span>
+            <span className="tabular-nums text-white font-semibold">{progress}%</span>
           </div>
         </div>
       </div>

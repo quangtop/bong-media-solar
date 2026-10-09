@@ -50,7 +50,7 @@ export default function Stories({ gap = "default", className }: StoriesProps) {
                           <Image src={item.image} alt={item.alt} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
                           <div className="absolute inset-0 bg-linear-to-t from-darker/50 via-transparent to-transparent" />
                           <div className="absolute bottom-4 right-4 z-10">
-                            <VideoPopup video="https://www.youtube.com/embed/AcKskVETHAU" trigger={<button className="absolute bottom-7 inset-e-7.5 size-12 bg-primary rounded-full flex justify-center items-center cursor-pointer"><PlayFill className="size-7 fill-white" /></button>} />
+                            <VideoPopup video="https://www.youtube.com/embed/AcKskVETHAU" trigger={<button type="button" aria-label={`Phát video: ${item.alt}`} className="absolute bottom-7 inset-e-7.5 size-12 bg-primary rounded-full flex justify-center items-center cursor-pointer"><PlayFill className="size-7 fill-white" /></button>} />
                           </div>
                         </div>
                       </CarouselItem>

@@ -180,22 +180,22 @@ function NestedSubmenu({ label, icon, items, onNavigate, align = "right" }: Nest
   return (
     <li ref={ref} className="relative w-full" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       {/* Trigger button */}
-      <a href="#" type="button" onClick={() => setOpen((v) => !v)} className={linkStyle({ active: active || open })} aria-expanded={open} aria-haspopup="true" >
+      <button type="button" onClick={() => setOpen((v) => !v)} className={cn(linkStyle({ active: active || open }), "w-full text-start")} aria-expanded={open}>
         <span className="flex items-center gap-3">
           {label}
         </span>
         <ChevronDown open={open} className={`h-3.5 w-3.5 ${open ? "rotate-180 min-[1280px]:rotate-90" : "rotate-0 " + (align === "right" ? "min-[1280px]:rotate-90" : "min-[1280px]:-rotate-90")}`} />
-      </a>
+      </button>
 
       {/* ── Desktop: Submenu flying out to the left/right ── */}
       <div className={desktopStyle({ open, align })}>
-        <div className="w-full rounded-xl border border-white/10 bg-dark/95 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,.5)]" role="menu" >
+        <div className="w-full rounded-xl border border-white/10 bg-dark/95 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,.5)]">
           <ul className="p-1.5 flex flex-col gap-0.5">
             {items.map((item) => {
               const childActive = isLinkActive(item.href || "", pathname);
               return (
                 <li key={item.label}>
-                  <Link href={item.href || "#"} role="menuitem" onClick={() => { setOpen(false); onNavigate(); }} className={subLinkStyle({ active: childActive })} >
+                  <Link href={item.href || "#"} onClick={() => { setOpen(false); onNavigate(); }} className={subLinkStyle({ active: childActive })} >
                     {item.label}
                   </Link>
                 </li>
@@ -298,14 +298,14 @@ function DropdownItem({ label, items, onNavigate, align = "left" }: DropdownItem
   return (
     <li ref={ref} className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       {/* Trigger button */}
-      <a href="#" type="button" onClick={() => setOpen((v) => !v)} className={linkStyle({ active: active || open })} aria-expanded={open} aria-haspopup="true" >
+      <button type="button" onClick={() => setOpen((v) => !v)} className={cn(linkStyle({ active: active || open }), "w-full")} aria-expanded={open}>
         <span className="flex-1 text-start min-[1280px]:text-center">{label}</span>
         <ChevronDown open={open} className="h-4 w-4 min-[1280px]:h-3.5 min-[1280px]:w-3.5" />
-      </a>
+      </button>
 
       {/* ── Desktop: floating flyout ── */}
       <div className={desktopStyle({ open, align })} >
-        <div className="w-full rounded-xl border border-white/10 bg-dark/95 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,.5)]" role="menu" >
+        <div className="w-full rounded-xl border border-white/10 bg-dark/95 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,.5)]">
           <ul className="p-1.5 flex flex-col gap-0.5">
             {items.map((item) => {
               if (item.children) {
@@ -316,7 +316,7 @@ function DropdownItem({ label, items, onNavigate, align = "left" }: DropdownItem
               const childActive = isLinkActive(item.href || "", pathname);
               return (
                 <li key={item.label}>
-                  <Link href={item.href || "#"} role="menuitem" onClick={() => { setOpen(false); onNavigate(); }} className={subLinkStyle({ active: childActive })} >
+                  <Link href={item.href || "#"} onClick={() => { setOpen(false); onNavigate(); }} className={subLinkStyle({ active: childActive })} >
                     {item.label}
                   </Link>
                 </li>
@@ -462,7 +462,7 @@ export default function Menubar() {
         </div>{/* ── .container ── */}
       </ScrollReveal>
       <Overlay className="min-[1280px]:hidden z-51" open={mobileOpen} onClose={closeMobile} />
-      <aside className={drawerStyle({ open: mobileOpen })} aria-hidden={!mobileOpen} >
+      <aside className={drawerStyle({ open: mobileOpen })} aria-hidden={!mobileOpen} inert={!mobileOpen}>
         <nav className="flex flex-col flex-1 px-6 pt-10 pb-10">
           <NavContent className="flex flex-col flex-1 gap-1" onNavigate={closeMobile} />
           <Link href="/contact">

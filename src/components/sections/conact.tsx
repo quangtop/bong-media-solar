@@ -37,7 +37,7 @@ export default function Contact({ gap = "default", className, sectionHead = true
                         </div>
                         <div className="">
                           <h5 className="text-darker text-xl font-medium mb-0.5">{item.title}</h5>
-                          <p className="text-body text-base/normal"><a href={item.href} className="hover:text-primary">{item.info}</a></p>
+                          <p className="text-body text-base/normal"><a href={item.href} className="hover:text-primary-strong">{item.info}</a></p>
                         </div>
                       </li>
                     ))}

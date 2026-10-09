@@ -38,7 +38,7 @@ export default function Process({ gap = "default", className }: ProcessProps) {
               {PROCESS_DATA.map((item, index) => (
                 <div key={index} className="md:column-6 xl:column-3">
                   <ScrollReveal className={cn("text-center px-4 xl:px-0 2xl:px-4", getDelayClass(index))}>
-                    <div className="mb-6 size-14 rounded-full border-2 border-primary bg-white text-lg/normal font-semibold flex justify-center items-center text-primary mx-auto pt-0.5">{item.id}</div>
+                    <div className="mb-6 size-14 rounded-full border-2 border-primary bg-white text-lg/normal font-semibold flex justify-center items-center text-primary-strong mx-auto pt-0.5">{item.id}</div>
                     <h5 className="font-semibold text-xl xl:text-2xl text-darker mb-4">{item.title}</h5>
                     <p className="text-sm xl:text-base leading-relaxed text-body">{item.description}</p>
                   </ScrollReveal>

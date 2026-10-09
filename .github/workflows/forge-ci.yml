@@ -137,7 +137,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      A11Y_PAGES: "/ /about /service /service/1 /project /project/1 /blog /blog/post-001 /contact /faqs /packages"
+      A11Y_PAGES: "/ /about /service /service/1 /project /project/meridian-solar-array /blog /blog/post-001 /contact /faqs /packages"
       A11Y_SERVE: "bun run start -p 4173"
       A11Y_BASE: "http://127.0.0.1:4173"
     outputs:

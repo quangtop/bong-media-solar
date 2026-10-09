@@ -191,11 +191,44 @@ jobs:
             const page = await context.newPage();
             const res = await page.goto(new URL(p, base).href, { waitUntil: 'networkidle' });
             if (!res || !res.ok()) { console.error(`trang ${p}: HTTP ${res ? res.status() : 'khong co phan hoi'}`); process.exit(3); }
+            // Quet o TRANG THAI CUOI: axe doc mau giua chung cua hieu ung hien dan => bao sai. Cho (tran 8s, van quet neu het tran):
+            //  1) Preloader (src/components/ui/preloader.tsx, timer JS ~1s): dat documentElement.dataset.loaded='true' roi go
+            //     lop phu .z-9999 sau 700ms. getAnimations() luc dau rong nen KHONG du; cho dau hieu nay truoc.
+            //     Trang khong co preloader (loaded van undefined sau 3s) => bo qua buoc nay.
+            //  2) Reveal (src/hooks/useIntersectionReveal.ts, IntersectionObserver, chi hien sau khi preloader xong): cuon
+            //     het trang roi ve dau de kich hoat moi phan tu [data-reveal].
+            //  3) Cho hieu ung huu han (transition/animation) yen >= 600ms lien tuc; hieu ung vo han (pulse/marquee) bo qua.
+            const settle = await page.evaluate(async () => {
+              const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+              const t0 = performance.now();
+              const left = () => 8000 - (performance.now() - t0);
+              const live = () => document.getAnimations().filter((a) => a.playState === 'running'
+                && !(a.effect && a.effect.getComputedTiming().iterations === Infinity)).length;
+              while (left() > 0) {
+                const loaded = document.documentElement.dataset.loaded;
+                const overlay = document.querySelector('.z-9999');
+                if (loaded === 'true' && !overlay) break;
+                if (loaded === undefined && !overlay && performance.now() - t0 > 3000) break;
+                await sleep(100);
+              }
+              const step = Math.max(window.innerHeight * 0.8, 200);
+              for (let y = 0; y < document.documentElement.scrollHeight && left() > 0; y += step) {
+                window.scrollTo(0, y);
+                await sleep(120);
+              }
+              window.scrollTo(0, 0);
+              let calm = 0;
+              while (left() > 0 && calm < 600) {
+                await sleep(100);
+                calm = live() === 0 ? calm + 100 : 0;
+              }
+              return { settled: calm >= 600, ms: Math.round(performance.now() - t0) };
+            });
             const r = await new AxeBuilder({ page }).withTags(TAGS).analyze();
             const bad = r.violations.filter((v) => v.impact === 'serious' || v.impact === 'critical');
             out.serious_critical += bad.length;
             out.nodes += bad.reduce((n, v) => n + v.nodes.length, 0);
-            out.results.push({ page: p, incomplete: r.incomplete.length,
+            out.results.push({ page: p, incomplete: r.incomplete.length, settled: settle.settled, settle_ms: settle.ms,
                                violations: bad.map((v) => ({ id: v.id, impact: v.impact, nodes: v.nodes.length,
                                  details: v.nodes.slice(0, 10).map((n) => ({ target: n.target, html: n.html.slice(0, 160),
                                    data: (n.any[0] && n.any[0].data) || null })) })) });

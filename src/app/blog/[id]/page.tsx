@@ -137,7 +137,7 @@ export default async function BlogDetailsPage({ params }: PageProps) {
                       <ScrollReveal delay={100} className="flex flex-col bg-white border-b-4 border-primary shadow-[0_4px_20px_0_rgba(0,0,0,.08)] rounded-2xl h-full">
                         <Image src={item.image} alt={item.title} className="w-full rounded-t-2xl" />
                         <div className="p-8">
-                          <div className="text-primary text-sm/normal font-medium mb-3">{item.date}</div>
+                          <div className="text-primary-strong text-sm/normal font-medium mb-3">{item.date}</div>
                           <h5 className=" text-xl xl:text-2xl leading-normal font-bold text-darker line-clamp-2 mb-4">{item.title}</h5>
                           <p className="text-base xl:text-lg leading-relaxed text-body line-clamp-2 mb-4">{item.excerpt}</p>
                           <Button variant="link" icon={<ArrowLongRight />}> Khám phá </Button>

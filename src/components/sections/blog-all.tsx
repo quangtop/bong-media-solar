@@ -86,7 +86,7 @@ export default function BlogAll({ gap = "default", className }: BlogAllProps) {
                     </div>
                     <div className="lg:column-6 self-center">
                       <div className="xl:pe-4 py-4 max-lg:px-4">
-                        <Badge pill className="mb-5 text-sm font-medium py-1 px-4 text-white">NỔI BẬT</Badge>
+                        <Badge pill className="mb-5 text-sm font-medium py-1 px-4 text-white bg-primary-strong">NỔI BẬT</Badge>
                         <h3 className="text-2xl md:text-3xl lg:text-4xl leading-tight font-semibold text-darker group-hover:text-primary transition-colors mb-4">
                           {featuredPost.title}
                         </h3>
@@ -120,7 +120,7 @@ export default function BlogAll({ gap = "default", className }: BlogAllProps) {
                     className="group flex flex-col" >
                     <Image src={post.image} alt={post.title} className="rounded-t-2xl" />
                     <div className="p-6 flex flex-col flex-1 justify-between">
-                      <div className="text-primary text-sm/4 font-medium mb-3">
+                      <div className="text-primary-strong text-sm/4 font-medium mb-3">
                         {formatDate(post.date)}
                       </div>
                       <h4 className="text-lg md:text-xl lg:text-2xl leading-snug font-bold text-darker group-hover:text-primary transition-colors line-clamp-2 mb-3">

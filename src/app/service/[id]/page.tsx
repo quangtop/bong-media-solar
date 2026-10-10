@@ -65,7 +65,7 @@ export default async function ServiceDetailsPage({ params }: PageProps) {
                             const isActive = item.id === service.id;
                             return (
                               <li className="sm:column-6 lg:column-12" key={item.id}>
-                                <Link href={`/service/${item.id}`} className={cn("group flex items-center justify-between py-3 px-3 rounded-xl text-xs lg:text-sm 2xl:text-base font-medium transition-all duration-300", isActive ? "bg-primary-lighter/70 text-primary" : "text-body hover:text-darker hover:translate-x-1")} >
+                                <Link href={`/service/${item.id}`} className={cn("group flex items-center justify-between py-3 px-3 rounded-xl text-xs lg:text-sm 2xl:text-base font-medium transition-all duration-300", isActive ? "bg-primary-lighter/70 text-primary-strong" : "text-body hover:text-darker hover:translate-x-1")} >
                                   <div className="flex items-center gap-2.5">
                                     <span className={cn("size-2 rounded-full transition-all duration-300", isActive ? "bg-primary scale-120" : "bg-gray-300 group-hover:bg-primary group-hover:scale-110")} />
                                     <span>{item.title}</span>
@@ -116,7 +116,7 @@ export default async function ServiceDetailsPage({ params }: PageProps) {
                   </ScrollReveal>
 
                   <ScrollReveal delay={150} className="mb-10">
-                    <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
+                    <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary-strong text-sm font-semibold mb-4">
                       Giải pháp năng lượng toàn diện
                     </span>
                     <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-darker leading-tight mb-4">
@@ -148,7 +148,7 @@ export default async function ServiceDetailsPage({ params }: PageProps) {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       {service.benefits.map((benefit, idx) => (
                         <ScrollReveal key={idx} className={cn("p-6 bg-white border border-lighter border-b-4 border-b-primary rounded-2xl shadow-sm h-full", getDelayClass(idx))}>
-                          <div className="size-12 rounded-xl bg-primary/15 flex items-center justify-center text-primary font-bold text-lg mb-4">
+                          <div className="size-12 rounded-xl bg-primary/15 flex items-center justify-center text-darker font-bold text-lg mb-4">
                             0{idx + 1}
                           </div>
                           <h4 className="text-lg font-semibold text-darker mb-2">{benefit.title}</h4>
@@ -186,7 +186,7 @@ export default async function ServiceDetailsPage({ params }: PageProps) {
                       {service.faqs.map((faq, idx) => (
                         <ScrollReveal key={idx} className={cn("p-6 bg-white border border-lighter rounded-2xl shadow-xs", getDelayClass(idx))}>
                           <h5 className="text-lg font-semibold text-darker mb-2 flex items-center gap-2">
-                            <span className="text-primary font-bold">Hỏi:</span> {faq.question}
+                            <span className="text-primary-strong font-bold">Hỏi:</span> {faq.question}
                           </h5>
                           <p className="text-base/relaxed text-body ps-6">{faq.answer}</p>
                         </ScrollReveal>

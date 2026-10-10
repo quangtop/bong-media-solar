@@ -51,7 +51,7 @@ export default function Blog({ gap = "default", className }: BlogProps) {
                       className="group flex flex-col" >
                       <Image src={post.image} alt={post.title} className="rounded-t-2xl" />
                       <div className="p-6 flex flex-col flex-1 justify-between">
-                        <div className="text-primary text-sm/4 font-medium mb-3">
+                        <div className="text-primary-strong text-sm/4 font-medium mb-3">
                           {formatDate(post.date)}
                         </div>
                         <h4 className="text-lg md:text-xl lg:text-2xl leading-snug font-bold text-darker group-hover:text-primary transition-colors line-clamp-2 mb-3">

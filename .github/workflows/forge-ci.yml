@@ -202,7 +202,9 @@ jobs:
               const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
               const t0 = performance.now();
               const left = () => 8000 - (performance.now() - t0);
-              const live = () => document.getAnimations().filter((a) => a.playState === 'running'
+              // Chỉ đếm hiệu ứng theo THỜI GIAN: animation điều khiển bằng cuộn (animation-timeline: scroll()/view(), vd parallax)
+              // luôn 'running' nên không bao giờ yên (bong-media 09/10/2026: cả 11 trang chạm trần 8s vì parallax-bg-anim).
+              const live = () => document.getAnimations().filter((a) => a.timeline === document.timeline && a.playState === 'running'
                 && !(a.effect && a.effect.getComputedTiming().iterations === Infinity)).length;
               while (left() > 0) {
                 const loaded = document.documentElement.dataset.loaded;

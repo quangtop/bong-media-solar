@@ -41,281 +41,281 @@ export interface ServiceItem {
 export const SERVICE_DATA: ServiceItem[] = [
   {
     id: '1',
-    title: 'Residential Solar',
-    subtitle: 'Clean, Silent, Independent Power for Modern Homes',
-    description: 'Advanced solar arrays tailored for modern homeowners who prioritize sustainability and economic independence.',
-    fullDescription: 'Our residential solar panel installations transform your rooftop into a clean, private power plant. By pairing Tier-1 monocrystalline panels with smart microinverters and cloud energy monitoring, we help homeowners slash monthly electric utility bills by up to 80% while gaining complete energy independence.',
+    title: "Điện mặt trời dân dụng",
+    subtitle: "Nguồn điện sạch, yên tĩnh và độc lập cho ngôi nhà hiện đại",
+    description: "Hệ thống điện mặt trời tiên tiến dành cho gia chủ ưu tiên tính bền vững và khả năng tự chủ chi phí.",
+    fullDescription: "Hệ thống điện mặt trời dân dụng biến mái nhà thành nguồn điện sạch riêng của bạn. Kết hợp tấm pin đơn tinh thể Tier-1, bộ vi biến tần thông minh và giám sát năng lượng trên nền tảng đám mây, chúng tôi giúp giảm hóa đơn điện hằng tháng tới 80% và tăng khả năng tự chủ năng lượng.",
     image: serviceA,
     bannerImage: serviceLargeA,
     features: [
-      'Tier-1 High Efficiency Monocrystalline Panels',
-      'Integrated Microinverter Architecture for Maximum Yield',
-      'Net Metering Integration & Bi-directional Meter Setup',
-      'Real-Time Mobile App Energy & Savings Tracking',
-      'Comprehensive 25-Year Weather & Performance Warranty'
+      "Tấm pin đơn tinh thể Tier-1 hiệu suất cao",
+      "Kiến trúc vi biến tần tích hợp tối ưu sản lượng",
+      "Tích hợp cơ chế bù trừ điện năng và lắp công tơ hai chiều",
+      "Theo dõi năng lượng và khoản tiết kiệm theo thời gian thực trên ứng dụng",
+      "Bảo hành toàn diện về khả năng chịu thời tiết và hiệu suất trong 25 năm"
     ],
     benefits: [
       {
-        title: 'Massive Bill Reduction',
-        description: 'Reduce monthly grid dependence immediately and lock in low electricity rates for decades.'
+        title: "Giảm mạnh hóa đơn điện",
+        description: "Giảm ngay mức phụ thuộc vào lưới điện và duy trì chi phí điện thấp trong nhiều thập kỷ."
       },
       {
-        title: 'Increased Property Value',
-        description: 'Homes equipped with solar systems consistently sell faster and command higher property equity.'
+        title: "Tăng giá trị bất động sản",
+        description: "Nhà có hệ thống điện mặt trời thường bán nhanh hơn và có giá trị cao hơn."
       },
       {
-        title: '24/7 Energy Resilience',
-        description: 'Pair with home storage batteries to keep your lights and essential appliances running during grid outages.'
+        title: "Nguồn điện ổn định 24/7",
+        description: "Kết hợp pin lưu trữ để duy trì chiếu sáng và các thiết bị thiết yếu khi mất điện lưới."
       }
     ],
     specifications: [
-      { label: 'System Size Range', value: '4 kW – 20 kW Residential' },
-      { label: 'Panel Efficiency', value: 'Up to 22.8% Monocrystalline' },
-      { label: 'Warranty Period', value: '25 Years Linear Power Output' },
-      { label: 'Payback Period', value: '3.5 to 5 Years Average ROI' }
+      { label: "Dải công suất hệ thống", value: "4 kW – 20 kW dân dụng" },
+      { label: "Hiệu suất tấm pin", value: "Đơn tinh thể, tới 22.8%" },
+      { label: "Thời hạn bảo hành", value: "Bảo hành công suất tuyến tính 25 năm" },
+      { label: "Thời gian hoàn vốn", value: "Hoàn vốn trung bình 3.5–5 năm" }
     ],
     faqs: [
       {
-        question: 'How long does a residential solar installation take?',
-        answer: 'Physical installation on your roof typically takes 1 to 2 days. The complete process, including permitting, utility inspection, and net metering activation, averages 2 to 3 weeks.'
+        question: "Lắp điện mặt trời dân dụng mất bao lâu?",
+        answer: "Việc lắp đặt trên mái thường mất 1–2 ngày. Toàn bộ quá trình, gồm xin phép, kiểm tra của đơn vị điện lực và kích hoạt bù trừ điện năng, trung bình mất 2–3 tuần."
       },
       {
-        question: 'What happens to my solar power on cloudy or rainy days?',
-        answer: 'Solar panels generate electricity from diffuse daylight even through clouds. Any shortfall is seamlessly offset by the grid or your connected battery backup system.'
+        question: "Hệ thống hoạt động thế nào khi trời nhiều mây hoặc mưa?",
+        answer: "Tấm pin vẫn tạo điện từ ánh sáng tán xạ xuyên qua mây. Phần thiếu hụt được bù bằng điện lưới hoặc hệ thống pin dự phòng đã kết nối."
       },
       {
-        question: 'Will solar panels damage my roof?',
-        answer: 'No. Our certified installers use waterproof flashings and engineered racking systems designed to withstand extreme wind loads without compromising roof integrity.'
+        question: "Tấm pin có làm hỏng mái nhà không?",
+        answer: "Không. Đội ngũ lắp đặt được chứng nhận sử dụng chi tiết chống thấm và hệ giá đỡ được thiết kế chịu gió lớn, bảo vệ kết cấu mái."
       }
     ]
   },
   {
     id: '2',
-    title: 'Commercial Solar',
-    subtitle: 'Industrial-Grade Energy Systems for Maximum Corporate ROI',
-    description: 'Solurax industrial-grade energy solutions that optimize operational costs and enhance corporate ESG metrics.',
-    fullDescription: 'Commercial energy expenses directly impact operating margins. Solurax designs custom rooftop, carport, and ground-mounted solar microgrids for factories, office parks, warehouses, and retail centers. We deliver fast ROI through tax incentives, accelerated depreciation, and peak demand shaving.',
+    title: "Điện mặt trời thương mại",
+    subtitle: "Hệ thống năng lượng công nghiệp tối ưu lợi nhuận đầu tư của doanh nghiệp",
+    description: "Giải pháp năng lượng công nghiệp của Bống Media tối ưu chi phí vận hành và cải thiện các chỉ số ESG của doanh nghiệp.",
+    fullDescription: "Chi phí điện tác động trực tiếp đến biên lợi nhuận. Bống Media thiết kế hệ thống điện mặt trời trên mái, mái che bãi xe và mặt đất cho nhà máy, khu văn phòng, kho hàng và trung tâm bán lẻ. Giải pháp giúp hoàn vốn nhanh nhờ ưu đãi thuế, khấu hao nhanh và giảm nhu cầu công suất giờ cao điểm.",
     image: serviceB,
     bannerImage: serviceLargeB,
     features: [
-      'Custom Commercial Racking & Ballasted Rooftop Mounting',
-      'Peak Demand Shaving & Load Balancing Analytics',
-      'Accelerated Depreciation (MACRS) & Federal Tax Credit Support',
-      'High-Voltage Central & String Inverter Configurations',
-      'SCADA Integration for Enterprise Fleet Monitoring'
+      "Giá đỡ thương mại và hệ lắp mái dùng đối trọng tùy chỉnh",
+      "Phân tích giảm phụ tải đỉnh và cân bằng tải",
+      "Hỗ trợ khấu hao nhanh (MACRS) và tín dụng thuế liên bang",
+      "Cấu hình biến tần trung tâm và biến tần chuỗi cao áp",
+      "Tích hợp SCADA giám sát hệ thống năng lượng doanh nghiệp"
     ],
     benefits: [
       {
-        title: 'Predictable Operational Overhead',
-        description: 'Hedge your business against volatile utility rate hikes with fixed, low-cost solar electricity generation.'
+        title: "Chi phí vận hành dễ dự tính",
+        description: "Bảo vệ doanh nghiệp trước biến động giá điện bằng nguồn điện mặt trời có chi phí thấp và ổn định."
       },
       {
-        title: 'Strengthen Corporate ESG',
-        description: 'Demonstrate actionable environmental responsibility to shareholders, clients, and partners.'
+        title: "Củng cố chỉ số ESG của doanh nghiệp",
+        description: "Thể hiện trách nhiệm môi trường bằng hành động cụ thể với cổ đông, khách hàng và đối tác."
       },
       {
-        title: 'Rapid Investment Payback',
-        description: 'Commercial tax credits and peak shaving allow most corporate installations to achieve full payback in under 4 years.'
+        title: "Hoàn vốn đầu tư nhanh",
+        description: "Tín dụng thuế thương mại và giảm phụ tải đỉnh giúp phần lớn hệ thống doanh nghiệp hoàn vốn trong dưới 4 năm."
       }
     ],
     specifications: [
-      { label: 'System Size Range', value: '50 kW – 5 MW Commercial' },
-      { label: 'Inverter Type', value: 'High-Efficiency String / Central' },
-      { label: 'Monitoring System', value: 'Enterprise SCADA & API Access' },
-      { label: 'ROI Timeline', value: '3 to 4 Years' }
+      { label: "Dải công suất hệ thống", value: "50 kW – 5 MW thương mại" },
+      { label: "Loại biến tần", value: "Biến tần chuỗi / trung tâm hiệu suất cao" },
+      { label: "Hệ thống giám sát", value: "SCADA doanh nghiệp và truy cập API" },
+      { label: "Thời gian hoàn vốn", value: "3–4 năm" }
     ],
     faqs: [
       {
-        question: 'Will installation disrupt daily business operations?',
-        answer: 'Not at all. Electrical tie-ins and structural mounting are scheduled during off-peak hours or weekends to ensure zero downtime for your daily operations.'
+        question: "Lắp đặt có gián đoạn hoạt động kinh doanh không?",
+        answer: "Không. Việc đấu nối điện và lắp kết cấu được sắp xếp ngoài giờ cao điểm hoặc vào cuối tuần để duy trì hoạt động thường ngày."
       },
       {
-        question: 'Can we monetize unused commercial roof space?',
-        answer: 'Yes. Excess energy generated by your commercial solar array can be fed into the utility grid through commercial net metering programs or power purchase agreements (PPAs).'
+        question: "Có thể khai thác mái nhà thương mại chưa sử dụng không?",
+        answer: "Có. Điện dư từ hệ thống thương mại có thể đưa lên lưới thông qua chương trình bù trừ điện năng hoặc hợp đồng mua bán điện (PPA)."
       }
     ]
   },
   {
     id: '3',
-    title: 'Battery Storage',
-    subtitle: 'Uninterrupted 24/7 Power Resilience & Smart Grid Management',
-    description: 'Maintain 24/7 power resilience with our high-tech wall-mounted energy storage systems. Energy on your terms.',
-    fullDescription: 'Solar power is most abundant during the day, but peak household and business energy demands often occur in the evening. Our advanced Lithium Iron Phosphate (LFP) battery storage systems store your solar surplus for use when utility rates spike or when storm power outages strike.',
+    title: "Pin lưu trữ",
+    subtitle: "Nguồn điện liên tục 24/7 và quản lý lưới điện thông minh",
+    description: "Duy trì nguồn điện ổn định 24/7 với hệ pin lưu trữ treo tường công nghệ cao. Chủ động sử dụng năng lượng theo nhu cầu.",
+    fullDescription: "Điện mặt trời dồi dào vào ban ngày, trong khi nhu cầu điện cao nhất của gia đình và doanh nghiệp thường vào buổi tối. Hệ pin lithium sắt photphat (LFP) tiên tiến lưu trữ điện dư để dùng khi giá điện tăng hoặc khi bão gây mất điện.",
     image: serviceC,
     bannerImage: serviceCover,
     features: [
-      'Lithium Iron Phosphate (LFP) Chemistry for Maximum Thermal Safety',
-      'Instantaneous Instant-On Automatic Transfer Switch (<10ms Backup)',
-      'Smart Time-of-Use (TOU) Rate Optimization',
-      'Modular Expansion Capacity from 5 kWh to 100+ kWh',
-      '10-Year Full Replacement Battery Warranty'
+      "Công nghệ lithium sắt photphat (LFP) tối ưu an toàn nhiệt",
+      "Bộ chuyển nguồn tự động tức thời (dự phòng <10ms)",
+      "Tối ưu thông minh theo biểu giá điện theo thời gian (TOU)",
+      "Mở rộng dung lượng theo mô-đun từ 5 kWh đến hơn 100 kWh",
+      "Bảo hành thay thế pin toàn diện trong 10 năm"
     ],
     benefits: [
       {
-        title: 'Zero Grid Blackout Anxiety',
-        description: 'Keep your refrigerators, medical equipment, HVAC, and WiFi running seamlessly during weather emergencies.'
+        title: "An tâm khi điện lưới gián đoạn",
+        description: "Duy trì tủ lạnh, thiết bị y tế, điều hòa và WiFi khi có sự cố thời tiết."
       },
       {
-        title: 'Beat Time-of-Use Utility Rates',
-        description: 'Automatically discharge battery power during peak utility pricing hours to avoid high rate charges.'
+        title: "Tối ưu chi phí theo khung giờ",
+        description: "Tự động sử dụng điện từ pin vào giờ giá điện cao để giảm chi phí."
       },
       {
-        title: 'Complete Off-Grid Capability',
-        description: 'Store solar energy created during daytime hours to power your entire property through the night.'
+        title: "Khả năng vận hành hoàn toàn độc lập",
+        description: "Lưu điện mặt trời ban ngày để cấp điện cho toàn bộ công trình vào ban đêm."
       }
     ],
     specifications: [
-      { label: 'Battery Chemistry', value: 'Lithium Iron Phosphate (LiFePO4)' },
-      { label: 'Storage Capacity', value: '10 kWh – 200 kWh Modular' },
-      { label: 'Switchover Time', value: '< 10 Milliseconds (Instantaneous)' },
-      { label: 'Cycle Life', value: '6,000+ Cycles at 80% DoD' }
+      { label: "Công nghệ pin", value: "Lithium sắt photphat (LiFePO4)" },
+      { label: "Dung lượng lưu trữ", value: "10 kWh – 200 kWh theo mô-đun" },
+      { label: "Thời gian chuyển nguồn", value: "< 10 mili giây (tức thời)" },
+      { label: "Tuổi thọ chu kỳ", value: "Hơn 6,000 chu kỳ ở độ sâu xả 80% DoD" }
     ],
     faqs: [
       {
-        question: 'How long can a battery storage system power my property?',
-        answer: 'Depending on battery size and critical load configuration, a standard residential battery system can power essential loads for 24 to 72 hours, automatically recharging each day when the sun rises.'
+        question: "Hệ pin lưu trữ có thể cấp điện trong bao lâu?",
+        answer: "Tùy dung lượng pin và cấu hình tải thiết yếu, hệ dân dụng tiêu chuẩn có thể cấp điện cho các tải quan trọng trong 24–72 giờ, tự sạc lại mỗi ngày khi có nắng."
       },
       {
-        question: 'Are LFP batteries safe for indoor installation?',
-        answer: 'Yes. LFP (Lithium Iron Phosphate) is the safest battery chemistry available, featuring exceptional thermal stability, non-toxic materials, and integrated fire suppression mechanisms.'
+        question: "Pin LFP có an toàn để lắp trong nhà không?",
+        answer: "Có. Pin LFP (lithium sắt photphat) có độ ổn định nhiệt cao, vật liệu không độc hại và cơ chế chống cháy tích hợp."
       }
     ]
   },
   {
     id: '4',
-    title: 'EV Charging Station',
-    subtitle: 'Turnkey Commercial & Residential Electric Vehicle Charging Infrastructure',
-    description: 'Turnkey electric vehicle (EV) charging port installations for homes, commercial parking lots, and corporate fleets.',
-    fullDescription: 'Fuel your electric vehicles directly from the sun. Solurax installs Level 2 fast chargers for homes and DC Fast Chargers for commercial hubs, corporate parking facilities, and fleet depots. Seamlessly integrated with solar arrays and cloud billing platforms.',
+    title: "Trạm sạc xe điện",
+    subtitle: "Hạ tầng sạc xe điện trọn gói cho gia đình và doanh nghiệp",
+    description: "Lắp đặt trạm sạc xe điện (EV) trọn gói cho nhà ở, bãi đỗ xe thương mại và đội xe doanh nghiệp.",
+    fullDescription: "Sạc xe điện trực tiếp bằng năng lượng mặt trời. Bống Media lắp bộ sạc nhanh Level 2 cho gia đình và bộ sạc nhanh DC cho trung tâm thương mại, bãi xe doanh nghiệp và đội xe. Hệ thống tích hợp với điện mặt trời và nền tảng thanh toán đám mây.",
     image: serviceD,
     bannerImage: serviceLargeA,
     features: [
-      'High-Speed Level 2 (48A) & DC Fast Charging (Up to 180kW)',
-      'Solar-Direct Charging Mode (Zero Grid Fueling)',
-      'OCPP Compliant Cloud Management & RFID Access',
-      'Integrated Payment Terminals for Commercial Monetization',
-      'Weatherproof NEMA 4X / IP66 Rated Enclosures'
+      "Sạc Level 2 tốc độ cao (48A) và sạc nhanh DC (tới 180kW)",
+      "Chế độ sạc trực tiếp từ điện mặt trời",
+      "Quản lý đám mây theo chuẩn OCPP và truy cập RFID",
+      "Thiết bị thanh toán tích hợp để khai thác trạm sạc thương mại",
+      "Vỏ chống thời tiết đạt chuẩn NEMA 4X / IP66"
     ],
     benefits: [
       {
-        title: 'Charge EV with Free Solar Power',
-        description: 'Power your electric vehicles using zero-cost green electrons generated directly by your rooftop solar system.'
+        title: "Sạc xe bằng điện mặt trời miễn phí",
+        description: "Cấp điện cho xe bằng nguồn điện xanh từ hệ thống điện mặt trời trên mái của bạn."
       },
       {
-        title: 'Attract Customers & Tenants',
-        description: 'Offer premium EV charging amenities to increase dwell time and commercial property attractiveness.'
+        title: "Thu hút khách hàng và khách thuê",
+        description: "Cung cấp tiện ích sạc xe điện để khách lưu lại lâu hơn và tăng sức hút của bất động sản thương mại."
       },
       {
-        title: 'Monetize Commercial Stations',
-        description: 'Set custom charging fees per kWh or session duration using our automated payment gateway software.'
+        title: "Khai thác doanh thu trạm sạc",
+        description: "Thiết lập phí sạc theo kWh hoặc thời lượng phiên qua phần mềm thanh toán tự động."
       }
     ],
     specifications: [
-      { label: 'Charger Types', value: 'Level 2 AC & DC Fast Charger' },
-      { label: 'Power Output', value: '7.6 kW – 180 kW Dual Port' },
-      { label: 'Connectivity', value: 'Wi-Fi, Ethernet, 4G LTE, OCPP 1.6J' },
-      { label: 'Enclosure Rating', value: 'NEMA 4X / IP66 Outdoor Ready' }
+      { label: "Loại bộ sạc", value: "Sạc AC Level 2 và sạc nhanh DC" },
+      { label: "Công suất đầu ra", value: "7.6 kW – 180 kW, hai cổng" },
+      { label: "Kết nối", value: 'Wi-Fi, Ethernet, 4G LTE, OCPP 1.6J' },
+      { label: "Chuẩn bảo vệ vỏ", value: "NEMA 4X / IP66, phù hợp ngoài trời" }
     ],
     faqs: [
       {
-        question: 'Can I charge my EV at night using solar energy?',
-        answer: 'Yes, by combining your solar panels with a Solurax battery storage system, solar energy collected during daytime hours is stored to fast-charge your vehicle overnight.'
+        question: "Có thể sạc xe ban đêm bằng năng lượng mặt trời không?",
+        answer: "Có. Khi kết hợp tấm pin với hệ lưu trữ Bống Media, điện tạo ra ban ngày được lưu lại để sạc nhanh cho xe vào ban đêm."
       },
       {
-        question: 'What electrical upgrades are required for a home Level 2 charger?',
-        answer: 'Most Level 2 chargers require a dedicated 240V circuit (similar to an electric clothes dryer). Our certified electricians perform panel load calculations prior to installation.'
+        question: "Cần nâng cấp điện gì để lắp bộ sạc Level 2 tại nhà?",
+        answer: "Phần lớn bộ sạc Level 2 cần mạch 240V riêng, tương tự máy sấy quần áo điện. Kỹ thuật viên được chứng nhận sẽ tính toán tải tủ điện trước khi lắp."
       }
     ]
   },
   {
     id: '5',
-    title: 'Operation & Maintenance',
-    subtitle: 'Proactive Monitoring, Thermal Inspections & Peak Yield Optimization',
-    description: 'Proactive solar panel cleaning, thermal imaging inspections, inverter health checks, and wiring optimization.',
-    fullDescription: 'Dust, pollen, thermal stress, and electrical degradation can reduce total solar production by up to 25% over time. Solurax offers 24/7 remote monitoring, automated sensor alerts, robotic panel washing, thermal drone imaging, and preventive maintenance packages to ensure maximum energy yield.',
+    title: "Vận hành và bảo trì",
+    subtitle: "Giám sát chủ động, kiểm tra nhiệt và tối ưu sản lượng",
+    description: "Vệ sinh tấm pin, kiểm tra bằng ảnh nhiệt, đánh giá biến tần và tối ưu hệ thống dây điện.",
+    fullDescription: "Bụi, phấn hoa, tác động nhiệt và suy giảm thiết bị điện có thể làm sản lượng giảm tới 25% theo thời gian. Bống Media cung cấp giám sát từ xa 24/7, cảnh báo cảm biến tự động, vệ sinh bằng robot, chụp ảnh nhiệt bằng drone và bảo trì phòng ngừa để tối ưu sản lượng.",
     image: serviceE,
     bannerImage: serviceLargeB,
     features: [
-      '24/7 AI-Driven Remote Performance Monitoring',
-      'Infrared Thermal Imaging for Hotspot Detection',
-      'De-ionized Eco-Friendly Panel Washing & Dust Removal',
-      'Inverter Firmware Updates & Calibration Checks',
-      'Emergency Rapid Response Dispatch (<4 Hours)'
+      "Giám sát hiệu suất từ xa 24/7 bằng AI",
+      "Ảnh nhiệt hồng ngoại phát hiện điểm nóng",
+      "Vệ sinh tấm pin và loại bỏ bụi bằng nước khử ion",
+      "Cập nhật phần mềm biến tần và kiểm tra hiệu chuẩn",
+      "Điều phối xử lý khẩn cấp nhanh (<4 giờ)"
     ],
     benefits: [
       {
-        title: 'Maximize System Kilowatt Output',
-        description: 'Regular cleaning and thermal tuning restore panels to 100% peak factory conversion efficiency.'
+        title: "Tối đa hóa sản lượng điện",
+        description: "Vệ sinh định kỳ và điều chỉnh nhiệt giúp khôi phục 100% hiệu suất chuyển đổi tối ưu của tấm pin theo thiết kế nhà máy."
       },
       {
-        title: 'Prevent Costly Equipment Failure',
-        description: 'Detect wiring wear, inverter faults, and micro-cracks before they turn into expensive repairs.'
+        title: "Ngăn ngừa hỏng hóc tốn kém",
+        description: "Phát hiện dây điện xuống cấp, lỗi biến tần và vết nứt nhỏ trước khi chúng gây ra chi phí sửa chữa lớn."
       },
       {
-        title: 'Guaranteed Production Uptime',
-        description: 'Our SLA agreements ensure your commercial or residential solar plant maintains continuous high uptime.'
+        title: "Duy trì khả năng phát điện",
+        description: "Thỏa thuận mức dịch vụ (SLA) giúp hệ điện mặt trời dân dụng và thương mại duy trì thời gian hoạt động cao."
       }
     ],
     specifications: [
-      { label: 'Monitoring SLA', value: '24/7 Automated Error Detection' },
-      { label: 'Inspection Tech', value: 'FLIR Thermal Drones & I-V Curve Tracing' },
-      { label: 'Response Time', value: '< 4 Hours Emergency On-Site Dispatch' },
-      { label: 'Cleaning Method', value: 'De-ionized Purified Water & Soft Brushes' }
+      { label: "Cam kết giám sát", value: "Phát hiện lỗi tự động 24/7" },
+      { label: "Công nghệ kiểm tra", value: "Drone ảnh nhiệt FLIR và đo đường cong I-V" },
+      { label: "Thời gian phản hồi", value: "Điều phối xử lý khẩn cấp tại chỗ trong < 4 giờ" },
+      { label: "Phương pháp vệ sinh", value: "Nước tinh khiết khử ion và chổi mềm" }
     ],
     faqs: [
       {
-        question: 'How often should solar panels be professionally cleaned?',
-        answer: 'We recommend professional cleaning 1 to 2 times a year, or quarterly for properties located near dusty roads, agricultural zones, or coastal environments.'
+        question: "Nên vệ sinh tấm pin chuyên nghiệp bao lâu một lần?",
+        answer: "Chúng tôi khuyến nghị vệ sinh chuyên nghiệp 1–2 lần mỗi năm, hoặc mỗi quý nếu công trình gần đường nhiều bụi, vùng nông nghiệp hay khu ven biển."
       },
       {
-        question: 'What is thermal imaging inspection?',
-        answer: 'Thermal imaging uses infrared cameras to detect microscopic electrical resistance hotspots in solar cells and junction boxes before they cause component failure.'
+        question: "Kiểm tra ảnh nhiệt là gì?",
+        answer: "Kiểm tra ảnh nhiệt dùng camera hồng ngoại để phát hiện điểm nóng do điện trở trong tế bào quang điện và hộp nối trước khi thiết bị hỏng."
       }
     ]
   },
   {
     id: '6',
-    title: 'Solar Off-Grid Systems',
-    subtitle: '100% Autonomous Energy Systems for Remote Cabins, Farms & Microgrids',
-    description: 'Maintain 24/7 power resilience with our high-tech wall-mounted energy storage systems. Energy on your terms.',
-    fullDescription: 'When power lines don\'t reach your property or grid connection fees are prohibitively expensive, Solurax Off-Grid Systems deliver complete energy autonomy. Combining heavy-duty solar arrays, MPPT charge controllers, industrial LFP batteries, and automated generator auto-start capabilities.',
+    title: "Hệ điện mặt trời độc lập",
+    subtitle: "Hệ năng lượng tự chủ 100% cho nhà vùng xa, trang trại và lưới điện nhỏ",
+    description: "Duy trì nguồn điện ổn định 24/7 với hệ pin lưu trữ treo tường công nghệ cao. Chủ động sử dụng năng lượng theo nhu cầu.",
+    fullDescription: "Khi điện lưới chưa tới hoặc chi phí đấu nối quá cao, hệ điện mặt trời độc lập Bống Media mang lại khả năng tự chủ hoàn toàn. Giải pháp kết hợp tấm pin công suất lớn, bộ điều khiển sạc MPPT, pin LFP công nghiệp và máy phát điện dự phòng tự khởi động.",
     image: serviceF,
     bannerImage: serviceCover,
     features: [
-      'Pure Sine Wave Heavy-Duty Off-Grid Inverters',
-      'High-Voltage MPPT Solar Charge Controllers',
-      'Expandable High-Capacity Industrial Battery Bank',
-      'Automated Standby Generator Auto-Start Tie-In',
-      'Ruggedized Extreme Weather & Temperature Racking'
+      "Biến tần độc lập công suất lớn, sóng sin chuẩn",
+      "Bộ điều khiển sạc điện mặt trời MPPT cao áp",
+      "Bộ pin công nghiệp dung lượng lớn, có thể mở rộng",
+      "Tích hợp tự khởi động máy phát điện dự phòng",
+      "Giá đỡ bền chắc cho thời tiết và nhiệt độ khắc nghiệt"
     ],
     benefits: [
       {
-        title: 'Eliminate Grid Connection Costs',
-        description: 'Avoid paying utility companies tens of thousands of dollars to run utility poles to remote properties.'
+        title: "Loại bỏ chi phí đấu nối lưới điện",
+        description: "Tránh chi phí hàng chục nghìn đô la để kéo cột điện đến công trình vùng xa."
       },
       {
-        title: 'True 100% Energy Autonomy',
-        description: 'Generate, store, and consume 100% of your power with zero utility bills and zero reliance on central grids.'
+        title: "Tự chủ năng lượng 100%",
+        description: "Tự tạo, lưu trữ và sử dụng 100% điện năng mà không có hóa đơn điện hay phụ thuộc vào lưới điện trung tâm."
       },
       {
-        title: 'Rugged Reliability in Remote Areas',
-        description: 'Engineered specifically for agricultural farms, mountain cabins, islands, and remote telecommunication towers.'
+        title: "Vận hành bền bỉ tại vùng xa",
+        description: "Thiết kế dành cho trang trại, nhà trên núi, đảo và trạm viễn thông xa khu dân cư."
       }
     ],
     specifications: [
-      { label: 'Inverter Output', value: '5 kW – 50 kW Pure Sine Wave' },
-      { label: 'Charge Controller', value: 'High Efficiency MPPT 99.5% Tracking' },
-      { label: 'Battery Backup', value: '20 kWh – 300+ kWh Off-Grid LFP' },
-      { label: 'Generator Backup', value: 'Integrated Auto-Start Relay Port' }
+      { label: "Đầu ra biến tần", value: "5 kW – 50 kW, sóng sin chuẩn" },
+      { label: "Bộ điều khiển sạc", value: "MPPT hiệu suất cao, bám điểm 99.5%" },
+      { label: "Pin dự phòng", value: "LFP độc lập 20 kWh – hơn 300 kWh" },
+      { label: "Máy phát điện dự phòng", value: "Cổng rơ-le tự khởi động tích hợp" }
     ],
     faqs: [
       {
-        question: 'Can an off-grid solar system run heavy appliances like AC and water pumps?',
-        answer: 'Yes. Our off-grid systems are custom-sized with high peak surge surge-capacity inverters specifically designed to start high-inductance loads such as deep-well water pumps and HVAC units.'
+        question: "Hệ độc lập có chạy được điều hòa và máy bơm nước không?",
+        answer: "Có. Hệ thống được thiết kế theo tải với biến tần chịu công suất khởi động cao, phù hợp máy bơm giếng sâu và thiết bị điều hòa."
       },
       {
-        question: 'What happens during prolonged winter rain or snowstorms?',
-        answer: 'Off-grid systems include a smart generator auto-start module. If solar production is low and battery voltage drops, the backup generator automatically runs to top off batteries and turns off when full.'
+        question: "Điều gì xảy ra khi mưa mùa đông kéo dài hoặc có bão tuyết?",
+        answer: "Hệ độc lập có mô-đun tự khởi động máy phát điện. Khi sản lượng thấp và điện áp pin giảm, máy phát tự chạy để sạc pin rồi dừng khi pin đầy."
       }
     ]
   }

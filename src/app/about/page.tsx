@@ -8,14 +8,14 @@ import Values from "@/components/sections/values";
 
 
 export const metadata: Metadata = {
-  title: "About Us",
-  description: "Solurax is a modern, responsive, and beautiful landing page template for solar and renewable energy technologies.",
+  title: "Giới thiệu",
+  description: "Bống Media giới thiệu các giải pháp điện mặt trời và năng lượng tái tạo với công nghệ hiện đại, hiệu quả và bền vững.",
 };
 
 export default function AboutPage() {
   return (
     <React.Fragment>
-      <PageHeader heading="About Us" breadcrumb={[{ href: '/', label: 'Home' }, { label: 'About Us' }]} />
+      <PageHeader heading="Giới thiệu" breadcrumb={[{ href: '/', label: "Trang chủ" }, { label: "Giới thiệu" }]} />
       <main className="relative flex flex-col justify-between overflow-x-hidden">
         <Why stats={true} />
         <Values />

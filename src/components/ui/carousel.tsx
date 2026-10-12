@@ -143,12 +143,13 @@ function Carousel({
   React.useEffect(() => {
     if (!api) return
 
-    onSelect(api)
+    const frame = requestAnimationFrame(() => onSelect(api))
 
     api.on("reInit", onSelect)
     api.on("select", onSelect)
 
     return () => {
+      cancelAnimationFrame(frame)
       api.off("select", onSelect)
       api.off("reInit", onSelect)
     }
@@ -283,6 +284,7 @@ function CarouselPrevious({
       className={cn(className)}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
+      aria-label="Slide trước"
       {...props}
       icon={<ArrowLeft />}
     >
@@ -306,6 +308,7 @@ function CarouselNext({
       className={cn(className)}
       disabled={!canScrollNext}
       onClick={scrollNext}
+      aria-label="Slide tiếp theo"
       {...props}
       icon={<ArrowRight />}
     >
@@ -363,6 +366,7 @@ function CarouselDots({
           key={index}
           type="button"
           onClick={() => api?.scrollTo(index)}
+          aria-label={`Chuyển đến slide ${index + 1}`}
           aria-current={selectedIndex === index}
           className={cn(
             "size-4 scale-75 rounded-full bg-primary/60 transition-all",

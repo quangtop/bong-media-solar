@@ -21,16 +21,16 @@ export default function Stage({ gap = "default", className }: StageProps) {
             <div className="lg:column-6 xl:column-5">
               <ScrollReveal delay={100} className="max-w-xl">
                 <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-darker leading-[1.15]">
-                  How clean energy works,{" "}
-                  <span className="text-primary">end </span> to
-                  <span className="text-primary"> end.</span>
+                  Năng lượng sạch vận hành,{" "}
+                  <span className="text-primary">từ đầu </span> đến
+                  <span className="text-primary"> cuối.</span>
                 </h2>
               </ScrollReveal>
             </div>
             <div className="lg:column-6 xl:column-5">
               <ScrollReveal delay={150} className="max-w-md text-body text-base/relaxed lg:pt-2">
                 <p>
-                  From solar collection at the panel to instant energy distribution within your home, our fully integrated technology creates one seamless, highly continuous power flow.
+                  Từ thu nhận ánh nắng trên tấm pin đến phân phối điện trong nhà, công nghệ tích hợp tạo nên dòng năng lượng liên tục và thống nhất.
                 </p>
               </ScrollReveal>
             </div>

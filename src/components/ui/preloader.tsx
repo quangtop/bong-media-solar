@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import logo from "@/images/logo2x.png";
+import { BrandLogo } from "@/components/ui/brand-logo";
 
 export function Preloader() {
   const [loading, setLoading] = useState(true);
@@ -63,14 +62,7 @@ export function Preloader() {
       <div className="relative z-10 flex flex-col items-center gap-8 max-w-xs w-full px-6">
         {/* Brand Logo */}
         <div className="relative">
-          <Image
-            src={logo}
-            alt="Solurax Logo"
-            width={302} height={72}
-            className="w-auto h-12 object-contain"
-            priority
-            loading="eager"
-          />
+          <BrandLogo />
         </div>
 
         {/* Progress Bar & Counter */}
@@ -81,9 +73,9 @@ export function Preloader() {
               style={{ width: `${progress}%` }}
             />
           </div>
-          <div className="flex justify-between items-center text-xs font-medium tracking-widest text-white/50 uppercase">
-            <span>Loading</span>
-            <span className="tabular-nums text-primary font-semibold">{progress}%</span>
+          <div className="flex justify-between items-center text-xs font-medium tracking-widest text-white/75 uppercase">
+            <span>Đang tải</span>
+            <span className="tabular-nums text-white font-semibold">{progress}%</span>
           </div>
         </div>
       </div>

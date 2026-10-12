@@ -9,12 +9,12 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "border-primary bg-primary text-white hover:bg-primary-dark hover:border-primary-dark fill-white",
+        default: "border-primary-strong bg-primary-strong text-white hover:bg-darker hover:border-darker fill-white",
         darker: "border-darker bg-darker text-white hover:bg-dark hover:text-white fill-white",
-        light: "border-white bg-white text-primary hover:bg-darker hover:border-darker hover:text-white fill-primary",
+        light: "border-white bg-white text-primary-strong hover:bg-darker hover:border-darker hover:text-white fill-primary",
         outline: "border-white text-white hover:bg-white/10 fill-white",
         "outline-dark": "border-dark/20 text-dark hover:bg-dark/10 fill-dark",
-        link: "text-primary hover:text-darker",
+        link: "text-primary-strong hover:text-darker",
       },
       size: {
         default: "h-10 lg:h-12 gap-4 rounded-lg px-6 text-sm font-medium [&>svg]:size-4",
@@ -141,7 +141,7 @@ export const buttonIconVariant = cva(
       variant: {
         default: "bg-darker fill-white group-hover/button:bg-darker",
         darker: "bg-primary fill-darker group-hover/button:bg-primary",
-        light: "bg-primary fill-white group-hover/button:bg-primary",
+        light: "bg-primary-strong fill-white group-hover/button:bg-primary-strong",
         outline: "border-white/20 fill-white group-hover/button:bg-white/10",
         "outline-dark": "border-dark/20 fill-dark group-hover/button:bg-dark/10",
         link: "border-primary group-hover/button:border-darker fill-primary group-hover/button:fill-white group-hover/button:bg-darker"

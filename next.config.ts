@@ -6,6 +6,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  // Tắt việc Next tự ghi AGENTS.md/CLAUDE.md vào gốc repo khi chạy dev dưới AI agent.
+  agentRules: false,
   reactCompiler: true,
   turbopack: {
     root: __dirname,

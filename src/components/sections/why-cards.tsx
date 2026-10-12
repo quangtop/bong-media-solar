@@ -21,10 +21,10 @@ export default function WhyCards({ gap = "default", className }: WhyCardsProps) 
             <div className="lg:column-10 xl:column-9 2xl:column-8">
               <ScrollReveal delay={100} className="2xl:px-8">
                 <h2 className="text-darker font-bold text-3xl lg:text-4xl xl:text-5xl leading-[1.166] mb-5">
-                  Why Solurax. Built different, from panel to promise.
+                  Vì sao chọn Bống Media? Khác biệt từ tấm pin đến cam kết.
                 </h2>
                 <p className="text-base xl:text-lg leading-relaxed text-body max-w-md mx-auto">
-                  We design every system around your roof, your usage, and your budget — then back it with the strongest warranty in the industry.
+                  Mỗi hệ thống được thiết kế theo mái nhà, nhu cầu sử dụng và ngân sách của bạn, kèm chính sách bảo hành vững chắc.
                 </p>
               </ScrollReveal>
             </div>{/* Column */}

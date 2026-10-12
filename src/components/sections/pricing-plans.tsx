@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { Section, SectionHead, SectionContent } from "@/components/layout/section";
 import { Button } from "@/components/ui/button";
@@ -23,8 +24,8 @@ export default function PricingPlans({ gap = "default", className }: PricingPlan
           <div className="justify-center text-center row">
             <div className="lg:column-8 xl:column-7 2xl:column-6">
               <ScrollReveal delay={100} className="2xl:px-8">
-                <h2 className="text-darker font-bold text-3xl lg:text-4xl xl:text-5xl leading-[1.166] mb-5">Flexible Growth Plans</h2>
-                <p className="text-base/relaxed text-body">Choose the level of support you need — whether you want everything handled for you or prefer a more hands-on approach.</p>
+                <h2 className="text-darker font-bold text-3xl lg:text-4xl xl:text-5xl leading-[1.166] mb-5">Gói giải pháp linh hoạt</h2>
+                <p className="text-base/relaxed text-body">Chọn mức hỗ trợ phù hợp: giao trọn gói cho chúng tôi hoặc chủ động tham gia vào từng bước triển khai.</p>
               </ScrollReveal>
             </div>{/* Column */}
           </div>{/* Row */}
@@ -36,12 +37,12 @@ export default function PricingPlans({ gap = "default", className }: PricingPlan
           <ScrollReveal delay={100} className="flex justify-center mb-10">
             <div className="inline-flex items-center p-0.75 rounded-full border border-primary bg-white">
               <button type="button" onClick={() => setBillingCycle("monthly")}
-                className={cn("flex items-center gap-2.5 px-5 py-2.25 rounded-full text-sm/4.5 font-medium transition-all cursor-pointer", billingCycle === "monthly" ? "bg-primary text-white" : "text-body hover:text-darker")} >
-                Monthly
+                className={cn("flex items-center gap-2.5 px-5 py-2.25 rounded-full text-sm/4.5 font-medium transition-all cursor-pointer", billingCycle === "monthly" ? "bg-primary-strong text-white" : "text-body hover:text-darker")} >
+                Hằng tháng
               </button>
-              <button type="button" onClick={() => setBillingCycle("yearly")} className={cn("flex items-center gap-2.5 ps-4 pe-2.5 py-2.25 rounded-full text-sm/4.5 font-medium transition-all cursor-pointer", billingCycle === "yearly" ? "bg-primary text-white shadow-sm" : "text-body hover:text-darker")} >
-                <span>Yearly</span>
-                <span className={cn("px-1.5 py-px text-[10px]/4 font-semibold rounded-full transition-colors", billingCycle === "yearly" ? "bg-white text-primary" : "bg-primary text-white")} >
+              <button type="button" onClick={() => setBillingCycle("yearly")} className={cn("flex items-center gap-2.5 ps-4 pe-2.5 py-2.25 rounded-full text-sm/4.5 font-medium transition-all cursor-pointer", billingCycle === "yearly" ? "bg-primary-strong text-white shadow-sm" : "text-body hover:text-darker")} >
+                <span>Hằng năm</span>
+                <span className={cn("px-1.5 py-px text-[10px]/4 font-semibold rounded-full transition-colors", billingCycle === "yearly" ? "bg-white text-primary-strong" : "bg-primary-strong text-white")} >
                   25%
                 </span>
               </button>
@@ -59,13 +60,13 @@ export default function PricingPlans({ gap = "default", className }: PricingPlan
 
               return (
                 <div key={index} className="md:column-6 lg:column-4">
-                  <ScrollReveal className={cn("rounded-2xl h-full flex flex-col border-b-4 border-primary transition-all duration-300 shadow-[0_4px_20px_0] shadow-black/8", plan.isFeatured ? "bg-primary" : "bg-white", getDelayClass(index))} >
+                  <ScrollReveal className={cn("rounded-2xl h-full flex flex-col border-b-4 border-primary transition-all duration-300 shadow-[0_4px_20px_0] shadow-black/8", plan.isFeatured ? "bg-primary-strong" : "bg-white", getDelayClass(index))} >
                     <div className="p-8">
                       <div className="mb-6">
                         <h3 className={cn("text-xl/normal font-semibold mb-1", plan.isFeatured ? "text-white" : "text-darker")} >
                           {plan.name}
                         </h3>
-                        <p className={cn("text-base", plan.isFeatured ? "text-white/90" : "text-body")} >
+                        <p className={cn("text-base", plan.isFeatured ? "text-white" : "text-body")} >
                           {plan.subtitle}
                         </p>
                       </div>
@@ -73,11 +74,11 @@ export default function PricingPlans({ gap = "default", className }: PricingPlan
                         <div className={cn("text-4xl lg:text-5xl font-semibold tracking-tight", plan.isFeatured ? "text-white" : "text-darker")} >
                           {formattedPrice}
                         </div>
-                        <p className={cn("text-sm font-regular mt-2", plan.isFeatured ? "text-white/80" : "text-body")}  >
+                        <p className={cn("text-sm font-regular mt-2", plan.isFeatured ? "text-white" : "text-body")}  >
                           {plan.periodText}
                         </p>
                       </div>
-                      <Button variant={plan.isFeatured ? "light" : "default"}>
+                      <Button render={<Link href="/contact" />} variant={plan.isFeatured ? "light" : "default"}>
                         {plan.buttonText}
                       </Button>
                     </div>

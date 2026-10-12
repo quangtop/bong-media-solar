@@ -23,7 +23,7 @@ export interface TeamMember {
 export const TEAM_DATA: TeamMember[] = [
   {
     name: "Ronald Richards",
-    title: "Lead Solar Engineer",
+    title: "Kỹ sư điện mặt trời trưởng",
     image: teamA,
     socials: [
       {
@@ -50,7 +50,7 @@ export const TEAM_DATA: TeamMember[] = [
   },
   {
     name: "Timothy Wallwork",
-    title: "Senior Energy Consultant",
+    title: "Chuyên gia tư vấn năng lượng cấp cao",
     image: teamB,
     socials: [
       {
@@ -72,7 +72,7 @@ export const TEAM_DATA: TeamMember[] = [
   },
   {
     name: "Brooklyn Simmons",
-    title: "System Installation Lead",
+    title: "Trưởng nhóm lắp đặt hệ thống",
     image: teamC,
     socials: [
       {
@@ -94,7 +94,7 @@ export const TEAM_DATA: TeamMember[] = [
   },
   {
     name: "Kathryn Murphy",
-    title: "Solar Project Manager",
+    title: "Quản lý dự án điện mặt trời",
     image: teamD,
     socials: [
       {
@@ -121,7 +121,7 @@ export const TEAM_DATA: TeamMember[] = [
   },
   {
     name: "Ronald Richards",
-    title: "Lead Solar Engineer",
+    title: "Kỹ sư điện mặt trời trưởng",
     image: teamA,
     socials: [
       {
@@ -143,7 +143,7 @@ export const TEAM_DATA: TeamMember[] = [
   },
   {
     name: "Timothy Wallwork",
-    title: "Senior Energy Consultant",
+    title: "Chuyên gia tư vấn năng lượng cấp cao",
     image: teamB,
     socials: [
       {
@@ -170,7 +170,7 @@ export const TEAM_DATA: TeamMember[] = [
   },
   {
     name: "Brooklyn Simmons",
-    title: "System Installation Lead",
+    title: "Trưởng nhóm lắp đặt hệ thống",
     image: teamC,
     socials: [
       {
@@ -197,7 +197,7 @@ export const TEAM_DATA: TeamMember[] = [
   },
   {
     name: "Kathryn Murphy",
-    title: "Solar Project Manager",
+    title: "Quản lý dự án điện mặt trời",
     image: teamD,
     socials: [
       {

@@ -7,22 +7,22 @@ export interface RenewableReason {
 export const RENEWABLES_REASONS: RenewableReason[] = [
   {
     id: "01",
-    title: "Lower Carbon Emissions",
-    description: "Displace fossil generation directly, cutting greenhouse output at the source rather than offsetting it.",
+    title: "Giảm phát thải carbon",
+    description: "Thay thế trực tiếp điện từ nhiên liệu hóa thạch, giảm phát thải tại nguồn thay vì chỉ bù trừ.",
   },
   {
     id: "02",
-    title: "Smarter Energy Consumption",
-    description: "AI forecasting shifts load to match generation, reducing waste across the entire network.",
+    title: "Sử dụng năng lượng thông minh hơn",
+    description: "AI dự báo và điều chỉnh phụ tải theo sản lượng, giảm lãng phí trên toàn mạng lưới.",
   },
   {
     id: "03",
-    title: "Long-Term Cost Efficiency",
-    description: "Falling hardware costs and near-zero marginal generation costs compound in your favor over decades.",
+    title: "Hiệu quả chi phí dài hạn",
+    description: "Chi phí thiết bị giảm và chi phí phát điện tăng thêm gần bằng không mang lại lợi ích tích lũy qua nhiều thập kỷ.",
   },
   {
     id: "04",
-    title: "Energy Independence",
-    description: "Distributed generation and storage insulate homes and grids from price shocks and outages.",
+    title: "Độc lập năng lượng",
+    description: "Nguồn điện và lưu trữ phân tán giúp nhà ở và lưới điện chống chịu biến động giá cùng sự cố mất điện.",
   },
 ];

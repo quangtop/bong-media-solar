@@ -1,10 +1,9 @@
 "use client";
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cva, type VariantProps } from "class-variance-authority"
-import logo from "@/images/logo2x.png";
+import { BrandLogo } from "@/components/ui/brand-logo";
 import { Button } from "@/components/ui/button";
 import { Overlay } from "@/components/ui/overlay";
 import { useSetHeightRoot } from "@/hooks/useSetHeightRoot";
@@ -25,30 +24,30 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   {
-    label: "Home",
+    label: "Trang chủ",
     href: "/",
     children: [
-      { label: "Home 1", href: "/" },
-      { label: "Home 2", href: "/home-2" },
-      { label: "Home 3", href: "/home-3" },
+      { label: "Trang chủ 1", href: "/" },
+      { label: "Trang chủ 2", href: "/home-2" },
+      { label: "Trang chủ 3", href: "/home-3" },
     ],
   },
-  { label: "About", href: "/about" },
-  { label: "Service", href: "/service" },
+  { label: "Giới thiệu", href: "/about" },
+  { label: "Dịch vụ", href: "/service" },
   {
-    label: "Pages",
+    label: "Các trang",
     children: [
-      { label: "Project", href: "/project" },
-      { label: "Blog", href: "/blog" },
-      { label: "Packages", href: "/packages" },
-      { label: "FAQ", href: "/faqs" },
+      { label: "Dự án", href: "/project" },
+      { label: "Bài viết", href: "/blog" },
+      { label: "Các gói giải pháp", href: "/packages" },
+      { label: "Câu hỏi thường gặp", href: "/faqs" },
     ],
   },
-  { label: "Contact", href: "/contact" },
+  { label: "Liên hệ", href: "/contact" },
 ];
 
 const linkStyle = cva(
-  "relative flex items-center px-4 py-2 gap-1.5 justify-between text-base font-medium rounded-lg transition-all duration-200",
+  "relative flex items-center px-4 py-2 gap-1.5 justify-between whitespace-nowrap text-base font-medium rounded-lg transition-all duration-200",
   {
     variants: {
       active: {
@@ -88,7 +87,7 @@ const isDropdownActive = (items: DropdownChild[], pathname: string): boolean => 
   });
 };
 
-const breakpoint_lg = "992px";
+const desktopBreakpoint = 1280;
 
 function ChevronDown({ open, className = "" }: { open: boolean; className?: string }) {
   return (
@@ -114,7 +113,7 @@ function NestedSubmenu({ label, icon, items, onNavigate, align = "right" }: Nest
   /* close on outside click (desktop) */
   useEffect(() => {
     const handler = (e: MouseEvent) => {
-      if (typeof window !== "undefined" && window.innerWidth < parseInt(breakpoint_lg)) return;
+      if (typeof window !== "undefined" && window.innerWidth < desktopBreakpoint) return;
       if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
     };
     document.addEventListener("mousedown", handler);
@@ -122,13 +121,13 @@ function NestedSubmenu({ label, icon, items, onNavigate, align = "right" }: Nest
   }, []);
 
   const handleMouseEnter = () => {
-    if (typeof window !== "undefined" && window.innerWidth >= parseInt(breakpoint_lg)) {
+    if (typeof window !== "undefined" && window.innerWidth >= desktopBreakpoint) {
       setOpen(true);
     }
   };
 
   const handleMouseLeave = () => {
-    if (typeof window !== "undefined" && window.innerWidth >= parseInt(breakpoint_lg)) {
+    if (typeof window !== "undefined" && window.innerWidth >= desktopBreakpoint) {
       setOpen(false);
     }
   };
@@ -137,15 +136,14 @@ function NestedSubmenu({ label, icon, items, onNavigate, align = "right" }: Nest
 
   /* Only pre-open mobile accordion if child is active; keep closed on desktop */
   useEffect(() => {
-    if (typeof window !== "undefined" && window.innerWidth < parseInt(breakpoint_lg)) {
-      setOpen(active);
-    } else {
-      setOpen(false);
-    }
+    const frame = requestAnimationFrame(() => {
+      setOpen(window.innerWidth < desktopBreakpoint && active);
+    });
+    return () => cancelAnimationFrame(frame);
   }, [active, pathname]);
 
 
-  const desktopStyle = cva("hidden lg:block absolute top-0 w-48 transition-all duration-250", {
+  const desktopStyle = cva("hidden min-[1280px]:block absolute top-0 w-48 transition-all duration-250", {
     variants: {
       open: {
         true: "opacity-100 scale-100 translate-x-0 pointer-events-auto",
@@ -170,7 +168,7 @@ function NestedSubmenu({ label, icon, items, onNavigate, align = "right" }: Nest
     ]
   });
 
-  const mobileStyle = cva("lg:hidden overflow-hidden transition-all duration-300 ease-in-out", {
+  const mobileStyle = cva("min-[1280px]:hidden overflow-hidden transition-all duration-300 ease-in-out", {
     variants: {
       open: {
         true: "max-h-125 opacity-100",
@@ -182,22 +180,22 @@ function NestedSubmenu({ label, icon, items, onNavigate, align = "right" }: Nest
   return (
     <li ref={ref} className="relative w-full" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       {/* Trigger button */}
-      <a href="#" type="button" onClick={() => setOpen((v) => !v)} className={linkStyle({ active: active || open })} aria-expanded={open} aria-haspopup="true" >
+      <button type="button" onClick={() => setOpen((v) => !v)} className={cn(linkStyle({ active: active || open }), "w-full text-start")} aria-expanded={open}>
         <span className="flex items-center gap-3">
           {label}
         </span>
-        <ChevronDown open={open} className={`h-3.5 w-3.5 ${open ? "rotate-180 lg:rotate-90" : "rotate-0 " + (align === "right" ? "lg:rotate-90" : "lg:-rotate-90")}`} />
-      </a>
+        <ChevronDown open={open} className={`h-3.5 w-3.5 ${open ? "rotate-180 min-[1280px]:rotate-90" : "rotate-0 " + (align === "right" ? "min-[1280px]:rotate-90" : "min-[1280px]:-rotate-90")}`} />
+      </button>
 
       {/* ── Desktop: Submenu flying out to the left/right ── */}
       <div className={desktopStyle({ open, align })}>
-        <div className="w-full rounded-xl border border-white/10 bg-dark/95 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,.5)]" role="menu" >
+        <div className="w-full rounded-xl border border-white/10 bg-dark/95 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,.5)]">
           <ul className="p-1.5 flex flex-col gap-0.5">
             {items.map((item) => {
               const childActive = isLinkActive(item.href || "", pathname);
               return (
                 <li key={item.label}>
-                  <Link href={item.href || "#"} role="menuitem" onClick={() => { setOpen(false); onNavigate(); }} className={subLinkStyle({ active: childActive })} >
+                  <Link href={item.href || "#"} onClick={() => { setOpen(false); onNavigate(); }} className={subLinkStyle({ active: childActive })} >
                     {item.label}
                   </Link>
                 </li>
@@ -242,7 +240,7 @@ function DropdownItem({ label, items, onNavigate, align = "left" }: DropdownItem
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       // Only close on outside click in desktop view
-      if (typeof window !== "undefined" && window.innerWidth < parseInt(breakpoint_lg)) {
+      if (typeof window !== "undefined" && window.innerWidth < desktopBreakpoint) {
         return;
       }
       if (ref.current && !ref.current.contains(e.target as Node)) {
@@ -254,13 +252,13 @@ function DropdownItem({ label, items, onNavigate, align = "left" }: DropdownItem
   }, []);
 
   const handleMouseEnter = () => {
-    if (typeof window !== "undefined" && window.innerWidth >= parseInt(breakpoint_lg)) {
+    if (typeof window !== "undefined" && window.innerWidth >= desktopBreakpoint) {
       setOpen(true);
     }
   };
 
   const handleMouseLeave = () => {
-    if (typeof window !== "undefined" && window.innerWidth >= parseInt(breakpoint_lg)) {
+    if (typeof window !== "undefined" && window.innerWidth >= desktopBreakpoint) {
       setOpen(false);
     }
   };
@@ -269,14 +267,13 @@ function DropdownItem({ label, items, onNavigate, align = "left" }: DropdownItem
 
   /* Only pre-open mobile accordion if child is active; keep closed on desktop */
   useEffect(() => {
-    if (typeof window !== "undefined" && window.innerWidth < parseInt(breakpoint_lg)) {
-      setOpen(active);
-    } else {
-      setOpen(false);
-    }
+    const frame = requestAnimationFrame(() => {
+      setOpen(window.innerWidth < desktopBreakpoint && active);
+    });
+    return () => cancelAnimationFrame(frame);
   }, [active, pathname]);
 
-  const desktopStyle = cva("hidden lg:block absolute top-full w-50 pt-3 transition-all duration-250", {
+  const desktopStyle = cva("hidden min-[1280px]:block absolute top-full w-50 pt-3 transition-all duration-250", {
     variants: {
       open: {
         true: "opacity-100 scale-100 translate-y-0 pointer-events-auto",
@@ -289,7 +286,7 @@ function DropdownItem({ label, items, onNavigate, align = "left" }: DropdownItem
     },
   });
 
-  const mobileStyle = cva("lg:hidden overflow-hidden transition-all duration-300 ease-in-out", {
+  const mobileStyle = cva("min-[1280px]:hidden overflow-hidden transition-all duration-300 ease-in-out", {
     variants: {
       open: {
         true: "max-h-125 opacity-100",
@@ -301,14 +298,14 @@ function DropdownItem({ label, items, onNavigate, align = "left" }: DropdownItem
   return (
     <li ref={ref} className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       {/* Trigger button */}
-      <a href="#" type="button" onClick={() => setOpen((v) => !v)} className={linkStyle({ active: active || open })} aria-expanded={open} aria-haspopup="true" >
-        <span className="flex-1 text-start lg:text-center">{label}</span>
-        <ChevronDown open={open} className="h-4 w-4 lg:h-3.5 lg:w-3.5" />
-      </a>
+      <button type="button" onClick={() => setOpen((v) => !v)} className={cn(linkStyle({ active: active || open }), "w-full")} aria-expanded={open}>
+        <span className="flex-1 text-start min-[1280px]:text-center">{label}</span>
+        <ChevronDown open={open} className="h-4 w-4 min-[1280px]:h-3.5 min-[1280px]:w-3.5" />
+      </button>
 
       {/* ── Desktop: floating flyout ── */}
       <div className={desktopStyle({ open, align })} >
-        <div className="w-full rounded-xl border border-white/10 bg-dark/95 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,.5)]" role="menu" >
+        <div className="w-full rounded-xl border border-white/10 bg-dark/95 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,.5)]">
           <ul className="p-1.5 flex flex-col gap-0.5">
             {items.map((item) => {
               if (item.children) {
@@ -319,7 +316,7 @@ function DropdownItem({ label, items, onNavigate, align = "left" }: DropdownItem
               const childActive = isLinkActive(item.href || "", pathname);
               return (
                 <li key={item.label}>
-                  <Link href={item.href || "#"} role="menuitem" onClick={() => { setOpen(false); onNavigate(); }} className={subLinkStyle({ active: childActive })} >
+                  <Link href={item.href || "#"} onClick={() => { setOpen(false); onNavigate(); }} className={subLinkStyle({ active: childActive })} >
                     {item.label}
                   </Link>
                 </li>
@@ -381,8 +378,8 @@ function NavContent({ onNavigate, className }: { onNavigate: () => void; classNa
 
 function HamBurgerIcon({ open, setOpen, className }: { open: boolean; setOpen: (v: boolean) => void; className?: string }) {
   return (
-    <button type="button" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} onClick={() => setOpen(!open)}
-      className={cn("relative z-50 flex lg:hidden h-11 w-11 flex-col items-center justify-center gap-1.25 rounded-full transition-colors duration-200 bg-white/10", className)} >
+    <button type="button" aria-label={open ? "Đóng menu" : "Mở menu"} aria-expanded={open} onClick={() => setOpen(!open)}
+      className={cn("relative z-50 flex min-[1280px]:hidden h-11 w-11 flex-col items-center justify-center gap-1.25 rounded-full transition-colors duration-200 bg-white/10", className)} >
       <span className={`block h-0.5 w-5 rounded-full bg-white transition-all duration-300 origin-center ${open ? "translate-y-1.75 rotate-45" : ""}`} />
       <span className={`block h-0.5 w-5 rounded-full bg-white transition-all duration-300 ${open ? "scale-x-0 opacity-0" : ""}`} />
       <span className={`block h-0.5 w-5 rounded-full bg-white transition-all duration-300 origin-center ${open ? "-translate-y-1.75 -rotate-45" : ""}`} />
@@ -420,15 +417,15 @@ export default function Menubar() {
     {
       variants: {
         scrolled: {
-          true: "border-darker bg-darker/85 backdrop-blur-xl p-3.5 lg:p-4",
-          false: "border-white/10 bg-white/9 p-4 lg:p-5"
+          true: "border-darker bg-darker/85 backdrop-blur-xl p-3.5 min-[1280px]:p-4",
+          false: "border-white/10 bg-white/9 p-4 min-[1280px]:p-5"
         }
       }
     }
   )
 
   const drawerStyle = cva(
-    "fixed top-0 start-0 z-60 flex h-full w-70 max-w-[85vw] flex-col bg-darker/90 backdrop-blur-2xl transition-transform duration-300 ease-in-out lg:hidden",
+    "fixed top-0 start-0 z-60 flex h-full w-70 max-w-[85vw] flex-col bg-darker/90 backdrop-blur-2xl transition-transform duration-300 ease-in-out min-[1280px]:hidden",
     {
       variants: {
         open: {
@@ -449,14 +446,14 @@ export default function Menubar() {
       >
         <div className="container">
           <div className={menuBarWrapStyle({ scrolled })}>
-            <Link href="/" className="group flex items-center gap-2.5 shrink-0" aria-label="Event home">
-              <Image src={logo} alt="Logo" loading="eager" width={302} height={72} className="w-auto h-10" />
+            <Link href="/" className="group flex items-center gap-2.5 shrink-0" aria-label="Trang chủ Bống Media">
+              <BrandLogo />
             </Link>
-            <nav className="items-center hidden w-full gap-6 lg:flex" >
-              <NavContent className="flex items-center gap-1 mx-auto lg:gap-2" onNavigate={closeMobile} />
+            <nav className="items-center hidden w-full gap-6 min-[1280px]:flex" >
+              <NavContent className="flex items-center gap-1 mx-auto min-[1280px]:gap-2" onNavigate={closeMobile} />
               <Link href="/contact">
                 <Button className="text-base" variant="default" pill>
-                  Get in Touch
+                  Liên hệ ngay
                 </Button>
               </Link>
             </nav>
@@ -464,13 +461,13 @@ export default function Menubar() {
           </div>
         </div>{/* ── .container ── */}
       </ScrollReveal>
-      <Overlay className="lg:hidden z-51" open={mobileOpen} onClose={closeMobile} />
-      <aside className={drawerStyle({ open: mobileOpen })} aria-hidden={!mobileOpen} >
+      <Overlay className="min-[1280px]:hidden z-51" open={mobileOpen} onClose={closeMobile} />
+      <aside className={drawerStyle({ open: mobileOpen })} aria-hidden={!mobileOpen} inert={!mobileOpen}>
         <nav className="flex flex-col flex-1 px-6 pt-10 pb-10">
           <NavContent className="flex flex-col flex-1 gap-1" onNavigate={closeMobile} />
           <Link href="/contact">
             <Button className="text-base" variant="default">
-              Get in Touch
+              Liên hệ ngay
             </Button>
           </Link>
         </nav>

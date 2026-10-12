@@ -26,30 +26,30 @@ export default function Hero({ className, wrapperClassName }: HeroProps) {
       <header className={cn("relative flex flex-col pt-(--menubar-height)", className)}>
         <div className={cn("flex-1 flex items-center pt-12 md:pt-16 xl:pt-22 2xl:pt-35 z-20 relative", wrapperClassName)}>
           <div className="absolute -top-(--menubar-height) inset-x-0 bottom-0 pointer-events-none overflow-hidden -z-10 bg-darker parallax-bg">
-            <Image src={heroBg} width={1920} height={1010} placeholder="blur" alt="Hero background" priority className="object-cover object-top w-full h-full" />
+            <Image src={heroBg} width={1920} height={1010} placeholder="blur" alt="Ảnh nền trang chủ" priority className="object-cover object-top w-full h-full" />
             <div className="absolute inset-0 bg-darker/70 transition-opacity duration-300" />
           </div>
           <div className="container">
             <div className="row">
               <div className="xl:column-7">
                 <ScrollReveal stagger className="xl:pe-10">
-                  <div className="reveal-item reveal-delay-100 font-medium text-primary text-2xl lg:text-3xl 2xl:text-4xl leading-tight mb-4 2xl:mb-6">  Renewable Energy  </div>
+                  <div className="reveal-item reveal-delay-100 font-medium text-primary text-2xl lg:text-3xl 2xl:text-4xl leading-tight mb-4 2xl:mb-6">  Năng lượng tái tạo  </div>
 
-                  <h1 className="reveal-item reveal-delay-150 text-white font-bold text-4xl md:text-5xl lg:text-6xl 2xl:text-[5.375rem] leading-[1.2] mb-8"> Digital in the Future of Energy </h1>
+                  <h1 className="reveal-item reveal-delay-150 text-white font-bold text-4xl md:text-5xl lg:text-6xl 2xl:text-[5.375rem] leading-[1.2] mb-8"> Công nghệ số trong tương lai năng lượng </h1>
 
                   <p className="reveal-item reveal-delay-200 text-lg/relaxed text-white/80 mb-11">
-                    Custom-engineered solar systems that cut your power bill, boost your home's value, and put you on your own grid. Fully installed in weeks, not months.
+                    Hệ thống điện mặt trời thiết kế riêng giúp giảm hóa đơn điện, nâng giá trị ngôi nhà và chủ động nguồn năng lượng. Lắp đặt hoàn chỉnh trong vài tuần.
                   </p>
 
                   <ul className="reveal-item reveal-delay-250 flex flex-wrap gap-4">
                     <li>
                       <Button nativeButton={false} render={<Link href="/contact" />} className="uppercase shadow-lg hover:shadow-primary/25 transition-all" size="lg">
-                        Get Free Quote
+                        Nhận báo giá miễn phí
                       </Button>
                     </li>
                     <li>
                       <Button nativeButton={false} render={<Link href="/service" />} className="uppercase backdrop-blur-md" size="lg" variant="outline">
-                        Learn More
+                        Tìm hiểu thêm
                       </Button>
                     </li>
                   </ul>
@@ -60,7 +60,7 @@ export default function Hero({ className, wrapperClassName }: HeroProps) {
                         <CountUp end={14200} suffix="+" />
                       </div>
                       <div className="text-xs/normal tracking-[1px] font-medium uppercase text-white/65">
-                        Systems <br /> Installed
+                        Hệ thống <br /> đã lắp đặt
                       </div>
                     </li>
                     <li className="my-5 min-[420px]:my-0 min-[420px]:mx-4 sm:mx-10 md:mx-20 xl:mx-14 2xl:mx-20 sm:border-l border-white/20 hidden sm:block"></li>
@@ -69,7 +69,7 @@ export default function Hero({ className, wrapperClassName }: HeroProps) {
                         <CountUp end={2840} prefix="$" />
                       </div>
                       <div className="text-xs/normal tracking-[1px] font-medium uppercase text-white/65">
-                        Avg.Annual <br /> Savings
+                        Tiết kiệm <br /> hằng năm
                       </div>
                     </li>
                     <li className="my-5 min-[420px]:my-0 min-[420px]:mx-4 sm:mx-10 md:mx-20 xl:mx-14 2xl:mx-20 sm:border-l border-white/20 hidden sm:block"></li>
@@ -78,7 +78,7 @@ export default function Hero({ className, wrapperClassName }: HeroProps) {
                         <CountUp end={4.9} decimals={1} suffix="/5" />
                       </div>
                       <div className="text-xs/normal tracking-[1px] font-medium uppercase text-white/65">
-                        Customer <br /> Rating
+                        Đánh giá <br /> của khách hàng
                       </div>
                     </li>
                   </ul>
@@ -89,10 +89,10 @@ export default function Hero({ className, wrapperClassName }: HeroProps) {
                 <ScrollReveal stagger className="relative z-20">
                   <div className="reveal-item reveal-delay-400 pb-12 lg:pb-16 2xl:pb-30">
                     <h4 className="text-white font-semibold text-2xl md:text-3xl leading-[1.33] mb-4">
-                      Enable reliable, cost effective and dispatchable power
+                      Nguồn điện tin cậy, tiết kiệm và có thể điều phối
                     </h4>
                     <p className="text-lg/relaxed text-white/80 mb-7 2xl:mb-10">
-                      Sun Energy has accumulated more than 9 gigawatts of total global installed base and backlog for its inverter
+                      Bống Media đã tích lũy hơn 9 gigawatt tổng công suất lắp đặt và đơn hàng trên toàn cầu cho các bộ biến tần.
                     </p>
                     <Link
                       href="/packages"
@@ -102,7 +102,7 @@ export default function Hero({ className, wrapperClassName }: HeroProps) {
                         <span className="inline-flex items-center justify-center rounded-full size-10 fill-white bg-primary transition-transform group-hover:rotate-12 duration-300">
                           <Globe className="size-6" />
                         </span>
-                        <span>Save Earth</span>
+                        <span>Bảo vệ Trái Đất</span>
                       </span>
                     </Link>
                   </div>
@@ -113,15 +113,15 @@ export default function Hero({ className, wrapperClassName }: HeroProps) {
                         <CountUp end={10} suffix="M+" />
                       </div>
                       <div className="text-2xl lg:text-[2rem] leading-[1.2] font-medium text-darker xl:px-10 2xl:px-20 text-pretty">
-                        Worldwide product sales per year
+                        Doanh số sản phẩm toàn cầu mỗi năm
                       </div>
                     </div>
                     <div className="relative rounded-2xl overflow-hidden bg-darker group/video w-full">
-                      <Image src={heroVideoCover} width={702} height={456} placeholder="blur" alt="Hero Video Cover" className="w-full opacity-80 transition-transform duration-700 group-hover/video:scale-105" />
+                      <Image src={heroVideoCover} width={702} height={456} placeholder="blur" alt="Ảnh bìa video trang chủ" className="w-full opacity-80 transition-transform duration-700 group-hover/video:scale-105" />
                       <VideoPopup
                         video="https://www.youtube.com/embed/AcKskVETHAU"
                         trigger={
-                          <button className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-16 bg-white rounded-full flex justify-center items-center cursor-pointer shadow-lg transition-all duration-300 group-hover/video:scale-110 group-hover/video:bg-primary group-hover/video:text-white">
+                          <button type="button" aria-label="Phát video giới thiệu" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-16 bg-white rounded-full flex justify-center items-center cursor-pointer shadow-lg transition-all duration-300 group-hover/video:scale-110 group-hover/video:bg-primary group-hover/video:text-white">
                             <PlayFill className="size-9 fill-primary group-hover/video:fill-white transition-colors" />
                           </button>
                         }
@@ -141,18 +141,18 @@ export default function Hero({ className, wrapperClassName }: HeroProps) {
               <div className="xl:column-7">
                 <ScrollReveal className="flex flex-nowrap reveal-delay-250">
                   <div className="text-sm/6 font-semibold text-darker uppercase self-center">
-                    Trusted by the world's <br /> biggest brands
+                    Được các thương hiệu <br /> hàng đầu tin tưởng
                   </div>
                   <div className="shrink-0 grow-0 my-1.5 border-l border-darker opacity-30 mx-6.5"></div>
                   <ul className="flex gap-y-2 gap-x-8 flex-wrap items-center">
                     <li className="transition-all duration-300 hover:opacity-100 hover:scale-105">
-                      <Image src={partnerA} width={254} height={80} placeholder="blur" alt="Partner A" className="w-auto h-10 opacity-60" />
+                      <Image src={partnerA} width={254} height={80} placeholder="blur" alt="Đối tác A" className="w-auto h-10 opacity-60" />
                     </li>
                     <li className="transition-all duration-300 hover:opacity-100 hover:scale-105">
-                      <Image src={partnerB} width={268} height={80} placeholder="blur" alt="Partner B" className="w-auto h-10 opacity-60" />
+                      <Image src={partnerB} width={268} height={80} placeholder="blur" alt="Đối tác B" className="w-auto h-10 opacity-60" />
                     </li>
                     <li className="transition-all duration-300 hover:opacity-100 hover:scale-105">
-                      <Image src={partnerC} width={232} height={80} placeholder="blur" alt="Partner C" className="w-auto h-10 opacity-60" />
+                      <Image src={partnerC} width={232} height={80} placeholder="blur" alt="Đối tác C" className="w-auto h-10 opacity-60" />
                     </li>
                   </ul>
                 </ScrollReveal>

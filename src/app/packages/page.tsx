@@ -5,16 +5,16 @@ import PricingPlans from "@/components/sections/pricing-plans";
 import CTA from "@/components/sections/cta";
 
 export const metadata: Metadata = {
-  title: "Pricing Plan - Solurax",
-  description: "ESolurax is a modern, responsive, and beautiful landing page template for solar and renewable energy technologies.",
+  title: "Bảng giá",
+  description: "Bống Media giới thiệu các giải pháp điện mặt trời và năng lượng tái tạo với công nghệ hiện đại, hiệu quả và bền vững.",
 };
 
 export default function PackagesPage() {
   return (
     <React.Fragment>
       <PageHeader
-        heading="Pricing Plan"
-        breadcrumb={[{ href: "/", label: "Home" }, { label: "Pricing Plan" }]}
+        heading="Các gói giải pháp"
+        breadcrumb={[{ href: "/", label: "Trang chủ" }, { label: "Bảng giá" }]}
       />
       <main className="relative flex flex-col justify-between overflow-x-hidden">
         <PricingPlans />

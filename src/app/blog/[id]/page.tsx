@@ -9,7 +9,7 @@ import { ArrowLongRight } from "@/components/icons";
 import { Carousel, CarouselContent, CarouselItem, CarouselDots } from "@/components/ui/carousel";
 import blogG from "@/images/blog-g.jpg";
 import { Button } from "@/components/ui/button";
-import { useFormatDate } from "@/hooks/useFormatDate";
+import { formatDate } from "@/hooks/useFormatDate";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 type PageProps = {
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { id } = await params;
   const post = BLOG_DATA.find((item) => item.id === id) || BLOG_DATA[0];
   return {
-    title: `${post.title} - Solurax Blog`,
+    title: post.title,
     description: post.excerpt,
   };
 }
@@ -40,7 +40,7 @@ export default async function BlogDetailsPage({ params }: PageProps) {
       <PageHeader
         heading={post.title}
         smallerHeading={true}
-        breadcrumb={[{ href: "/", label: "Home" }, { href: "/blog", label: "Blog" }]}
+        breadcrumb={[{ href: "/", label: "Trang chủ" }, { href: "/blog", label: "Bài viết" }]}
       />
 
       <main className="relative flex flex-col justify-between overflow-x-hidden">
@@ -61,43 +61,43 @@ export default async function BlogDetailsPage({ params }: PageProps) {
                         <span className="font-medium text-base text-body">{post.author.name}</span>
                       </div>
                       <div className="h-3 border-l border-body/20 shrink-0" />
-                      <div className="font-medium text-base text-body">{useFormatDate(post.date)}</div>
+                      <div className="font-medium text-base text-body">{formatDate(post.date)}</div>
                       <div className="h-3 border-l border-body/20 shrink-0" />
-                      <div className="font-medium text-base text-body"> 5 Min Read</div>
+                      <div className="font-medium text-base text-body"> Đọc trong 5 phút</div>
                     </div>
                   </ScrollReveal>
 
                   <ScrollReveal delay={200}>
                     <article className="max-w-full dynamic-prose">
                       {/* Introduction */}
-                      <h2>Introduction</h2>
-                      <p>Imagine turning your roof into a reliable source of passive income while protecting the environment. When you switch to a modern solar power system, your panels often generate more electricity than your home actually consumes—especially during bright, sunny afternoons. Instead of letting that surplus energy go to waste, you can legally feed it back into the national utility grid and get paid for it.</p>
-                      <p>This system is called Net Metering, and here is exactly how you can leverage it to slash your bills to zero or even earn credits from your power company.</p>
-                      <Image src={blogG} alt="Solar Panel Installation" />
+                      <h2>Giới thiệu</h2>
+                      <p>Hãy hình dung mái nhà trở thành nguồn thu nhập thụ động ổn định và góp phần bảo vệ môi trường. Khi chuyển sang hệ thống điện mặt trời hiện đại, các tấm pin thường tạo ra lượng điện lớn hơn nhu cầu sử dụng của gia đình, đặc biệt vào những buổi chiều nắng đẹp. Thay vì để nguồn năng lượng dư thừa bị lãng phí, bạn có thể đưa điện trở lại lưới điện quốc gia và nhận thanh toán theo cơ chế áp dụng.</p>
+                      <p>Cơ chế này được gọi là đo đếm điện năng ròng (Net Metering). Bài viết giải thích cách tận dụng cơ chế này để giảm hóa đơn điện hoặc tích lũy tín dụng từ đơn vị cung cấp điện.</p>
+                      <Image src={blogG} alt="Lắp đặt tấm pin mặt trời" />
 
-                      <h3> What is Net Metering and How Does It Work? </h3>
-                      <p> At its core, Net Metering is a billing mechanism that credits solar energy system owners for the electricity they add to the power grid:</p>
+                      <h3> Đo đếm điện năng ròng là gì và hoạt động thế nào? </h3>
+                      <p> Về bản chất, đo đếm điện năng ròng là cơ chế tính hóa đơn ghi nhận lượng điện mà chủ hệ thống điện mặt trời đưa lên lưới:</p>
 
                       <ul>
                         <li>
-                          <strong>The Daytime Surplus:</strong> During the peak hours of the day, your solar panels work at maximum efficiency. If your house consumes less energy than you produce, the extra electricity flows back through a special bi-directional smart meter and goes out into the local power grid to supply your neighbors.
+                          <strong>Điện dư vào ban ngày:</strong> Trong những giờ nắng cao điểm, tấm pin mặt trời hoạt động với hiệu suất tối đa. Nếu điện năng tiêu thụ của gia đình thấp hơn lượng điện tạo ra, điện dư sẽ đi qua công tơ thông minh hai chiều và hòa vào lưới điện địa phương để cung cấp cho các hộ lân cận.
                         </li>
                         <li>
-                          <strong>The Nighttime Draw:</strong> At night, when your solar panels aren't producing, you automatically pull electricity back from the grid to power your home.
+                          <strong>Lấy điện vào ban đêm:</strong> Ban đêm, khi tấm pin mặt trời không phát điện, gia đình tự động sử dụng điện từ lưới.
                         </li>
                         <li>
-                          <strong>The Net Calculation:</strong> At the end of the month, your utility provider subtracts the amount of energy you gave to the grid from the amount you consumed. You only pay for the net difference. If you gave more than you took, your bill carries over a negative balance or credit.
+                          <strong>Tính lượng điện ròng:</strong> Cuối tháng, đơn vị cung cấp điện lấy lượng điện bạn đã tiêu thụ trừ đi lượng điện đã đưa lên lưới. Bạn chỉ thanh toán phần chênh lệch ròng. Nếu lượng điện đưa lên lưới lớn hơn lượng lấy về, hóa đơn sẽ ghi số dư âm hoặc tín dụng chuyển sang kỳ sau.
                         </li>
                       </ul>
 
                       <blockquote>
-                        "We can easily manage if we will only take, each day, the burden appointed to it. But the load will be far heavier if we carry yesterday's burden over again today, and then add the burden of the morrow before we are required to bear it."
-                        <cite> — Sam Kurtis, Product Manager </cite>
+                        “Chúng ta có thể xử lý công việc dễ dàng nếu mỗi ngày chỉ mang gánh nặng của ngày đó. Nhưng gánh nặng sẽ lớn hơn nhiều nếu hôm nay lại mang cả gánh nặng hôm qua, rồi cộng thêm nỗi lo của ngày mai khi chưa đến lúc phải đối mặt.”
+                        <cite> — Sam Kurtis, Quản lý sản phẩm </cite>
                       </blockquote>
 
-                      <h3> AI Regulations and Data Protection Laws</h3>
+                      <h3> Quy định về AI và pháp luật bảo vệ dữ liệu</h3>
                       <p>
-                        The distinction is crucial for any business leader planning their AI and clean energy strategy. Combine the sharp focus on ROI with the power of modern frameworks to build enterprise intelligence. Rather than guessing, our software suite provides advanced metrics — location, project type, budget range — to help you pinpoint your system for the best opportunities. Make sure that it's providing your updates in real-time, so that ROI can respond right away.
+                        Sự khác biệt này rất cần thiết với lãnh đạo doanh nghiệp khi xây dựng chiến lược AI và năng lượng sạch. Kết hợp mục tiêu hoàn vốn với các nền tảng hiện đại giúp nâng cao năng lực phân tích của doanh nghiệp. Thay vì phỏng đoán, bộ phần mềm cung cấp những chỉ số như địa điểm, loại dự án và khoảng ngân sách để lựa chọn hệ thống phù hợp. Dữ liệu cập nhật theo thời gian thực hỗ trợ phản ứng nhanh với những thay đổi về hiệu quả đầu tư.
                       </p>
                     </article>
                   </ScrollReveal>
@@ -113,7 +113,7 @@ export default async function BlogDetailsPage({ params }: PageProps) {
           <SectionHead>
             <div className="container text-center">
               <ScrollReveal delay={100}>
-                <h2 className="text-3xl font-bold text-darker md:text-4xl">More blog posts like this</h2>
+                <h2 className="text-3xl font-bold text-darker md:text-4xl">Bài viết liên quan</h2>
               </ScrollReveal>
             </div>
           </SectionHead>
@@ -137,10 +137,10 @@ export default async function BlogDetailsPage({ params }: PageProps) {
                       <ScrollReveal delay={100} className="flex flex-col bg-white border-b-4 border-primary shadow-[0_4px_20px_0_rgba(0,0,0,.08)] rounded-2xl h-full">
                         <Image src={item.image} alt={item.title} className="w-full rounded-t-2xl" />
                         <div className="p-8">
-                          <div className="text-primary text-sm/normal font-medium mb-3">{item.date}</div>
+                          <div className="text-primary-strong text-sm/normal font-medium mb-3">{item.date}</div>
                           <h5 className=" text-xl xl:text-2xl leading-normal font-bold text-darker line-clamp-2 mb-4">{item.title}</h5>
                           <p className="text-base xl:text-lg leading-relaxed text-body line-clamp-2 mb-4">{item.excerpt}</p>
-                          <Button variant="link" icon={<ArrowLongRight />}> Explore </Button>
+                          <Button variant="link" icon={<ArrowLongRight />}> Khám phá </Button>
                         </div>
                       </ScrollReveal>
                     </CarouselItem>

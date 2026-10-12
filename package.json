@@ -1,5 +1,5 @@
 {
-  "name": "solurax-nextjs",
+  "name": "bong-media-solar",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -16,7 +16,7 @@
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-fade": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
-    "next": "16.2.9",
+    "next": "16.3.8",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "tailwind-merge": "^3.6.0"
@@ -29,12 +29,15 @@
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
-    "eslint-config-next": "16.2.9",
+    "eslint-config-next": "16.3.8",
     "tailwindcss": "^4",
     "typescript": "^5"
   },
   "allowScripts": {
     "sharp@0.34.5": true,
     "unrs-resolver@1.12.2": true
+  },
+  "engines": {
+    "node": "24.x"
   }
 }

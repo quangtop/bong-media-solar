@@ -22,8 +22,8 @@ export default function Testimonials({ gap = "default", className }: Testimonial
           <div className="justify-center text-center row">
             <div className="lg:column-8 xl:column-7 2xl:column-6">
               <ScrollReveal delay={100} className="2xl:px-8">
-                <h2 className="text-darker font-bold text-3xl lg:text-4xl xl:text-5xl leading-[1.166] mb-5">Our excellent reviews</h2>
-                <p className="text-base xl:text-lg leading-relaxed text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lacus sodales sodales feugiat nec gravida nec. Lorem ipsum dolor sit amet.</p>
+                <h2 className="text-darker font-bold text-3xl lg:text-4xl xl:text-5xl leading-[1.166] mb-5">Khách hàng nói về chúng tôi</h2>
+                <p className="text-base xl:text-lg leading-relaxed text-body">Khám phá những kiến thức thiết thực về năng lượng tái tạo, công nghệ điện mặt trời và cách sử dụng điện hiệu quả trong cuộc sống hằng ngày.</p>
               </ScrollReveal>
             </div>{/* Column */}
           </div>{/* Row */}
@@ -48,7 +48,7 @@ export default function Testimonials({ gap = "default", className }: Testimonial
                     <div className="flex flex-col items-center gap-5 -mt-22 mb-4">
                       <div className="size-26 border-t-3 border-primary bg-white rounded-full flex justify-center items-center">
                         <Avatar className="me-0!" size="4xl">
-                          <Image src={item.customer.avatar} alt="Avatar" width={126} height={126} className="rounded-full" />
+                          <Image src={item.customer.avatar} alt="Ảnh đại diện" width={126} height={126} className="rounded-full" />
                         </Avatar>
                       </div>
                       <div className="flex flex-col">

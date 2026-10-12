@@ -1,11 +1,11 @@
-export function useFormatDate(dateStr?: string): string {
+export function formatDate(dateStr?: string): string {
   if (!dateStr) return "";
   try {
     const parts = dateStr.split("-");
     if (parts.length === 3) {
       const [year, month, day] = parts;
       const date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
-      return date.toLocaleDateString("en-GB", {
+      return date.toLocaleDateString("vi-VN", {
         day: "numeric",
         month: "long",
         year: "numeric",
@@ -16,5 +16,3 @@ export function useFormatDate(dateStr?: string): string {
   }
   return dateStr;
 }
-
-export const formatDate = useFormatDate;

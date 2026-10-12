@@ -32,8 +32,8 @@ export default function Project({ gap = "default", className }: ProjectProps) {
           <div className="justify-center text-center row">
             <div className="lg:column-8 xl:column-9 2xl:column-8">
               <ScrollReveal delay={100} className="2xl:px-8">
-                <h2 className="text-darker font-bold text-3xl lg:text-4xl xl:text-5xl leading-[1.166] mb-5">Projects powering <span className="text-primary">real places.</span></h2>
-                <p className="text-base xl:text-lg leading-relaxed text-body max-w-md mx-auto">Explore four featured installations across our international network, highlighting how our seamless technology delivers reliable power.</p>
+                <h2 className="text-darker font-bold text-3xl lg:text-4xl xl:text-5xl leading-[1.166] mb-5">Dự án cung cấp điện <span className="text-primary">cho cộng đồng.</span></h2>
+                <p className="text-base xl:text-lg leading-relaxed text-body max-w-md mx-auto">Khám phá bốn công trình nổi bật trong mạng lưới quốc tế, nơi công nghệ tích hợp mang lại nguồn điện ổn định.</p>
               </ScrollReveal>
             </div>{/* Column */}
           </div>{/* Row */}

@@ -23,8 +23,8 @@ export default function Process({ gap = "default", className }: ProcessProps) {
           <div className="justify-center text-center row">
             <div className="lg:column-8 xl:column-7 2xl:column-7">
               <ScrollReveal delay={100} className="2xl:px-8">
-                <h2 className="text-darker font-bold text-3xl lg:text-4xl xl:text-5xl leading-[1.166] mb-5">The Solurax 4-Step Process</h2>
-                <p className="text-base/relaxed text-body max-w-sm mx-auto xl:px-10">Our Seamless Transition to Clean Energy, our customers are reshaping the region's energy footprint.</p>
+                <h2 className="text-darker font-bold text-3xl lg:text-4xl xl:text-5xl leading-[1.166] mb-5">Quy trình 4 bước của Bống Media</h2>
+                <p className="text-base/relaxed text-body max-w-sm mx-auto xl:px-10">Chuyển đổi sang năng lượng sạch thuận tiện, cùng khách hàng xây dựng hệ sinh thái năng lượng bền vững.</p>
               </ScrollReveal>
             </div>{/* Column */}
           </div>{/* Row */}
@@ -38,7 +38,7 @@ export default function Process({ gap = "default", className }: ProcessProps) {
               {PROCESS_DATA.map((item, index) => (
                 <div key={index} className="md:column-6 xl:column-3">
                   <ScrollReveal className={cn("text-center px-4 xl:px-0 2xl:px-4", getDelayClass(index))}>
-                    <div className="mb-6 size-14 rounded-full border-2 border-primary bg-white text-lg/normal font-semibold flex justify-center items-center text-primary mx-auto pt-0.5">{item.id}</div>
+                    <div className="mb-6 size-14 rounded-full border-2 border-primary bg-white text-lg/normal font-semibold flex justify-center items-center text-primary-strong mx-auto pt-0.5">{item.id}</div>
                     <h5 className="font-semibold text-xl xl:text-2xl text-darker mb-4">{item.title}</h5>
                     <p className="text-sm xl:text-base leading-relaxed text-body">{item.description}</p>
                   </ScrollReveal>

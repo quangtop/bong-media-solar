@@ -1,0 +1,294 @@
+# forge-ci.yml — CI pha 0 SINH BẰNG CHỨNG cho gate qa_passed (docs/archive/10_ci_verifier_evidence_plan.md v2, 28/09/2026).
+# Dựng từ company/05-devops/templates/forge-ci.yml cho dự án bong-media (09/10/2026). Admin xem rồi GHIM:
+#   ruby scripts/gate/ci_pin.rb pin --project bong-media
+# Sửa file này sau khi ghim ⇒ verifier từ chối tới khi admin xem diff và ghim lại.
+#
+# Cấu trúc là BẮT BUỘC (ci_pin.rb và verifier kiểm, review CV-02):
+#   - build/lint/typecheck: chạy mã repo (bun install, config của dự án). Pass/fail của chúng vẫn do mã
+#     của vai quyết được (G1/Q2) — nói thật trong policy.yaml.
+#   - security: KHÔNG thực thi mã repo (không bun/npm/node/script repo); công cụ lấy từ image ghim digest.
+#   - a11y: chạy mã repo như build; script axe + danh sách trang nằm inline trong bản ghim.
+#   - summary: KHÔNG checkout; logic INLINE, ghi forge-verifier.json, upload artifact `forge-verifier`.
+#   - Mọi `uses:` ghim SHA 40 ký tự (hoặc docker://…@sha256). Job kiểm không có `if:` hay continue-on-error.
+# Bằng chứng chỉ lấy từ run `push`.
+#
+# Chỗ lệch mẫu (bong-media): (1) Node 24 qua actions/setup-node ở build/lint/typecheck/a11y (quyết định công ty
+# 09/10/2026), KHÔNG ở security; (2) A11Y_PAGES và A11Y_SERVE theo Next.js (`next start`, không có dist/);
+# (3) major mới của checkout/upload-artifact (v7) theo admin tra 09/10/2026.
+name: forge-ci
+
+on:
+  push: {}
+  pull_request: {}
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+      - run: bun install --frozen-lockfile
+      - run: bun run build
+
+  lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+      - run: bun install --frozen-lockfile
+      # Gọi THẲNG công cụ (không `bun run lint`: script trong package.json do dev sửa được — G1)
+      - run: bun x eslint .
+
+  typecheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+      - run: bun install --frozen-lockfile
+      # next-env.d.ts bị .gitignore ⇒ checkout sạch thiếu kiểu ảnh (TS2307); typegen sinh lại, không build.
+      - run: bun x next typegen
+      - run: bun x tsc --noEmit
+
+  security:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      gitleaks: ${{ steps.gitleaks.outputs.leaks }}
+      semgrep_high: ${{ steps.semgrep.outputs.high }}
+      dependency_critical: ${{ steps.osv.outputs.critical }}
+      suppressions: ${{ steps.supp.outputs.count }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      # B7 (28/09/2026): công cụ TỰ NẠP cấu hình/ignore của repo (gitleaks: .gitleaks.toml, .gitleaksignore;
+      # semgrep: .semgrepignore — semgrep KHÔNG có cờ bỏ qua file này). Xoá trước khi quét; cấu hình
+      # gitleaks do workflow ghi (useDefault). Bước này chỉ rm/printf, không chạy mã repo.
+      - run: |
+          rm -f .gitleaks.toml .gitleaksignore
+          find . -name .semgrepignore -not -path './.git/*' -delete
+          printf '[extend]\nuseDefault = true\n' > .forge-ci-gitleaks.toml
+          : > .forge-ci-gitleaksignore
+          # Không allowlist thư mục nào. Chỉ khi admin xác nhận một thư mục là artifact thì thêm vào CHÍNH file này (rồi ghim lại).
+      # gitleaks: cấu hình của workflow, bỏ chú thích gitleaks:allow; exit 0 để luôn có số.
+      # Chỉ xuất số khi log không có ERR và số commit đã quét đủ so với git rev-list --count HEAD
+      # (B7: quét 0 commit mà vẫn "no leaks found" là pass GIẢ). Không thế ⇒ không có output ⇒ summary ghi not_run.
+      - id: gitleaks
+        run: |
+          set +e
+          # Trần 360 giây: quá trần => rc 124 => not_run ở dưới.
+          timeout 360 docker run --rm -v "$PWD:/repo" -w /repo \
+            -e GIT_CONFIG_COUNT=1 -e GIT_CONFIG_KEY_0=safe.directory -e GIT_CONFIG_VALUE_0=/repo \
+            ghcr.io/gitleaks/gitleaks@sha256:c00b6bd0aeb3071cbcb79009cb16a60dd9e0a7c60e2be9ab65d25e6bc8abbb7f detect --source /repo --config /repo/.forge-ci-gitleaks.toml \
+            --log-opts=HEAD --report-format json --report-path /repo/gitleaks.json --exit-code 0 --ignore-gitleaks-allow \
+            --gitleaks-ignore-path /repo/.forge-ci-gitleaksignore --no-color > gitleaks.log 2>&1 # v8.30.1
+          rc=$?
+          set -e
+          cat gitleaks.log
+          want=$(git rev-list --count HEAD)
+          got=$(grep -oE '[0-9]+ commits scanned' gitleaks.log | grep -oE '^[0-9]+' | head -1)
+          # Plan 12 (02/10/2026, chạy thật HanYu): gitleaks chỉ đếm commit có patch văn bản (145/147) nên so BẰNG
+          # luôn trượt. Nới thành >= 95% số commit của HEAD; "quét 0 commit" (lỗi B7 gốc) vẫn bị bắt (got >= 1).
+          # 09/10/2026 (bong-media, chạy thật): repo < 20 commit thì 95% = phải đủ 100% — 11/12 (commit chỉ xoá file)
+          # ra not_run dù quét sạch ⇒ cho thiếu thêm đúng 1 commit (want - got <= 1).
+          if [ "$rc" = 0 ] && ! grep -q ' ERR ' gitleaks.log && [ -n "$got" ] && [ "$got" -ge 1 ] && { [ $((got * 100)) -ge $((want * 95)) ] || [ $((want - got)) -le 1 ]; } && [ -s gitleaks.json ]; then
+            echo "leaks=$(jq 'length' gitleaks.json)" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::gitleaks khong quet du (rc=$rc, commit quet=$got, can=$want) -- ghi not_run"
+          fi
+      # semgrep: ruleset do workflow chỉ định (không đọc .semgrep.yml của repo), bỏ nosemgrep.
+      - uses: docker://semgrep/semgrep@sha256:529ee8a277ec8adc5b534d7c74eea0a47e9de21d62852b6ba7ac6ba9566845c3 # 1.180.0
+        with:
+          args: semgrep scan --config p/default --disable-nosem --json --output semgrep.json --metrics off
+      - id: semgrep
+        run: echo "high=$(jq '[.results[] | select(.extra.severity == "ERROR")] | length' semgrep.json)" >> "$GITHUB_OUTPUT"
+      # audit lockfile: đọc lockfile, KHÔNG cài phụ thuộc. osv-scanner exit 1 = có lỗ hổng (vẫn là số hợp lệ);
+      # mã khác => không xuất số => summary ghi not_run.
+      - id: osv
+        run: |
+          set +e
+          docker run --rm -v "$PWD:/src" ghcr.io/google/osv-scanner@sha256:afd838850ac1a0fcc15ff4a041dc9ba11123c3f0d2666217a5f0fcf9222b55fa scan source --format json --output-file /src/osv.json -r /src # v2.6.0
+          rc=$?
+          set -e
+          if [ "$rc" -le 1 ] && [ -s osv.json ]; then
+            echo "critical=$(jq '[.results[]?.packages[]?.groups[]? | select(((.max_severity // "0") | if . == "" then 0 else tonumber end) >= 9)] | length' osv.json)" >> "$GITHUB_OUTPUT"
+          fi
+      # Đếm chú thích tắt kiểm để admin THẤY (không tự chặn). Bỏ .github/ vì workflow này tự chứa các chữ đó.
+      - id: supp
+        run: echo "count=$(grep -rIoE 'nosemgrep|gitleaks:allow' --exclude-dir=.git --exclude-dir=.github . | wc -l | tr -d ' ')" >> "$GITHUB_OUTPUT"
+
+  # a11y: chạy mã repo (build + `next start`) — số này KHÔNG độc lập với mã repo (policy.yaml ROLE-002).
+  # Đơn vị: số cặp (trang, rule) có impact serious|critical. Fail-closed: trang không tải được (HTTP ≠ 2xx),
+  # axe lỗi, số trang quét ≠ danh sách ⇒ không xuất số ⇒ summary ghi not_run.
+  # Trang quét: các route tĩnh của src/app + một id mẫu cho mỗi route động (/service/[id], /project/[id],
+  # /blog/[id]; trang chi tiết tự rơi về bản ghi đầu nếu id không có). KHÔNG quét trang 404 (not-found.tsx):
+  # script axe đòi HTTP 2xx nên trang 404 làm cả job not_run — xem báo cáo devops.
+  a11y:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      A11Y_PAGES: "/ /about /service /service/1 /project /project/meridian-solar-array /blog /blog/post-001 /contact /faqs /packages"
+      # next.config.ts có output: "export" ⇒ `next start` lỗi; phục vụ thư mục out/ bằng serve ghim phiên bản.
+      A11Y_SERVE: "bun x serve@14.2.6 out -l 4173"
+      A11Y_BASE: "http://127.0.0.1:4173"
+    outputs:
+      serious_critical: ${{ steps.axe.outputs.serious_critical }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+      - run: bun install --frozen-lockfile
+      - run: bun run build
+      - run: |
+          nohup sh -c "$A11Y_SERVE" > "$RUNNER_TEMP/serve.log" 2>&1 &
+          for i in $(seq 60); do
+            if curl -fsS -o /dev/null "$A11Y_BASE/"; then exit 0; fi
+            sleep 1
+          done
+          cat "$RUNNER_TEMP/serve.log"
+          echo "::error::ban dung khong phuc vu duoc o $A11Y_BASE sau 60s"
+          exit 1
+      - id: axe
+        run: |
+          set -eu
+          T="$RUNNER_TEMP/forge-axe"
+          mkdir -p "$T"
+          cd "$T"
+          printf '{"private":true,"type":"module"}\n' > package.json
+          npm install --no-audit --no-fund --ignore-scripts --save-exact \
+            playwright@1.63.0 @axe-core/playwright@4.13.0 axe-core@4.13.0
+          npx --no-install playwright install --with-deps chromium
+          cat > axe.mjs <<'JS'
+          import { chromium } from 'playwright';
+          import * as axePw from '@axe-core/playwright';
+          const AxeBuilder = axePw.AxeBuilder ?? axePw.default;
+          const base = process.env.A11Y_BASE;
+          const pages = process.env.A11Y_PAGES.trim().split(/\s+/).filter(Boolean);
+          const TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'];
+          const out = { tools: { 'axe-core': '4.13.0', playwright: '1.63.0' }, tags: TAGS,
+                        pages: pages.length, scanned: 0, serious_critical: 0, nodes: 0, results: [] };
+          const browser = await chromium.launch();
+          for (const p of pages) {
+            // @axe-core/playwright doi trang tao qua browser.newContext()
+            const context = await browser.newContext();
+            const page = await context.newPage();
+            const res = await page.goto(new URL(p, base).href, { waitUntil: 'networkidle' });
+            if (!res || !res.ok()) { console.error(`trang ${p}: HTTP ${res ? res.status() : 'khong co phan hoi'}`); process.exit(3); }
+            // Quet o TRANG THAI CUOI: axe doc mau giua chung cua hieu ung hien dan => bao sai. Cho (tran 8s, van quet neu het tran):
+            //  1) Preloader (src/components/ui/preloader.tsx, timer JS ~1s): dat documentElement.dataset.loaded='true' roi go
+            //     lop phu .z-9999 sau 700ms. getAnimations() luc dau rong nen KHONG du; cho dau hieu nay truoc.
+            //     Trang khong co preloader (loaded van undefined sau 3s) => bo qua buoc nay.
+            //  2) Reveal (src/hooks/useIntersectionReveal.ts, IntersectionObserver, chi hien sau khi preloader xong): cuon
+            //     het trang roi ve dau de kich hoat moi phan tu [data-reveal].
+            //  3) Cho hieu ung huu han (transition/animation) yen >= 600ms lien tuc; hieu ung vo han (pulse/marquee) bo qua.
+            const settle = await page.evaluate(async () => {
+              const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+              const t0 = performance.now();
+              const left = () => 8000 - (performance.now() - t0);
+              // Chỉ đếm hiệu ứng theo THỜI GIAN: animation điều khiển bằng cuộn (animation-timeline: scroll()/view(), vd parallax)
+              // luôn 'running' nên không bao giờ yên (bong-media 09/10/2026: cả 11 trang chạm trần 8s vì parallax-bg-anim).
+              const live = () => document.getAnimations().filter((a) => a.timeline === document.timeline && a.playState === 'running'
+                && !(a.effect && a.effect.getComputedTiming().iterations === Infinity)).length;
+              while (left() > 0) {
+                const loaded = document.documentElement.dataset.loaded;
+                const overlay = document.querySelector('.z-9999');
+                if (loaded === 'true' && !overlay) break;
+                if (loaded === undefined && !overlay && performance.now() - t0 > 3000) break;
+                await sleep(100);
+              }
+              const step = Math.max(window.innerHeight * 0.8, 200);
+              for (let y = 0; y < document.documentElement.scrollHeight && left() > 0; y += step) {
+                window.scrollTo(0, y);
+                await sleep(120);
+              }
+              window.scrollTo(0, 0);
+              let calm = 0;
+              while (left() > 0 && calm < 600) {
+                await sleep(100);
+                calm = live() === 0 ? calm + 100 : 0;
+              }
+              return { settled: calm >= 600, ms: Math.round(performance.now() - t0) };
+            });
+            const r = await new AxeBuilder({ page }).withTags(TAGS).analyze();
+            const bad = r.violations.filter((v) => v.impact === 'serious' || v.impact === 'critical');
+            out.serious_critical += bad.length;
+            out.nodes += bad.reduce((n, v) => n + v.nodes.length, 0);
+            out.results.push({ page: p, incomplete: r.incomplete.length, settled: settle.settled, settle_ms: settle.ms,
+                               violations: bad.map((v) => ({ id: v.id, impact: v.impact, nodes: v.nodes.length,
+                                 details: v.nodes.slice(0, 10).map((n) => ({ target: n.target, html: n.html.slice(0, 160),
+                                   data: (n.any[0] && n.any[0].data) || null })) })) });
+            out.scanned += 1;
+            await context.close();
+          }
+          await browser.close();
+          console.log(JSON.stringify(out, null, 1));
+          JS
+          set +e
+          node axe.mjs > a11y.json
+          rc=$?
+          set -e
+          cat a11y.json
+          want=$(printf '%s\n' $A11Y_PAGES | grep -c .)
+          got=$(jq -r '.scanned' a11y.json 2>/dev/null || echo x)
+          sc=$(jq -r '.serious_critical' a11y.json 2>/dev/null || echo x)
+          if [ "$rc" = 0 ] && [ "$want" -gt 0 ] && [ "$got" = "$want" ] && printf '%s' "$sc" | grep -Eq '^[0-9]+$'; then
+            echo "serious_critical=$sc" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::axe khong quet du (rc=$rc, trang quet=$got, can=$want) -- ghi not_run"
+          fi
+
+  summary:
+    needs: [build, lint, typecheck, security, a11y]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      # KHÔNG checkout: không có mã repo nào trên runner này.
+      - env:
+          R_BUILD: ${{ needs.build.result }}
+          R_LINT: ${{ needs.lint.result }}
+          R_TYPECHECK: ${{ needs.typecheck.result }}
+          R_SECURITY: ${{ needs.security.result }}
+          O_GITLEAKS: ${{ needs.security.outputs.gitleaks }}
+          O_SEMGREP: ${{ needs.security.outputs.semgrep_high }}
+          O_OSV: ${{ needs.security.outputs.dependency_critical }}
+          O_SUPP: ${{ needs.security.outputs.suppressions }}
+          R_A11Y: ${{ needs.a11y.result }}
+          O_A11Y: ${{ needs.a11y.outputs.serious_critical }}
+        run: |
+          set -eu
+          pf() { case "$1" in success) echo '"pass"' ;; failure) echo '"fail"' ;; *) echo '"not_run"' ;; esac; }
+          num() { if [ "$R_SECURITY" = success ] && printf '%s' "$1" | grep -Eq '^[0-9]+$'; then echo "$1"; else echo '"not_run"'; fi; }
+          a11y() { if [ "${R_A11Y:-}" = success ] && printf '%s' "${O_A11Y:-}" | grep -Eq '^[0-9]+$'; then echo "$O_A11Y"; else echo '"not_run"'; fi; }
+          if [ "$R_SECURITY" = success ] && printf '%s' "$O_GITLEAKS" | grep -Eq '^[0-9]+$'; then
+            if [ "$O_GITLEAKS" = 0 ]; then GL='"pass"'; else GL='"fail"'; fi
+          else GL='"not_run"'; fi
+          cat > forge-verifier.json <<JSON
+          {"format":"forge-ci-verifier-v1","commit":"$GITHUB_SHA","run_id":$GITHUB_RUN_ID,"run_attempt":$GITHUB_RUN_ATTEMPT,
+           "checks":{"build":$(pf "$R_BUILD"),"lint":$(pf "$R_LINT"),"typecheck":$(pf "$R_TYPECHECK"),"gitleaks":$GL,
+                     "semgrep_high":$(num "$O_SEMGREP"),"dependency_critical":$(num "$O_OSV"),"a11y_serious_critical":$(a11y)},
+           "suppressions":$(num "$O_SUPP"),"tools":{}}
+          JSON
+          cat forge-verifier.json
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: forge-verifier
+          path: forge-verifier.json
+          retention-days: 90
